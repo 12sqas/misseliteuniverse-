@@ -9,7 +9,233 @@
 
   <meta name="description"
         content="Official website of Miss Elite Universe 2027 in Thailand. Beyond Beauty, Beyond Boundaries, Be The Elite.">
+/* OFFICIAL VENUE */
 
+.venue-section {
+  position: relative;
+  padding: 110px 7%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 20%,
+    rgba(212,175,55,.13),
+    transparent 35%),
+    #050505;
+}
+
+.venue-heading {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.venue-heading > p {
+  color: #d4af37;
+  font-size: 13px;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.venue-heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 7vw, 85px);
+  color: #f1cf66;
+  letter-spacing: 5px;
+}
+
+.venue-heading span {
+  color: #aaa;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.venue-line {
+  width: 80px;
+  height: 1px;
+  background: #d4af37;
+  margin: 18px auto;
+}
+
+
+/* TWO VENUE IMAGES */
+
+.venue-gallery {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 15px;
+}
+
+.venue-image {
+  overflow: hidden;
+  min-height: 430px;
+  border: 1px solid rgba(212,175,55,.4);
+}
+
+.venue-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  object-fit: cover;
+  display: block;
+
+  transition: transform .7s ease;
+}
+
+.venue-image:hover img {
+  transform: scale(1.04);
+}
+
+
+/* FLOATING INFORMATION CARD */
+
+.venue-card {
+  position: relative;
+  max-width: 970px;
+
+  margin: -70px auto 0;
+  padding: 45px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18,18,18,.97),
+      rgba(3,3,3,.98)
+    );
+
+  border: 1px solid rgba(212,175,55,.65);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.9),
+    0 0 35px rgba(212,175,55,.12);
+
+  z-index: 10;
+}
+
+.venue-card-top {
+  text-align: center;
+  padding-bottom: 35px;
+  border-bottom: 1px solid rgba(212,175,55,.25);
+}
+
+.venue-card-top span {
+  color: #d4af37;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+.venue-card-top h3 {
+  margin: 12px 0 15px;
+
+  color: #f1cf66;
+  font-family: Georgia, serif;
+  font-size: 34px;
+  letter-spacing: 3px;
+}
+
+.venue-card-top p {
+  max-width: 700px;
+  margin: auto;
+
+  color: #aaa;
+  line-height: 1.8;
+}
+
+
+/* EVENT LIST */
+
+.venue-events {
+  margin-top: 20px;
+}
+
+.venue-event {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+
+  padding: 25px 5px;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.08);
+}
+
+.event-date {
+  color: #d4af37;
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.venue-event small {
+  color: #777;
+  letter-spacing: 2px;
+}
+
+.venue-event h4 {
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 21px;
+  letter-spacing: 2px;
+  margin: 5px 0;
+}
+
+.venue-event p {
+  color: #888;
+  font-size: 13px;
+}
+
+.final-event h4 {
+  color: #f1cf66;
+}
+
+.venue-location {
+  margin-top: 30px;
+  text-align: center;
+
+  color: #d4af37;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+
+/* VENUE MOBILE */
+
+@media (max-width: 700px) {
+
+  .venue-section {
+    padding: 75px 18px;
+  }
+
+  .venue-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-image,
+  .venue-image img {
+    min-height: 250px;
+  }
+
+  .venue-card {
+    margin: -25px 12px 0;
+    padding: 30px 20px;
+  }
+
+  .venue-card-top h3 {
+    font-size: 26px;
+  }
+
+  .venue-event {
+    grid-template-columns: 90px 1fr;
+  }
+
+  .event-date {
+    font-size: 21px;
+  }
+
+  .venue-event h4 {
+    font-size: 16px;
+  }
+}
   <style>
     * {
       box-sizing: border-box;
@@ -375,6 +601,85 @@
     src="images/schedule-2027.png.png"
     class="poster"
     alt="Miss Elite Universe 2027 Official Schedule">
+
+</section><section class="venue-section" id="venue">
+
+  <div class="venue-heading">
+    <p>OFFICIAL VENUE • BANGKOK, THAILAND</p>
+    <h2>MGI HALL</h2>
+    <div class="venue-line"></div>
+    <span>
+      The Official Stage of Miss Elite Universe 2027
+    </span>
+  </div>
+
+  <div class="venue-gallery">
+
+    <div class="venue-image venue-image-large">
+      <img src="images/mgi-hall-bangkok.jpg"
+           alt="MGI Hall Bangkok">
+    </div>
+
+    <div class="venue-image">
+      <img src="images/mgi-hall-main.jpg"
+           alt="MGI Hall Bangkok Thailand">
+    </div>
+
+  </div>
+
+
+  <div class="venue-card">
+
+    <div class="venue-card-top">
+      <span>MISS ELITE UNIVERSE 2027</span>
+      <h3>MGI HALL • BANGKOK</h3>
+
+      <p>
+        A prestigious entertainment venue in Bangkok,
+        Thailand, selected to host the major stage events
+        of Miss Elite Universe 2027.
+      </p>
+    </div>
+
+
+    <div class="venue-events">
+
+      <div class="venue-event">
+        <span class="event-date">18 JUL</span>
+        <div>
+          <small>2027</small>
+          <h4>NATIONAL COSTUME</h4>
+          <p>Official National Costume Competition</p>
+        </div>
+      </div>
+
+
+      <div class="venue-event">
+        <span class="event-date">20 JUL</span>
+        <div>
+          <small>2027</small>
+          <h4>PRELIMINARY COMPETITION</h4>
+          <p>The Road to the Crown</p>
+        </div>
+      </div>
+
+
+      <div class="venue-event final-event">
+        <span class="event-date">25 JUL</span>
+        <div>
+          <small>2027</small>
+          <h4>GRAND FINAL</h4>
+          <p>Miss Elite Universe 2027 • Coronation Night</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="venue-location">
+      BANGKOK • THAILAND 🇹🇭
+    </div>
+
+  </div>
 
 </section>
 
