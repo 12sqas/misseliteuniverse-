@@ -1,1 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Miss Elite Universe 2027 | Thailand</title>
+
+  <meta name="description"
+        content="Official website of Miss Elite Universe 2027 in Thailand. Beyond Beauty, Beyond Boundaries, Be The Elite.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050505;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* HEADER */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 18px 7%;
+
+      background: rgba(0,0,0,.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212,175,55,.35);
+    }
+
+    .brand {
+      color: #d4af37;
+      font-family: Georgia, serif;
+      font-size: 22px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,.15),
+          rgba(0,0,0,.85)
+        ),
+        url("images/coming-soon-2027.png.png");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+    }
+
+    .hero-content h1 {
+      font-family: Georgia, serif;
+      color: #f3cf63;
+      font-size: clamp(45px, 7vw, 100px);
+      letter-spacing: 5px;
+      text-shadow: 0 4px 25px #000;
+    }
+
+    .hero-content h2 {
+      margin-top: 15px;
+      font-family: Georgia, serif;
+      font-size: clamp(25px, 4vw, 48px);
+      letter-spacing: 6px;
+    }
+
+    .hero-content p {
+      margin-top: 20px;
+      color: #e8d594;
+      letter-spacing: 4px;
+      font-size: 16px;
+    }
+
+    .country {
+      margin-top: 30px;
+      display: inline-block;
+
+      border: 1px solid #d4af37;
+      padding: 13px 30px;
+
+      color: #d4af37;
+      letter-spacing: 4px;
+    }
+
+    /* SECTIONS */
+
+    section.content {
+      padding: 100px 7%;
+      text-align: center;
+    }
+
+    .gold {
+      color: #d4af37;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: clamp(35px, 5vw, 65px);
+      color: #d4af37;
+      margin-bottom: 25px;
+    }
+
+    .intro {
+      max-width: 850px;
+      margin: auto;
+      color: #ccc;
+      line-height: 1.9;
+      font-size: 17px;
+    }
+
+    /* POSTERS */
+
+    .poster-section {
+      background:
+        radial-gradient(circle at center, #251a05, #050505 65%);
+    }
+
+    .poster {
+      display: block;
+      width: min(100%, 800px);
+      height: auto;
+
+      margin: 45px auto 0;
+
+      border-radius: 10px;
+      border: 1px solid rgba(212,175,55,.55);
+
+      box-shadow:
+        0 20px 80px rgba(0,0,0,.7),
+        0 0 35px rgba(212,175,55,.15);
+    }
+
+    /* STATS */
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 70px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .stat strong {
+      display: block;
+      color: #d4af37;
+      font-family: Georgia, serif;
+      font-size: 55px;
+    }
+
+    .stat span {
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(212,175,55,.3);
+      padding: 55px 20px;
+      text-align: center;
+      background: #020202;
+    }
+
+    footer h3 {
+      color: #d4af37;
+      font-family: Georgia, serif;
+      font-size: 25px;
+      letter-spacing: 3px;
+    }
+
+    footer p {
+      margin-top: 15px;
+      color: #aaa;
+      line-height: 1.8;
+    }
+
+    footer a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    .copyright {
+      margin-top: 35px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      header {
+        justify-content: center;
+        padding: 16px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      section.content {
+        padding: 70px 20px;
+      }
+
+      .stats {
+        gap: 35px;
+      }
+
+      .stat strong {
+        font-size: 42px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <a href="#home" class="brand">
+    MISS ELITE UNIVERSE
+  </a>
+
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#2027">2027 EDITION</a>
+    <a href="#schedule">SCHEDULE</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+
+</header>
+
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <h1>MISS ELITE UNIVERSE</h1>
+
+    <h2>2027</h2>
+
+    <p>
+      BEYOND BEAUTY • BEYOND BOUNDARIES • BE THE ELITE
+    </p>
+
+    <div class="country">
+      THAILAND 🇹🇭
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="content" id="about">
+
+  <p class="gold">WELCOME TO A NEW ERA</p>
+
+  <h2 class="section-title">
+    Miss Elite Universe 2027
+  </h2>
+
+  <p class="intro">
+    Miss Elite Universe returns for its 2027 edition in Thailand,
+    bringing together exceptional women from around the world
+    for an international celebration of beauty, culture,
+    leadership and excellence.
+  </p>
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong>35</strong>
+      <span>Countries Expected</span>
+    </div>
+
+    <div class="stat">
+      <strong>2027</strong>
+      <span>Thailand</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="content poster-section" id="2027">
+
+  <p class="gold">THE JOURNEY BEGINS</p>
+
+  <h2 class="section-title">
+    Coming Soon
+  </h2>
+
+  <img
+    src="images/coming-soon-2027.png.png"
+    class="poster"
+    alt="Miss Elite Universe 2027 Thailand Coming Soon">
+
+</section>
+
+
+<section class="content" id="schedule">
+
+  <p class="gold">OFFICIAL PROGRAM</p>
+
+  <h2 class="section-title">
+    Miss Elite Universe 2027 Schedule
+  </h2>
+
+  <p class="intro">
+    Discover the official journey of Miss Elite Universe 2027
+    in Thailand.
+  </p>
+
+  <img
+    src="images/schedule-2027.png.png"
+    class="poster"
+    alt="Miss Elite Universe 2027 Official Schedule">
+
+</section>
+
+
+<section class="content poster-section">
+
+  <p class="gold">OFFICIAL IDENTITY</p>
+
+  <h2 class="section-title">
+    Miss Elite Universe
+  </h2>
+
+  <img
+    src="images/miss-elite-universe-2027.png.png"
+    class="poster"
+    alt="Miss Elite Universe 2027 Thailand">
+
+</section>
+
+
+<footer id="contact">
+
+  <h3>MISS ELITE UNIVERSE</h3>
+
+  <p>
+    Beyond Beauty • Beyond Boundaries • Be The Elite
+  </p>
+
+  <p>
+    Website:
+    <a href="https://misseliteuniverse.org">
+      misseliteuniverse.org
+    </a>
+    <br>
+
+    TikTok: @misseliteuniverse
+    <br>
+
+    Facebook: Miss Elite Universe
+  </p>
+
+  <p class="copyright">
+    © 2027 Miss Elite Universe Organization. All Rights Reserved.
+  </p>
+
+</footer>
+
+</body>
+</html>
