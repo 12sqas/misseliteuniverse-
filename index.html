@@ -481,6 +481,26 @@ section.hero.hero-banner{display:block;position:relative;width:100%;height:auto;
 @media(min-width:801px){.meu-header .meu-primary-nav{max-width:1240px;gap:26px;padding:0 24px}.meu-header .meu-primary-nav a{font-size:13px;letter-spacing:.35px}}
 @media(min-width:801px) and (max-width:1000px){.meu-header .meu-primary-nav{gap:14px;padding:0 18px}.meu-header .meu-primary-nav a{font-size:11.5px;letter-spacing:.2px}}
 </style>
+<style id="contact-icons-styles">
+
+/* Shared gold contact icons in the masthead and footer. */
+.meu-social-links{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.meu-social-links .meu-social{flex:0 0 32px}
+.meu-social-gmail svg{width:18px;height:18px}
+.meu-footer-socials{justify-content:center;margin:23px auto 0}
+.meu-footer-socials a:focus-visible{outline:2px solid #efdb9f;outline-offset:4px}
+@media(min-width:1001px){.meu-masthead{grid-template-columns:238px minmax(0,1fr) 238px}}
+@media(min-width:801px) and (max-width:1000px){.meu-action-links{flex-direction:column;align-items:flex-end;gap:8px}.meu-actions{gap:10px}}
+@media(max-width:800px){
+ .meu-masthead{position:relative;min-height:145px;padding-bottom:58px}
+ .meu-action-links{position:absolute;left:20px;right:20px;bottom:11px;display:flex;align-items:center;justify-content:center;gap:15px}
+ .meu-action-links .meu-contact{min-height:32px;padding:8px 12px}
+ .meu-menu-ready .meu-nav-row{max-height:calc(100dvh - 145px)}
+ #about,#top35,#venue,#hotel,#contact,.popular-vote{scroll-margin-top:162px}
+}
+@media(max-width:480px){.meu-masthead{min-height:135px;padding-bottom:56px}.meu-action-links{left:14px;right:14px;bottom:10px}.meu-menu-ready .meu-nav-row{max-height:calc(100dvh - 135px)}#about,#top35,#venue,#hotel,#contact,.popular-vote{scroll-margin-top:152px}}
+
+</style>
 </head>
 
 <body>
@@ -498,9 +518,13 @@ section.hero.hero-banner{display:block;position:relative;width:100%;height:auto;
     <div class="meu-actions">
       <span class="meu-edition">THAILAND · 2027</span>
       <div class="meu-action-links">
-        <a class="meu-social" href="https://www.tiktok.com/@misseliteuniverse.org" target="_blank" rel="noopener noreferrer" aria-label="Official TikTok: @misseliteuniverse.org" title="Official TikTok · @misseliteuniverse.org">
+        <div class="meu-social-links" role="group" aria-label="Official contact channels">
+          <a class="meu-social" href="https://www.tiktok.com/@misseliteuniverse.org" target="_blank" rel="noopener noreferrer" aria-label="Official TikTok: @misseliteuniverse.org" title="Official TikTok · @misseliteuniverse.org">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 1h-3.5v14.2a3 3 0 1 1-2.6-3V8.7a6.5 6.5 0 1 0 6.1 6.5V8c1.7 1.2 3.7 1.9 5.8 1.9V6.4A6.2 6.2 0 0 1 16.7 1Z"/></svg>
         </a>
+          <a class="meu-social meu-social-gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=eliteuniversemiss@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Open Gmail to email eliteuniversemiss@gmail.com" title="Gmail · eliteuniversemiss@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 6.5a2.5 2.5 0 0 1 4-2l6 4.6 6-4.6a2.5 2.5 0 0 1 4 2V19h-4V9.7l-6 4.6-6-4.6V19H2V6.5Z"/></svg></a>
+          <a class="meu-social meu-social-facebook" href="https://www.facebook.com/Misseliteuniverseofficial" target="_blank" rel="noopener noreferrer" aria-label="Miss Elite Universe official Facebook fanpage" title="Official Facebook fanpage"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.8 21v-8.2h2.8l.4-3.2h-3.2v-2c0-.9.3-1.5 1.6-1.5H17V3.2c-.3 0-1.3-.2-2.4-.2-2.5 0-4.2 1.5-4.2 4.3v2.3H7.6v3.2h2.8V21h3.4Z"/></svg></a>
+        </div>
         <a class="meu-contact" href="#contact">CONTACT US</a>
       </div>
       <button class="meu-menu-button" id="meu-menu-toggle" type="button" aria-controls="meu-primary-nav" aria-expanded="false" aria-label="Open navigation menu" hidden>
@@ -910,13 +934,20 @@ section.hero.hero-banner{display:block;position:relative;width:100%;height:auto;
     Official TikTok: <a href="https://www.tiktok.com/@misseliteuniverse.org" target="_blank" rel="noopener noreferrer">@misseliteuniverse.org</a>
     <br>
 
-    Facebook: Miss Elite Universe
+    Facebook: <a href="https://www.facebook.com/Misseliteuniverseofficial" target="_blank" rel="noopener noreferrer">Miss Elite Universe</a>
+    <br>
+    Email: <a href="mailto:eliteuniversemiss@gmail.com">eliteuniversemiss@gmail.com</a>
   </p>
 
   <p class="copyright">
     © 2027 Miss Elite Universe Organization. All Rights Reserved.
   </p>
 
+<div class="meu-social-links meu-footer-socials" role="group" aria-label="Official contact channels"><a class="meu-social" href="https://www.tiktok.com/@misseliteuniverse.org" target="_blank" rel="noopener noreferrer" aria-label="Official TikTok: @misseliteuniverse.org" title="Official TikTok · @misseliteuniverse.org">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 1h-3.5v14.2a3 3 0 1 1-2.6-3V8.7a6.5 6.5 0 1 0 6.1 6.5V8c1.7 1.2 3.7 1.9 5.8 1.9V6.4A6.2 6.2 0 0 1 16.7 1Z"/></svg>
+        </a>
+          <a class="meu-social meu-social-gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=eliteuniversemiss@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Open Gmail to email eliteuniversemiss@gmail.com" title="Gmail · eliteuniversemiss@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 6.5a2.5 2.5 0 0 1 4-2l6 4.6 6-4.6a2.5 2.5 0 0 1 4 2V19h-4V9.7l-6 4.6-6-4.6V19H2V6.5Z"/></svg></a>
+          <a class="meu-social meu-social-facebook" href="https://www.facebook.com/Misseliteuniverseofficial" target="_blank" rel="noopener noreferrer" aria-label="Miss Elite Universe official Facebook fanpage" title="Official Facebook fanpage"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.8 21v-8.2h2.8l.4-3.2h-3.2v-2c0-.9.3-1.5 1.6-1.5H17V3.2c-.3 0-1.3-.2-2.4-.2-2.5 0-4.2 1.5-4.2 4.3v2.3H7.6v3.2h2.8V21h3.4Z"/></svg></a></div>
 </footer>
 
 <script id="top35-script">
