@@ -463,6 +463,81 @@ footer{background:#041710;border-top-color:var(--meu-line)}
 @media(max-width:480px){.meu-masthead{grid-template-columns:62px minmax(0,1fr) 62px;gap:9px;padding:10px 14px;min-height:84px}.meu-logo,.meu-logo img{width:60px;height:60px}.meu-wordmark-main{font-size:21px;letter-spacing:1.5px}.meu-wordmark-sub{font-size:17px;letter-spacing:3.8px;padding-left:3.8px}.hero{min-height:calc(100svh - 84px)}.hero .hero-content p{font-size:9px;letter-spacing:1.5px}.meu-menu-ready .meu-nav-row{max-height:calc(100dvh - 84px)}}
 @media(prefers-reduced-motion:reduce){.meu-header a,.meu-header a::after{transition:none}}
 </style>
+<style id="popular-vote-styles">
+/* Miss Popular Vote: organizer-set standings with shared delegate portraits. */
+.popular-hero-cta{display:table;margin:15px auto 0;padding:9px 4px;color:#eddaa7;font-size:11px;letter-spacing:1.5px;text-decoration:none;border-bottom:1px solid rgba(223,194,127,.5)}
+.popular-hero-cta span{margin-left:10px}.popular-hero-cta:hover{color:#fff4cf;border-bottom-color:#fff4cf}
+@media(min-width:801px){.meu-header .meu-primary-nav{max-width:1440px;gap:clamp(12px,1.6vw,26px)}}
+.meu-header .meu-primary-nav a[href="#popular-vote"]{color:var(--meu-gold)}
+.popular-vote{background:radial-gradient(ellipse at 50% 5%,#1d4937 0,#0b2c22 36%,#061d17 75%);scroll-margin-top:205px;border-top:1px solid var(--meu-line)}
+.popular-vote [hidden]{display:none!important}
+.popular-shell{max-width:1180px;margin:0 auto}
+.popular-eyebrow{color:#d7c495;font-size:11px;letter-spacing:3px;margin-bottom:16px}
+.popular-vote .section-title{color:#e8cb83;margin-bottom:15px;font-size:clamp(36px,5vw,62px);font-weight:400}
+.popular-intro{max-width:640px;margin:0 auto;color:#c6d3c9;font-size:15px;line-height:1.8}
+.popular-status{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:8px 13px;border:1px solid rgba(223,194,127,.3);border-radius:30px;color:#dfcd9d;font-size:10px;letter-spacing:1.4px;text-transform:uppercase}
+.popular-status svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5}
+.popular-podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:28px;max-width:900px;margin:56px auto 48px;padding:0 25px}
+.popular-leader{position:relative;display:block;min-width:0;padding:0;color:#ecdfbb;text-decoration:none;text-align:center;transition:transform .2s}
+.popular-leader:hover{transform:translateY(-5px)}
+.popular-leader--1{order:2;align-self:start;margin-bottom:22px}.popular-leader--2{order:1}.popular-leader--3{order:3}
+.popular-leader-crown{display:block;width:32px;height:26px;margin:0 auto 15px;fill:none;stroke:#e5ca83;stroke-width:1.4}
+.popular-leader--2 .popular-leader-crown,.popular-leader--3 .popular-leader-crown{visibility:hidden}
+.popular-leader-frame{position:relative;display:block;aspect-ratio:4/5;background:#0a211a;border:1px solid rgba(223,194,127,.5);box-shadow:0 14px 35px rgba(0,0,0,.24);overflow:hidden}
+.popular-leader--1 .popular-leader-frame{border:2px solid #e7c77c;box-shadow:0 0 0 5px rgba(223,194,127,.08),0 16px 40px rgba(0,0,0,.3)}
+.popular-photo{display:block;width:100%;height:100%;object-fit:contain}
+.popular-photo:not([src]){visibility:hidden}
+.popular-leader-rank{position:relative;display:flex;align-items:center;justify-content:center;width:43px;height:43px;margin:-22px auto 11px;background:#dcc080;color:#102b21;border:4px solid #103325;border-radius:50%;font-family:Georgia,'Times New Roman',serif;font-size:19px;line-height:1}
+.popular-leader--2 .popular-leader-rank{background:#d4d8d1}.popular-leader--3 .popular-leader-rank{background:#bd9471}
+.popular-leader-country{display:block;color:#f0dfb4;font-family:Georgia,'Times New Roman',serif;font-size:clamp(14px,1.7vw,21px);letter-spacing:1px;line-height:1.4}
+.popular-leader-label{display:block;margin-top:6px;font-size:9px;letter-spacing:1.8px;color:#9fb4a7}
+.popular-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;border-bottom:1px solid var(--meu-line);padding-bottom:22px;margin-bottom:25px;text-align:left}
+.popular-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.popular-tab{min-height:44px;padding:12px 22px;border:1px solid rgba(223,194,127,.35);border-radius:2px;background:transparent;color:#cbd4c9;font-family:inherit;font-size:12px;cursor:pointer}
+.popular-tab[aria-selected=true]{border-color:#dfc27f;background:#dfc27f;color:#0b2b20;font-weight:600}
+.popular-search{display:block;max-width:320px;width:100%}
+.popular-search-label{display:block;margin-bottom:8px;color:#d3d9ce;font-size:11px;letter-spacing:.3px}
+.popular-search-field{position:relative;display:block}.popular-search-field svg{position:absolute;top:13px;left:13px;width:17px;height:17px;fill:none;stroke:#ccb87e;stroke-width:1.6;pointer-events:none}
+.popular-search input{width:100%;min-height:44px;padding:11px 12px 11px 39px;border:1px solid rgba(223,194,127,.35);border-radius:2px;background:#08241c;color:#f1eddc;font:12px/1.5 Arial,Helvetica,sans-serif;appearance:none}
+.popular-search input::placeholder{color:#9db0a3}
+.popular-results-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px;text-align:left}
+.popular-results-bar h3{color:#e7d5a8;font:400 25px/1.3 Georgia,'Times New Roman',serif}
+.popular-count{color:#a9bcae;font-size:11px;white-space:nowrap}
+.popular-table-scroll{max-height:690px;overflow:auto;border:1px solid rgba(223,194,127,.24);background:rgba(3,21,15,.4);scrollbar-color:#527361 #09261c;scrollbar-width:thin;text-align:left}
+.popular-table{width:100%;border-collapse:collapse;table-layout:fixed;color:#e7eadd}
+.popular-table thead{position:sticky;top:0;z-index:2;background:#173c2d;box-shadow:0 1px 0 #476443}
+.popular-table th{padding:16px 20px;color:#cbbc92;font-size:10px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase}
+.popular-table th:first-child{width:86px;text-align:center}.popular-table th:last-child{width:112px;text-align:right}
+.popular-table td{padding:12px 20px;border-top:1px solid rgba(223,194,127,.12);font-size:13px;vertical-align:middle}
+.popular-table td:first-child{text-align:center}.popular-table td:last-child{text-align:right}
+.popular-row:hover{background:rgba(223,194,127,.05)}.popular-row--top{background:rgba(223,194,127,.035)}
+.popular-rank{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;color:#becbbd;font:18px/1 Georgia,'Times New Roman',serif}
+.popular-row--top .popular-rank{color:#edda9e;border:1px solid rgba(223,194,127,.45);border-radius:50%;background:#214533}
+.popular-delegate{display:flex;align-items:center;gap:17px;min-width:0}
+.popular-thumb{display:block;flex:0 0 48px;width:48px;height:60px;border:1px solid rgba(223,194,127,.28);background:#0c281d;overflow:hidden}
+.popular-delegate-country{display:block;color:#e8e4ce;font-size:12px;letter-spacing:.8px;line-height:1.6;overflow-wrap:anywhere}
+.popular-delegate-caption{display:block;margin-top:3px;color:#91aa9a;font-size:10px;line-height:1.5}
+.popular-view{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;color:#dfc586;text-decoration:none;font-size:11px;white-space:nowrap}.popular-view span{font-size:17px}
+.popular-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px 18px;text-align:left}
+.popular-card{position:relative;min-width:0;margin:0}
+.popular-card-link{display:block;position:relative;color:#ead5a3;text-decoration:none}
+.popular-card-image{display:block;aspect-ratio:4/5;border:1px solid rgba(223,194,127,.4);background:#0b251a;overflow:hidden}
+.popular-card-rank{position:absolute;top:9px;left:9px;padding:6px 8px;background:#09261de8;border:1px solid rgba(223,194,127,.4);color:#e9d49b;font-size:9px;letter-spacing:.6px}
+.popular-card-country{display:block;margin-top:12px;font-size:11px;line-height:1.6;letter-spacing:1px;overflow-wrap:anywhere}
+.popular-card-action{display:block;margin-top:3px;color:#9eb2a4;font-size:10px;line-height:1.5}
+.popular-card-link:hover .popular-card-image{border-color:#f0d695}
+.popular-empty{padding:44px 20px;color:#bdcbbf;font-size:14px;line-height:1.8;border:1px solid var(--meu-line)}
+.popular-clear{display:block;margin:15px auto 0;min-height:40px;padding:8px 18px;border:1px solid #b9a46d;background:transparent;color:#ead49b;font:12px Arial,Helvetica,sans-serif;cursor:pointer}
+.popular-note{max-width:760px;margin:24px auto 0;color:#a0b3a4;font-size:11px;line-height:1.9}
+.popular-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.popular-vote a:focus-visible,.popular-vote button:focus-visible,.popular-vote input:focus-visible,.popular-table-scroll:focus-visible,.popular-hero-cta:focus-visible{outline:2px solid #efdb9f;outline-offset:4px}
+@media(min-width:801px) and (max-width:1150px){.meu-header .meu-primary-nav{gap:11px;padding:0 16px}.meu-header .meu-primary-nav a{font-size:10px;letter-spacing:.1px}}
+@media(max-width:1000px){.popular-cards{grid-template-columns:repeat(4,minmax(0,1fr))}.popular-podium{gap:22px;padding:0 10px}}
+@media(max-width:800px){.popular-vote{scroll-margin-top:110px}.popular-podium{max-width:650px;gap:18px;margin-top:35px}.popular-toolbar{align-items:stretch;gap:20px}.popular-search{max-width:280px}.popular-tab{padding:12px 16px}.popular-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.popular-eyebrow{font-size:9px;letter-spacing:2px}.popular-intro{font-size:13px}.popular-podium{gap:10px;padding:0;margin:30px auto 33px}.popular-leader--1{margin-bottom:15px}.popular-leader-crown{width:25px;height:21px;margin-bottom:11px}.popular-leader-country{font-size:12px;letter-spacing:.4px}.popular-leader-rank{width:33px;height:33px;margin-top:-17px;border-width:3px;font-size:15px}.popular-leader-label{font-size:8px;letter-spacing:1px}.popular-toolbar{flex-direction:column;align-items:stretch;gap:18px}.popular-tabs{gap:8px}.popular-tab{flex:1;padding:11px 12px}.popular-search{max-width:none}.popular-results-bar h3{font-size:22px}.popular-count{font-size:10px}.popular-table th,.popular-table td{padding:10px 9px}.popular-table th:first-child{width:50px}.popular-table th:last-child{width:60px}.popular-rank{width:29px;height:29px;font-size:16px}.popular-delegate{gap:10px}.popular-thumb{flex-basis:38px;width:38px;height:48px}.popular-delegate-country{font-size:10px;letter-spacing:.35px}.popular-delegate-caption{font-size:9px}.popular-view{font-size:10px;gap:4px}.popular-table-scroll{max-height:590px}.popular-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 13px}.popular-card-country{font-size:10px}.popular-status{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.popular-leader{transition:none}}
+
+</style>
 </head>
 
 <body>
@@ -480,7 +555,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
     <div class="meu-actions">
       <span class="meu-edition">THAILAND · 2027</span>
       <div class="meu-action-links">
-        <a class="meu-social" href="https://www.tiktok.com/@misseliteuniverse" target="_blank" rel="noopener noreferrer" aria-label="Miss Elite Universe on TikTok" title="TikTok">
+        <a class="meu-social" href="https://www.tiktok.com/@misseliteuniverse.org" target="_blank" rel="noopener noreferrer" aria-label="Official TikTok: @misseliteuniverse.org" title="Official TikTok · @misseliteuniverse.org">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 1h-3.5v14.2a3 3 0 1 1-2.6-3V8.7a6.5 6.5 0 1 0 6.1 6.5V8c1.7 1.2 3.7 1.9 5.8 1.9V6.4A6.2 6.2 0 0 1 16.7 1Z"/></svg>
         </a>
         <a class="meu-contact" href="#contact">CONTACT US</a>
@@ -496,6 +571,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
       <a href="#home" class="is-active" aria-current="location">HOME</a>
       <a href="#about">ABOUT</a>
       <a href="#top35">TOP 35 COUNTRY</a>
+      <a href="#popular-vote">MISS POPULAR VOTE</a>
       <a href="#2027">2027 EDITION</a>
       <a href="#schedule">SCHEDULE</a>
       <a href="#hotel">HOST HOTEL</a>
@@ -523,6 +599,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
     </div>
 
     <a class="top35-cta" href="#top35">Top 35 Country <span aria-hidden="true">↓</span></a>
+    <a class="popular-hero-cta" href="#popular-vote">MISS POPULAR VOTE <span aria-hidden="true">↗</span></a>
 
   </div>
 
@@ -793,6 +870,531 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <p class="top35-viewer-label" id="top35-viewer-label"></p>
 </dialog>
 
+<!-- MISS POPULAR VOTE -->
+<section class="content popular-vote" id="popular-vote" aria-labelledby="popular-title">
+  <div class="popular-shell">
+    <p class="popular-eyebrow">MISS ELITE UNIVERSE · 2027</p>
+    <h2 class="section-title" id="popular-title">Miss Popular Vote</h2>
+    <p class="popular-intro">Explore the leaderboard and meet all 35 delegates.</p>
+    <p class="popular-status"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16V9m6 7V4m6 12v-5"/></svg>Organizer’s ranking</p>
+
+    <div class="popular-podium" aria-label="Top three delegates">
+      <a class="popular-leader popular-leader--1" href="#top35" data-popular-open="VENEZUELA" aria-label="Rank 1, VENEZUELA. View portrait">
+        <svg class="popular-leader-crown" viewBox="0 0 36 28" aria-hidden="true"><path d="m4 8 8 6 6-11 6 11 8-6-4 17H8L4 8Z"/><path d="M9 21h18"/></svg>
+        <span class="popular-leader-frame"><img class="popular-photo" data-popular-photo="VENEZUELA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+        <span class="popular-leader-rank" aria-hidden="true">1</span>
+        <span class="popular-leader-country">VENEZUELA</span>
+        <span class="popular-leader-label">RANK 01</span>
+      </a>
+      <a class="popular-leader popular-leader--2" href="#top35" data-popular-open="VIET NAM" aria-label="Rank 2, VIET NAM. View portrait">
+        <svg class="popular-leader-crown" viewBox="0 0 36 28" aria-hidden="true"><path d="m4 8 8 6 6-11 6 11 8-6-4 17H8L4 8Z"/><path d="M9 21h18"/></svg>
+        <span class="popular-leader-frame"><img class="popular-photo" data-popular-photo="VIET NAM" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+        <span class="popular-leader-rank" aria-hidden="true">2</span>
+        <span class="popular-leader-country">VIET NAM</span>
+        <span class="popular-leader-label">RANK 02</span>
+      </a>
+      <a class="popular-leader popular-leader--3" href="#top35" data-popular-open="ECUADOR" aria-label="Rank 3, ECUADOR. View portrait">
+        <svg class="popular-leader-crown" viewBox="0 0 36 28" aria-hidden="true"><path d="m4 8 8 6 6-11 6 11 8-6-4 17H8L4 8Z"/><path d="M9 21h18"/></svg>
+        <span class="popular-leader-frame"><img class="popular-photo" data-popular-photo="ECUADOR" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+        <span class="popular-leader-rank" aria-hidden="true">3</span>
+        <span class="popular-leader-country">ECUADOR</span>
+        <span class="popular-leader-label">RANK 03</span>
+      </a>
+    </div>
+
+    <div class="popular-toolbar" id="popular-toolbar" hidden>
+      <div class="popular-tabs" role="tablist" aria-label="Miss Popular Vote views">
+        <button class="popular-tab" id="popular-tab-rankings" type="button" role="tab" aria-selected="true" aria-controls="popular-rankings">Rankings</button>
+        <button class="popular-tab" id="popular-tab-contestants" type="button" role="tab" aria-selected="false" aria-controls="popular-contestants" tabindex="-1">All 35 contestants</button>
+      </div>
+      <label class="popular-search" for="popular-search">
+        <span class="popular-search-label">Search by country</span>
+        <span class="popular-search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></svg><input id="popular-search" type="search" placeholder="Country, e.g. Viet Nam" autocomplete="off" aria-describedby="popular-count"></span>
+      </label>
+    </div>
+
+    <div class="popular-results-bar">
+      <h3 id="popular-results-title">Leaderboard</h3>
+      <p class="popular-count" id="popular-count" role="status" aria-live="polite">35 of 35 delegates</p>
+    </div>
+    <div id="popular-rankings" role="tabpanel" aria-labelledby="popular-tab-rankings">
+      <div class="popular-table-scroll" id="popular-table-scroll" tabindex="0" role="region" aria-label="All 35 ranked delegates. Scroll for more." aria-describedby="popular-ranking-note">
+        <table class="popular-table">
+          <caption class="popular-sr-only">Miss Popular Vote — organizer-set ranking of all 35 delegates</caption>
+          <thead><tr><th scope="col">Rank</th><th scope="col">Country / Delegate</th><th scope="col">Portrait</th></tr></thead>
+          <tbody id="popular-ranking-body">
+            <tr class="popular-row popular-row--top" data-country="VENEZUELA" data-rank="1" data-popular-search="VENEZUELA">
+              <td><span class="popular-rank">01</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="VENEZUELA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">VENEZUELA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="VENEZUELA" aria-label="View VENEZUELA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row popular-row--top" data-country="VIET NAM" data-rank="2" data-popular-search="Viet Nam Vietnam Việt Nam">
+              <td><span class="popular-rank">02</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="VIET NAM" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">VIET NAM</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="VIET NAM" aria-label="View VIET NAM portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row popular-row--top" data-country="ECUADOR" data-rank="3" data-popular-search="Ecuador Ecudor">
+              <td><span class="popular-rank">03</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="ECUADOR" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">ECUADOR</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="ECUADOR" aria-label="View ECUADOR portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="ALBANIA" data-rank="4" data-popular-search="ALBANIA">
+              <td><span class="popular-rank">04</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="ALBANIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">ALBANIA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="ALBANIA" aria-label="View ALBANIA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="PHILIPPINES" data-rank="5" data-popular-search="PHILIPPINES">
+              <td><span class="popular-rank">05</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="PHILIPPINES" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">PHILIPPINES</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="PHILIPPINES" aria-label="View PHILIPPINES portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="ZAMBIA" data-rank="6" data-popular-search="ZAMBIA">
+              <td><span class="popular-rank">06</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="ZAMBIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">ZAMBIA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="ZAMBIA" aria-label="View ZAMBIA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="ROMANIA" data-rank="7" data-popular-search="ROMANIA">
+              <td><span class="popular-rank">07</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="ROMANIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">ROMANIA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="ROMANIA" aria-label="View ROMANIA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="INDONESIA" data-rank="8" data-popular-search="INDONESIA">
+              <td><span class="popular-rank">08</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="INDONESIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">INDONESIA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="INDONESIA" aria-label="View INDONESIA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="UNITED KINGDOM" data-rank="9" data-popular-search="United Kingdom UK Great Britain">
+              <td><span class="popular-rank">09</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="UNITED KINGDOM" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">UNITED KINGDOM</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="UNITED KINGDOM" aria-label="View UNITED KINGDOM portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="SRI LANKA" data-rank="10" data-popular-search="SRI LANKA">
+              <td><span class="popular-rank">10</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="SRI LANKA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">SRI LANKA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="SRI LANKA" aria-label="View SRI LANKA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="LAOS" data-rank="11" data-popular-search="LAOS">
+              <td><span class="popular-rank">11</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="LAOS" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">LAOS</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="LAOS" aria-label="View LAOS portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="SINGAPORE" data-rank="12" data-popular-search="SINGAPORE">
+              <td><span class="popular-rank">12</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="SINGAPORE" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">SINGAPORE</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="SINGAPORE" aria-label="View SINGAPORE portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="KOSOVO" data-rank="13" data-popular-search="KOSOVO">
+              <td><span class="popular-rank">13</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="KOSOVO" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">KOSOVO</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="KOSOVO" aria-label="View KOSOVO portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="DOMINICAN REPUBLIC" data-rank="14" data-popular-search="DOMINICAN REPUBLIC">
+              <td><span class="popular-rank">14</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="DOMINICAN REPUBLIC" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">DOMINICAN REPUBLIC</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="DOMINICAN REPUBLIC" aria-label="View DOMINICAN REPUBLIC portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="ARMENIA" data-rank="15" data-popular-search="ARMENIA">
+              <td><span class="popular-rank">15</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="ARMENIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">ARMENIA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="ARMENIA" aria-label="View ARMENIA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="MYANMAR" data-rank="16" data-popular-search="MYANMAR">
+              <td><span class="popular-rank">16</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="MYANMAR" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">MYANMAR</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="MYANMAR" aria-label="View MYANMAR portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="INDIA" data-rank="17" data-popular-search="INDIA">
+              <td><span class="popular-rank">17</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="INDIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">INDIA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="INDIA" aria-label="View INDIA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="JAPAN" data-rank="18" data-popular-search="JAPAN">
+              <td><span class="popular-rank">18</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="JAPAN" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">JAPAN</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="JAPAN" aria-label="View JAPAN portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="PUERTO RICO" data-rank="19" data-popular-search="PUERTO RICO">
+              <td><span class="popular-rank">19</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="PUERTO RICO" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">PUERTO RICO</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="PUERTO RICO" aria-label="View PUERTO RICO portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="MEXICO" data-rank="20" data-popular-search="MEXICO">
+              <td><span class="popular-rank">20</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="MEXICO" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">MEXICO</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="MEXICO" aria-label="View MEXICO portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="CHINA" data-rank="21" data-popular-search="CHINA">
+              <td><span class="popular-rank">21</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="CHINA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">CHINA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="CHINA" aria-label="View CHINA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="CANADA" data-rank="22" data-popular-search="CANADA">
+              <td><span class="popular-rank">22</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="CANADA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">CANADA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="CANADA" aria-label="View CANADA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="US VIRGIN ISLANDS" data-rank="23" data-popular-search="US Virgin Islands United States Virgin Islands">
+              <td><span class="popular-rank">23</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="US VIRGIN ISLANDS" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">US VIRGIN ISLANDS</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="US VIRGIN ISLANDS" aria-label="View US VIRGIN ISLANDS portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="COLOMBIA" data-rank="24" data-popular-search="COLOMBIA">
+              <td><span class="popular-rank">24</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="COLOMBIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">COLOMBIA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="COLOMBIA" aria-label="View COLOMBIA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="ITALY" data-rank="25" data-popular-search="ITALY">
+              <td><span class="popular-rank">25</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="ITALY" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">ITALY</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="ITALY" aria-label="View ITALY portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="TÜRKİYE" data-rank="26" data-popular-search="Türkiye Turkiye Turkey">
+              <td><span class="popular-rank">26</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="TÜRKİYE" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">TÜRKİYE</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="TÜRKİYE" aria-label="View TÜRKİYE portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="GHANA" data-rank="27" data-popular-search="GHANA">
+              <td><span class="popular-rank">27</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="GHANA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">GHANA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="GHANA" aria-label="View GHANA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="MONGOLIA" data-rank="28" data-popular-search="MONGOLIA">
+              <td><span class="popular-rank">28</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="MONGOLIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">MONGOLIA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="MONGOLIA" aria-label="View MONGOLIA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="COSTA RICA" data-rank="29" data-popular-search="COSTA RICA">
+              <td><span class="popular-rank">29</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="COSTA RICA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">COSTA RICA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="COSTA RICA" aria-label="View COSTA RICA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="NETHERLANDS" data-rank="30" data-popular-search="NETHERLANDS">
+              <td><span class="popular-rank">30</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="NETHERLANDS" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">NETHERLANDS</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="NETHERLANDS" aria-label="View NETHERLANDS portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="CÔTE D’IVOIRE" data-rank="31" data-popular-search="Côte d’Ivoire Cote d Ivoire Ivory Coast">
+              <td><span class="popular-rank">31</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="CÔTE D’IVOIRE" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">CÔTE D’IVOIRE</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="CÔTE D’IVOIRE" aria-label="View CÔTE D’IVOIRE portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="USA" data-rank="32" data-popular-search="USA United States United States of America">
+              <td><span class="popular-rank">32</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="USA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">USA</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="USA" aria-label="View USA portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="CZECH REPUBLIC" data-rank="33" data-popular-search="CZECH REPUBLIC">
+              <td><span class="popular-rank">33</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="CZECH REPUBLIC" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">CZECH REPUBLIC</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="CZECH REPUBLIC" aria-label="View CZECH REPUBLIC portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="THAILAND" data-rank="34" data-popular-search="THAILAND">
+              <td><span class="popular-rank">34</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="THAILAND" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">THAILAND</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="THAILAND" aria-label="View THAILAND portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+            <tr class="popular-row" data-country="NEPAL" data-rank="35" data-popular-search="NEPAL">
+              <td><span class="popular-rank">35</span></td>
+              <td><div class="popular-delegate"><span class="popular-thumb"><img class="popular-photo" data-popular-photo="NEPAL" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span><span><span class="popular-delegate-country">NEPAL</span><span class="popular-delegate-caption">Miss Elite Universe 2027</span></span></div></td>
+              <td><a class="popular-view" href="#top35" data-popular-open="NEPAL" aria-label="View NEPAL portrait">View <span aria-hidden="true">↗</span></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="popular-contestants" role="tabpanel" aria-labelledby="popular-tab-contestants">
+      <div class="popular-cards">
+          <figure class="popular-card" data-country="VENEZUELA" data-rank="1" data-popular-search="VENEZUELA">
+            <a class="popular-card-link" href="#top35" data-popular-open="VENEZUELA" aria-label="Rank 1, VENEZUELA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="VENEZUELA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 01</span>
+              <span class="popular-card-country">VENEZUELA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="VIET NAM" data-rank="2" data-popular-search="Viet Nam Vietnam Việt Nam">
+            <a class="popular-card-link" href="#top35" data-popular-open="VIET NAM" aria-label="Rank 2, VIET NAM. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="VIET NAM" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 02</span>
+              <span class="popular-card-country">VIET NAM</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="ECUADOR" data-rank="3" data-popular-search="Ecuador Ecudor">
+            <a class="popular-card-link" href="#top35" data-popular-open="ECUADOR" aria-label="Rank 3, ECUADOR. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="ECUADOR" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 03</span>
+              <span class="popular-card-country">ECUADOR</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="ALBANIA" data-rank="4" data-popular-search="ALBANIA">
+            <a class="popular-card-link" href="#top35" data-popular-open="ALBANIA" aria-label="Rank 4, ALBANIA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="ALBANIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 04</span>
+              <span class="popular-card-country">ALBANIA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="PHILIPPINES" data-rank="5" data-popular-search="PHILIPPINES">
+            <a class="popular-card-link" href="#top35" data-popular-open="PHILIPPINES" aria-label="Rank 5, PHILIPPINES. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="PHILIPPINES" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 05</span>
+              <span class="popular-card-country">PHILIPPINES</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="ZAMBIA" data-rank="6" data-popular-search="ZAMBIA">
+            <a class="popular-card-link" href="#top35" data-popular-open="ZAMBIA" aria-label="Rank 6, ZAMBIA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="ZAMBIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 06</span>
+              <span class="popular-card-country">ZAMBIA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="ROMANIA" data-rank="7" data-popular-search="ROMANIA">
+            <a class="popular-card-link" href="#top35" data-popular-open="ROMANIA" aria-label="Rank 7, ROMANIA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="ROMANIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 07</span>
+              <span class="popular-card-country">ROMANIA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="INDONESIA" data-rank="8" data-popular-search="INDONESIA">
+            <a class="popular-card-link" href="#top35" data-popular-open="INDONESIA" aria-label="Rank 8, INDONESIA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="INDONESIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 08</span>
+              <span class="popular-card-country">INDONESIA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="UNITED KINGDOM" data-rank="9" data-popular-search="United Kingdom UK Great Britain">
+            <a class="popular-card-link" href="#top35" data-popular-open="UNITED KINGDOM" aria-label="Rank 9, UNITED KINGDOM. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="UNITED KINGDOM" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 09</span>
+              <span class="popular-card-country">UNITED KINGDOM</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="SRI LANKA" data-rank="10" data-popular-search="SRI LANKA">
+            <a class="popular-card-link" href="#top35" data-popular-open="SRI LANKA" aria-label="Rank 10, SRI LANKA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="SRI LANKA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 10</span>
+              <span class="popular-card-country">SRI LANKA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="LAOS" data-rank="11" data-popular-search="LAOS">
+            <a class="popular-card-link" href="#top35" data-popular-open="LAOS" aria-label="Rank 11, LAOS. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="LAOS" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 11</span>
+              <span class="popular-card-country">LAOS</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="SINGAPORE" data-rank="12" data-popular-search="SINGAPORE">
+            <a class="popular-card-link" href="#top35" data-popular-open="SINGAPORE" aria-label="Rank 12, SINGAPORE. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="SINGAPORE" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 12</span>
+              <span class="popular-card-country">SINGAPORE</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="KOSOVO" data-rank="13" data-popular-search="KOSOVO">
+            <a class="popular-card-link" href="#top35" data-popular-open="KOSOVO" aria-label="Rank 13, KOSOVO. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="KOSOVO" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 13</span>
+              <span class="popular-card-country">KOSOVO</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="DOMINICAN REPUBLIC" data-rank="14" data-popular-search="DOMINICAN REPUBLIC">
+            <a class="popular-card-link" href="#top35" data-popular-open="DOMINICAN REPUBLIC" aria-label="Rank 14, DOMINICAN REPUBLIC. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="DOMINICAN REPUBLIC" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 14</span>
+              <span class="popular-card-country">DOMINICAN REPUBLIC</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="ARMENIA" data-rank="15" data-popular-search="ARMENIA">
+            <a class="popular-card-link" href="#top35" data-popular-open="ARMENIA" aria-label="Rank 15, ARMENIA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="ARMENIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 15</span>
+              <span class="popular-card-country">ARMENIA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="MYANMAR" data-rank="16" data-popular-search="MYANMAR">
+            <a class="popular-card-link" href="#top35" data-popular-open="MYANMAR" aria-label="Rank 16, MYANMAR. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="MYANMAR" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 16</span>
+              <span class="popular-card-country">MYANMAR</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="INDIA" data-rank="17" data-popular-search="INDIA">
+            <a class="popular-card-link" href="#top35" data-popular-open="INDIA" aria-label="Rank 17, INDIA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="INDIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 17</span>
+              <span class="popular-card-country">INDIA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="JAPAN" data-rank="18" data-popular-search="JAPAN">
+            <a class="popular-card-link" href="#top35" data-popular-open="JAPAN" aria-label="Rank 18, JAPAN. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="JAPAN" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 18</span>
+              <span class="popular-card-country">JAPAN</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="PUERTO RICO" data-rank="19" data-popular-search="PUERTO RICO">
+            <a class="popular-card-link" href="#top35" data-popular-open="PUERTO RICO" aria-label="Rank 19, PUERTO RICO. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="PUERTO RICO" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 19</span>
+              <span class="popular-card-country">PUERTO RICO</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="MEXICO" data-rank="20" data-popular-search="MEXICO">
+            <a class="popular-card-link" href="#top35" data-popular-open="MEXICO" aria-label="Rank 20, MEXICO. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="MEXICO" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 20</span>
+              <span class="popular-card-country">MEXICO</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="CHINA" data-rank="21" data-popular-search="CHINA">
+            <a class="popular-card-link" href="#top35" data-popular-open="CHINA" aria-label="Rank 21, CHINA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="CHINA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 21</span>
+              <span class="popular-card-country">CHINA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="CANADA" data-rank="22" data-popular-search="CANADA">
+            <a class="popular-card-link" href="#top35" data-popular-open="CANADA" aria-label="Rank 22, CANADA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="CANADA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 22</span>
+              <span class="popular-card-country">CANADA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="US VIRGIN ISLANDS" data-rank="23" data-popular-search="US Virgin Islands United States Virgin Islands">
+            <a class="popular-card-link" href="#top35" data-popular-open="US VIRGIN ISLANDS" aria-label="Rank 23, US VIRGIN ISLANDS. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="US VIRGIN ISLANDS" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 23</span>
+              <span class="popular-card-country">US VIRGIN ISLANDS</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="COLOMBIA" data-rank="24" data-popular-search="COLOMBIA">
+            <a class="popular-card-link" href="#top35" data-popular-open="COLOMBIA" aria-label="Rank 24, COLOMBIA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="COLOMBIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 24</span>
+              <span class="popular-card-country">COLOMBIA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="ITALY" data-rank="25" data-popular-search="ITALY">
+            <a class="popular-card-link" href="#top35" data-popular-open="ITALY" aria-label="Rank 25, ITALY. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="ITALY" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 25</span>
+              <span class="popular-card-country">ITALY</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="TÜRKİYE" data-rank="26" data-popular-search="Türkiye Turkiye Turkey">
+            <a class="popular-card-link" href="#top35" data-popular-open="TÜRKİYE" aria-label="Rank 26, TÜRKİYE. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="TÜRKİYE" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 26</span>
+              <span class="popular-card-country">TÜRKİYE</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="GHANA" data-rank="27" data-popular-search="GHANA">
+            <a class="popular-card-link" href="#top35" data-popular-open="GHANA" aria-label="Rank 27, GHANA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="GHANA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 27</span>
+              <span class="popular-card-country">GHANA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="MONGOLIA" data-rank="28" data-popular-search="MONGOLIA">
+            <a class="popular-card-link" href="#top35" data-popular-open="MONGOLIA" aria-label="Rank 28, MONGOLIA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="MONGOLIA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 28</span>
+              <span class="popular-card-country">MONGOLIA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="COSTA RICA" data-rank="29" data-popular-search="COSTA RICA">
+            <a class="popular-card-link" href="#top35" data-popular-open="COSTA RICA" aria-label="Rank 29, COSTA RICA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="COSTA RICA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 29</span>
+              <span class="popular-card-country">COSTA RICA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="NETHERLANDS" data-rank="30" data-popular-search="NETHERLANDS">
+            <a class="popular-card-link" href="#top35" data-popular-open="NETHERLANDS" aria-label="Rank 30, NETHERLANDS. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="NETHERLANDS" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 30</span>
+              <span class="popular-card-country">NETHERLANDS</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="CÔTE D’IVOIRE" data-rank="31" data-popular-search="Côte d’Ivoire Cote d Ivoire Ivory Coast">
+            <a class="popular-card-link" href="#top35" data-popular-open="CÔTE D’IVOIRE" aria-label="Rank 31, CÔTE D’IVOIRE. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="CÔTE D’IVOIRE" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 31</span>
+              <span class="popular-card-country">CÔTE D’IVOIRE</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="USA" data-rank="32" data-popular-search="USA United States United States of America">
+            <a class="popular-card-link" href="#top35" data-popular-open="USA" aria-label="Rank 32, USA. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="USA" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 32</span>
+              <span class="popular-card-country">USA</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="CZECH REPUBLIC" data-rank="33" data-popular-search="CZECH REPUBLIC">
+            <a class="popular-card-link" href="#top35" data-popular-open="CZECH REPUBLIC" aria-label="Rank 33, CZECH REPUBLIC. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="CZECH REPUBLIC" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 33</span>
+              <span class="popular-card-country">CZECH REPUBLIC</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="THAILAND" data-rank="34" data-popular-search="THAILAND">
+            <a class="popular-card-link" href="#top35" data-popular-open="THAILAND" aria-label="Rank 34, THAILAND. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="THAILAND" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 34</span>
+              <span class="popular-card-country">THAILAND</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+          <figure class="popular-card" data-country="NEPAL" data-rank="35" data-popular-search="NEPAL">
+            <a class="popular-card-link" href="#top35" data-popular-open="NEPAL" aria-label="Rank 35, NEPAL. View portrait">
+              <span class="popular-card-image"><img class="popular-photo" data-popular-photo="NEPAL" alt="" width="1024" height="1280" loading="lazy" decoding="async"></span>
+              <span class="popular-card-rank">RANK 35</span>
+              <span class="popular-card-country">NEPAL</span>
+              <span class="popular-card-action">View portrait ↗</span>
+            </a>
+          </figure>
+      </div>
+    </div>
+    <div class="popular-empty" id="popular-empty" hidden>
+      <p>No delegate found. Try another country.</p>
+      <button class="popular-clear" id="popular-clear" type="button">Clear search</button>
+    </div>
+    <p class="popular-note" id="popular-ranking-note">Rankings are set by the organization. Voting is not available on this page.</p>
+    <noscript><p class="popular-note">For delegate photographs, open <a href="#top35">Top 35 Country</a>.</p></noscript>
+  </div>
+</section>
+
 <section class="content poster-section" id="2027">
 
   <p class="gold">THE JOURNEY BEGINS</p>
@@ -951,7 +1553,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
     </a>
     <br>
 
-    TikTok: @misseliteuniverse
+    Official TikTok: <a href="https://www.tiktok.com/@misseliteuniverse.org" target="_blank" rel="noopener noreferrer">@misseliteuniverse.org</a>
     <br>
 
     Facebook: Miss Elite Universe
@@ -977,25 +1579,41 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   const next = document.getElementById('top35-next');
   const close = document.getElementById('top35-close');
   let active = 0;
+  let order = buttons;
   let opener;
   function show(index) {
-    active = (index + buttons.length) % buttons.length;
-    const image = buttons[active].querySelector('img');
+    active = (index + order.length) % order.length;
+    const image = order[active].querySelector('img');
     photo.src = image.src;
     photo.alt = image.alt;
-    label.textContent = buttons[active].dataset.country || '';
-    document.getElementById('top35-viewer-count').textContent = `${active + 1} / ${buttons.length}`;
+    label.textContent = order[active].dataset.country || '';
+    document.getElementById('top35-viewer-count').textContent = `${active + 1} / ${order.length}`;
+  }
+  function open(index, trigger, sequence) {
+    if (typeof viewer.showModal !== 'function') {
+      sequence[index].scrollIntoView({ block: 'center' });
+      sequence[index].focus();
+      return;
+    }
+    opener = trigger;
+    order = sequence;
+    show(index);
+    viewer.showModal();
+    close.focus();
   }
   buttons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      if (typeof viewer.showModal !== 'function') {
-        window.open(button.querySelector('img').src, '_blank', 'noopener');
-        return;
-      }
-      opener = button;
-      show(index);
-      viewer.showModal();
-      close.focus();
+    button.addEventListener('click', () => open(index, button, buttons));
+  });
+
+  // The voting section follows its published rank order; the original gallery keeps its supplied order.
+  const byCountry = new Map(buttons.map(button => [button.dataset.country, button]));
+  const ranked = Array.from(document.querySelectorAll('#popular-ranking-body .popular-row')).map(row => byCountry.get(row.dataset.country)).filter(Boolean);
+  document.querySelectorAll('[data-popular-open]').forEach(trigger => {
+    const index = ranked.indexOf(byCountry.get(trigger.dataset.popularOpen));
+    if (index < 0) return;
+    trigger.addEventListener('click', event => {
+      event.preventDefault();
+      open(index, trigger, ranked);
     });
   });
   previous.disabled = next.disabled = buttons.length < 2;
@@ -1014,6 +1632,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
     if (event.key === 'ArrowRight') { event.preventDefault(); show(active + 1); }
   });
 })();
+
 </script>
 <script id="meu-header-script">
 (() => {
@@ -1056,6 +1675,81 @@ footer{background:#041710;border-top-color:var(--meu-line)}
     if (window.innerWidth > 800) setOpen(false);
   });
 })();
+</script>
+<script id="popular-vote-script">
+(() => {
+  'use strict';
+  const section = document.getElementById('popular-vote');
+  if (!section) return;
+
+  // Reuse the original gallery sources; the download contains each full photo once.
+  const delegates = new Map(Array.from(document.querySelectorAll('#top35-grid .top35-photo')).map(button => [button.dataset.country, button.querySelector('img')]));
+  section.querySelectorAll('[data-popular-photo]').forEach(photo => {
+    const original = delegates.get(photo.dataset.popularPhoto);
+    if (original) photo.src = original.getAttribute('src');
+  });
+
+  const tabs = Array.from(section.querySelectorAll('[role="tab"]'));
+  const panels = tabs.map(tab => document.getElementById(tab.getAttribute('aria-controls')));
+  const search = document.getElementById('popular-search');
+  const rows = Array.from(section.querySelectorAll('.popular-row'));
+  const cards = Array.from(section.querySelectorAll('.popular-card'));
+  const count = document.getElementById('popular-count');
+  const heading = document.getElementById('popular-results-title');
+  const empty = document.getElementById('popular-empty');
+  const scrollArea = document.getElementById('popular-table-scroll');
+  const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[đĐ]/g, 'd').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  function activateTab(index, focus = false) {
+    tabs.forEach((tab, i) => {
+      const selected = i === index;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      panels[i].hidden = !selected;
+    });
+    heading.textContent = index === 0 ? 'Leaderboard' : 'All 35 contestants';
+    if (focus) tabs[index].focus();
+  }
+
+  function filterDelegates() {
+    const query = normalize(search.value.trim());
+    [rows, cards].forEach(items => {
+      items.forEach(item => { item.hidden = !normalize(item.dataset.popularSearch).includes(query); });
+    });
+    const total = rows.filter(row => !row.hidden).length;
+    count.textContent = `${total} of ${rows.length} delegates`;
+    empty.hidden = total !== 0;
+    scrollArea.scrollTop = 0;
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateTab(index));
+    tab.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = tabs.length - 1;
+      if (next !== undefined) { event.preventDefault(); activateTab(next, true); }
+    });
+  });
+  search.addEventListener('input', filterDelegates);
+  document.getElementById('popular-clear').addEventListener('click', () => {
+    search.value = '';
+    filterDelegates();
+    search.focus();
+  });
+  const syncHash = () => {
+    if (window.location.hash === '#popular-contestants') activateTab(1);
+    if (window.location.hash === '#popular-rankings') activateTab(0);
+  };
+  activateTab(0);
+  syncHash();
+  window.addEventListener('hashchange', syncHash);
+  filterDelegates();
+  document.getElementById('popular-toolbar').hidden = false;
+})();
+
 </script>
 </body>
 </html>
