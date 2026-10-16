@@ -655,6 +655,28 @@ footer{background:#041710;border-top-color:var(--meu-line)}
 @media(max-width:600px) { .paid-podium { grid-template-columns: 1fr; gap: 12px; margin-bottom: 32px; }.paid-leader { grid-template-columns: 60px minmax(0,1fr); gap: 17px; padding: 12px 16px; }.paid-leader-photo { width: 60px; }.paid-leader-country { margin-top: 5px; font-size: 17px; }.paid-leader-votes { margin-top: 5px; }.paid-cards { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 19px 12px; }.paid-card-copy { padding: 13px 10px; }.paid-card-country { font-size: 14px; }.paid-card-result { display: block; line-height: 1.8; }.paid-card-rank { display: block; }.paid-toolbar { gap: 14px; padding-top: 22px; }.paid-tabs button { flex: 1; }.paid-search { grid-column: 1/-1; }.paid-sort-label { grid-column: 1/-1; }.paid-section-heading h2 { font-size: 27px; }.paid-dialog { padding: 20px; }.paid-table th,.paid-table td { padding: 12px 10px; }.paid-table button { min-width: 60px; }.paid-breadcrumb { margin-bottom: 23px; }.paid-intro-copy { font-size: 14px; } }
 
 </style>
+<style id="free-vote-styles">
+/* A compact free-vote action sits beside the paid action on cards and rankings. */
+.paid-vote-actions { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: 7px; align-items: stretch; }
+.paid-vote-actions .paid-vote-button,.free-vote-button { min-width: 0; min-height: 44px; padding: 8px 5px; font-size: 10px; letter-spacing: .55px; }
+.free-vote-button { border: 1px solid #dfc27f; border-radius: 0; background: #153a2c; color: #f1da9e; font-family: Arial,sans-serif; font-weight: 600; cursor: pointer; }
+.free-vote-button:hover:not(:disabled) { background: #24513c; color: #fff1cc; }
+.free-vote-button:disabled { cursor: not-allowed; opacity: .58; }
+.free-vote-button:focus-visible,.free-vote-confirm:focus-visible { outline: 2px solid #fff1c4; outline-offset: 3px; }
+.free-vote-banner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px 28px; margin: 0 0 34px; padding: 21px 24px; background: linear-gradient(110deg,#20432f,#102e23); border: 1px solid #b99a55; }
+.free-vote-label { color: #edd291; font-size: 12px; font-weight: 700; letter-spacing: 1.8px; }
+.free-vote-description { max-width: 640px; margin-top: 8px; color: #f4f0e6; font-size: 12px; line-height: 1.8; }
+.free-vote-quota { color: #f2dca6; font-size: 13px; line-height: 1.7; }
+.free-vote-banner[data-state="locked"] { border-color: #7f8068; background: #142d23; }
+.free-vote-banner[data-state="locked"] .free-vote-quota { color: #e0d8c6; }
+.paid-table .paid-vote-actions { min-width: 185px; }
+.paid-table .paid-vote-actions button { width: 100%; min-width: 0; padding: 8px; }
+.free-vote-confirm { width: 100%; min-height: 48px; margin-top: 20px; padding: 13px; border: 1px solid #dfc27f; background: #dfc27f; color: #09251b; font: 600 13px/1.5 Arial,sans-serif; cursor: pointer; }
+.free-vote-confirm:disabled { opacity: .55; cursor: not-allowed; }
+.free-vote-remaining { color: #efdba7; font-size: 13px; line-height: 1.8; }
+@media(max-width:600px) { .free-vote-banner { padding: 19px 16px; gap: 12px; } .paid-vote-actions { gap: 5px; } .paid-vote-actions .paid-vote-button,.free-vote-button { font-size: 9px; letter-spacing: .2px; } }
+
+</style>
 </head>
 <body class="vote-page">
 <a class="vote-skip" href="#main-content">Skip to content</a>
@@ -704,25 +726,29 @@ footer{background:#041710;border-top-color:var(--meu-line)}
     <div class="paid-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Miss Popular Vote</span></div>
     <p class="paid-eyebrow">MISS ELITE UNIVERSE · THAILAND 2027</p>
     <h1 id="vote-page-title">Miss Popular Vote</h1>
-    <p class="paid-intro-copy">Celebrate the delegate who inspires you. Choose your country, select your votes and support her journey to the crown.</p>
+    <p class="paid-intro-copy">Celebrate the delegate who inspires you. Choose your country, use your three free votes or select paid votes to support her journey to the crown.</p>
     <div class="paid-price-strip"><p class="paid-price-tag"><strong>$1 USD</strong><span>PER VOTE</span></p><p class="paid-status" id="paid-voting-status" data-state="closed" role="status">Voting opens soon</p></div>
   </div>
 </section>
 <section class="paid-vote-section" id="paid-vote" aria-labelledby="paid-leaderboard-title">
   <div class="paid-inner">
     <div class="paid-notification" id="paid-notification" role="status" aria-live="polite" hidden><p id="paid-notification-text"></p><button type="button" id="paid-recheck" hidden>Check payment status</button></div>
-    <div class="paid-section-heading"><h2 id="paid-leaderboard-title">Top 3 Leaderboard</h2><p id="paid-total-votes">Confirmed payments only</p></div>
+<div class="free-vote-banner" id="free-vote-banner" data-state="closed">
+  <div><p class="free-vote-label">3 FREE VOTES</p><p class="free-vote-description">Support any of the 35 delegates with your three free votes. One confirmed vote uses one free vote. Your allowance is shared across all delegates and does not reset each day.</p></div>
+  <p class="free-vote-quota" id="free-vote-quota" role="status" aria-live="polite">Free voting opens soon</p>
+</div>
+    <div class="paid-section-heading"><h2 id="paid-leaderboard-title">Top 3 Leaderboard</h2><p id="paid-total-votes">Confirmed free + paid votes</p></div>
     <div class="paid-podium" aria-label="Top three by confirmed votes"><article class="paid-leader">
   <div class="paid-leader-photo"><img alt="" width="80" height="100" hidden><span class="paid-leader-placeholder" aria-hidden="true">1</span></div>
-  <div><p class="paid-leader-rank">TOP 1</p><h3 class="paid-leader-country">Awaiting votes</h3><p class="paid-leader-votes">Standings appear after confirmed payments.</p></div>
+  <div><p class="paid-leader-rank">TOP 1</p><h3 class="paid-leader-country">Awaiting votes</h3><p class="paid-leader-votes">Standings appear after confirmed votes.</p></div>
 </article>
 <article class="paid-leader">
   <div class="paid-leader-photo"><img alt="" width="80" height="100" hidden><span class="paid-leader-placeholder" aria-hidden="true">2</span></div>
-  <div><p class="paid-leader-rank">TOP 2</p><h3 class="paid-leader-country">Awaiting votes</h3><p class="paid-leader-votes">Standings appear after confirmed payments.</p></div>
+  <div><p class="paid-leader-rank">TOP 2</p><h3 class="paid-leader-country">Awaiting votes</h3><p class="paid-leader-votes">Standings appear after confirmed votes.</p></div>
 </article>
 <article class="paid-leader">
   <div class="paid-leader-photo"><img alt="" width="80" height="100" hidden><span class="paid-leader-placeholder" aria-hidden="true">3</span></div>
-  <div><p class="paid-leader-rank">TOP 3</p><h3 class="paid-leader-country">Awaiting votes</h3><p class="paid-leader-votes">Standings appear after confirmed payments.</p></div>
+  <div><p class="paid-leader-rank">TOP 3</p><h3 class="paid-leader-country">Awaiting votes</h3><p class="paid-leader-votes">Standings appear after confirmed votes.</p></div>
 </article></div>
     <div class="paid-toolbar">
       <div class="paid-tabs" role="group" aria-label="Choose voting view"><button type="button" data-paid-view="contestants" aria-pressed="true" aria-controls="paid-contestants">All 35 Contestants</button><button type="button" data-paid-view="rankings" aria-pressed="false" aria-controls="paid-rankings">Rankings</button></div>
@@ -737,7 +763,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">ALBANIA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="albania" aria-label="Choose votes for ALBANIA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="albania" aria-label="Choose votes for ALBANIA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="albania" aria-label="Use 1 free vote for ALBANIA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="armenia" data-country="ARMENIA" data-search="ARMENIA">
@@ -747,7 +773,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">ARMENIA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="armenia" aria-label="Choose votes for ARMENIA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="armenia" aria-label="Choose votes for ARMENIA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="armenia" aria-label="Use 1 free vote for ARMENIA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="canada" data-country="CANADA" data-search="CANADA">
@@ -757,7 +783,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">CANADA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="canada" aria-label="Choose votes for CANADA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="canada" aria-label="Choose votes for CANADA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="canada" aria-label="Use 1 free vote for CANADA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="china" data-country="CHINA" data-search="CHINA">
@@ -767,7 +793,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">CHINA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="china" aria-label="Choose votes for CHINA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="china" aria-label="Choose votes for CHINA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="china" aria-label="Use 1 free vote for CHINA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="colombia" data-country="COLOMBIA" data-search="COLOMBIA">
@@ -777,7 +803,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">COLOMBIA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="colombia" aria-label="Choose votes for COLOMBIA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="colombia" aria-label="Choose votes for COLOMBIA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="colombia" aria-label="Use 1 free vote for COLOMBIA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="costa-rica" data-country="COSTA RICA" data-search="COSTA RICA">
@@ -787,7 +813,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">COSTA RICA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="costa-rica" aria-label="Choose votes for COSTA RICA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="costa-rica" aria-label="Choose votes for COSTA RICA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="costa-rica" aria-label="Use 1 free vote for COSTA RICA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="cote-divoire" data-country="CÔTE D’IVOIRE" data-search="Côte d’Ivoire Cote d Ivoire Ivory Coast">
@@ -797,7 +823,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">CÔTE D’IVOIRE</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="cote-divoire" aria-label="Choose votes for CÔTE D’IVOIRE">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="cote-divoire" aria-label="Choose votes for CÔTE D’IVOIRE">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="cote-divoire" aria-label="Use 1 free vote for CÔTE D’IVOIRE" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="czech-republic" data-country="CZECH REPUBLIC" data-search="CZECH REPUBLIC">
@@ -807,7 +833,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">CZECH REPUBLIC</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="czech-republic" aria-label="Choose votes for CZECH REPUBLIC">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="czech-republic" aria-label="Choose votes for CZECH REPUBLIC">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="czech-republic" aria-label="Use 1 free vote for CZECH REPUBLIC" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="dominican-republic" data-country="DOMINICAN REPUBLIC" data-search="DOMINICAN REPUBLIC">
@@ -817,7 +843,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">DOMINICAN REPUBLIC</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="dominican-republic" aria-label="Choose votes for DOMINICAN REPUBLIC">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="dominican-republic" aria-label="Choose votes for DOMINICAN REPUBLIC">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="dominican-republic" aria-label="Use 1 free vote for DOMINICAN REPUBLIC" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="ecuador" data-country="ECUADOR" data-search="Ecuador Ecudor">
@@ -827,7 +853,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">ECUADOR</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="ecuador" aria-label="Choose votes for ECUADOR">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="ecuador" aria-label="Choose votes for ECUADOR">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="ecuador" aria-label="Use 1 free vote for ECUADOR" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="ghana" data-country="GHANA" data-search="GHANA">
@@ -837,7 +863,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">GHANA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="ghana" aria-label="Choose votes for GHANA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="ghana" aria-label="Choose votes for GHANA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="ghana" aria-label="Use 1 free vote for GHANA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="india" data-country="INDIA" data-search="INDIA">
@@ -847,7 +873,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">INDIA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="india" aria-label="Choose votes for INDIA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="india" aria-label="Choose votes for INDIA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="india" aria-label="Use 1 free vote for INDIA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="indonesia" data-country="INDONESIA" data-search="INDONESIA">
@@ -857,7 +883,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">INDONESIA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="indonesia" aria-label="Choose votes for INDONESIA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="indonesia" aria-label="Choose votes for INDONESIA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="indonesia" aria-label="Use 1 free vote for INDONESIA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="italy" data-country="ITALY" data-search="ITALY">
@@ -867,7 +893,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">ITALY</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="italy" aria-label="Choose votes for ITALY">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="italy" aria-label="Choose votes for ITALY">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="italy" aria-label="Use 1 free vote for ITALY" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="japan" data-country="JAPAN" data-search="JAPAN">
@@ -877,7 +903,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">JAPAN</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="japan" aria-label="Choose votes for JAPAN">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="japan" aria-label="Choose votes for JAPAN">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="japan" aria-label="Use 1 free vote for JAPAN" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="kosovo" data-country="KOSOVO" data-search="KOSOVO">
@@ -887,7 +913,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">KOSOVO</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="kosovo" aria-label="Choose votes for KOSOVO">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="kosovo" aria-label="Choose votes for KOSOVO">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="kosovo" aria-label="Use 1 free vote for KOSOVO" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="laos" data-country="LAOS" data-search="LAOS">
@@ -897,7 +923,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">LAOS</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="laos" aria-label="Choose votes for LAOS">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="laos" aria-label="Choose votes for LAOS">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="laos" aria-label="Use 1 free vote for LAOS" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="mexico" data-country="MEXICO" data-search="MEXICO">
@@ -907,7 +933,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">MEXICO</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="mexico" aria-label="Choose votes for MEXICO">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="mexico" aria-label="Choose votes for MEXICO">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="mexico" aria-label="Use 1 free vote for MEXICO" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="mongolia" data-country="MONGOLIA" data-search="MONGOLIA">
@@ -917,7 +943,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">MONGOLIA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="mongolia" aria-label="Choose votes for MONGOLIA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="mongolia" aria-label="Choose votes for MONGOLIA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="mongolia" aria-label="Use 1 free vote for MONGOLIA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="myanmar" data-country="MYANMAR" data-search="MYANMAR">
@@ -927,7 +953,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">MYANMAR</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="myanmar" aria-label="Choose votes for MYANMAR">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="myanmar" aria-label="Choose votes for MYANMAR">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="myanmar" aria-label="Use 1 free vote for MYANMAR" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="nepal" data-country="NEPAL" data-search="NEPAL">
@@ -937,7 +963,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">NEPAL</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="nepal" aria-label="Choose votes for NEPAL">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="nepal" aria-label="Choose votes for NEPAL">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="nepal" aria-label="Use 1 free vote for NEPAL" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="netherlands" data-country="NETHERLANDS" data-search="NETHERLANDS">
@@ -947,7 +973,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">NETHERLANDS</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="netherlands" aria-label="Choose votes for NETHERLANDS">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="netherlands" aria-label="Choose votes for NETHERLANDS">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="netherlands" aria-label="Use 1 free vote for NETHERLANDS" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="philippines" data-country="PHILIPPINES" data-search="PHILIPPINES">
@@ -957,7 +983,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">PHILIPPINES</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="philippines" aria-label="Choose votes for PHILIPPINES">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="philippines" aria-label="Choose votes for PHILIPPINES">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="philippines" aria-label="Use 1 free vote for PHILIPPINES" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="puerto-rico" data-country="PUERTO RICO" data-search="PUERTO RICO">
@@ -967,7 +993,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">PUERTO RICO</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="puerto-rico" aria-label="Choose votes for PUERTO RICO">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="puerto-rico" aria-label="Choose votes for PUERTO RICO">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="puerto-rico" aria-label="Use 1 free vote for PUERTO RICO" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="romania" data-country="ROMANIA" data-search="ROMANIA">
@@ -977,7 +1003,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">ROMANIA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="romania" aria-label="Choose votes for ROMANIA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="romania" aria-label="Choose votes for ROMANIA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="romania" aria-label="Use 1 free vote for ROMANIA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="singapore" data-country="SINGAPORE" data-search="SINGAPORE">
@@ -987,7 +1013,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">SINGAPORE</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="singapore" aria-label="Choose votes for SINGAPORE">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="singapore" aria-label="Choose votes for SINGAPORE">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="singapore" aria-label="Use 1 free vote for SINGAPORE" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="sri-lanka" data-country="SRI LANKA" data-search="SRI LANKA">
@@ -997,7 +1023,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">SRI LANKA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="sri-lanka" aria-label="Choose votes for SRI LANKA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="sri-lanka" aria-label="Choose votes for SRI LANKA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="sri-lanka" aria-label="Use 1 free vote for SRI LANKA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="thailand" data-country="THAILAND" data-search="THAILAND">
@@ -1007,7 +1033,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">THAILAND</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="thailand" aria-label="Choose votes for THAILAND">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="thailand" aria-label="Choose votes for THAILAND">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="thailand" aria-label="Use 1 free vote for THAILAND" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="turkiye" data-country="TÜRKİYE" data-search="Türkiye Turkiye Turkey">
@@ -1017,7 +1043,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">TÜRKİYE</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="turkiye" aria-label="Choose votes for TÜRKİYE">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="turkiye" aria-label="Choose votes for TÜRKİYE">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="turkiye" aria-label="Use 1 free vote for TÜRKİYE" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="united-kingdom" data-country="UNITED KINGDOM" data-search="United Kingdom UK Great Britain">
@@ -1027,7 +1053,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">UNITED KINGDOM</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="united-kingdom" aria-label="Choose votes for UNITED KINGDOM">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="united-kingdom" aria-label="Choose votes for UNITED KINGDOM">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="united-kingdom" aria-label="Use 1 free vote for UNITED KINGDOM" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="us-virgin-islands" data-country="US VIRGIN ISLANDS" data-search="US Virgin Islands United States Virgin Islands">
@@ -1037,7 +1063,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">US VIRGIN ISLANDS</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="us-virgin-islands" aria-label="Choose votes for US VIRGIN ISLANDS">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="us-virgin-islands" aria-label="Choose votes for US VIRGIN ISLANDS">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="us-virgin-islands" aria-label="Use 1 free vote for US VIRGIN ISLANDS" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="usa" data-country="USA" data-search="USA United States United States of America">
@@ -1047,7 +1073,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">USA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="usa" aria-label="Choose votes for USA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="usa" aria-label="Choose votes for USA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="usa" aria-label="Use 1 free vote for USA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="venezuela" data-country="VENEZUELA" data-search="VENEZUELA">
@@ -1057,7 +1083,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">VENEZUELA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="venezuela" aria-label="Choose votes for VENEZUELA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="venezuela" aria-label="Choose votes for VENEZUELA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="venezuela" aria-label="Use 1 free vote for VENEZUELA" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="viet-nam" data-country="VIET NAM" data-search="Viet Nam Vietnam Việt Nam">
@@ -1067,7 +1093,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">VIET NAM</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="viet-nam" aria-label="Choose votes for VIET NAM">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="viet-nam" aria-label="Choose votes for VIET NAM">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="viet-nam" aria-label="Use 1 free vote for VIET NAM" disabled>VOTE FREE</button></div>
   </div>
 </article>
 <article class="paid-card" data-delegate-id="zambia" data-country="ZAMBIA" data-search="ZAMBIA">
@@ -1077,155 +1103,156 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   <div class="paid-card-copy">
     <h3 class="paid-card-country">ZAMBIA</h3>
     <p class="paid-card-result"><span class="paid-card-votes">— votes</span><span class="paid-card-rank">Awaiting results</span></p>
-    <button class="paid-vote-button" type="button" data-vote-for="zambia" aria-label="Choose votes for ZAMBIA">VOTE · $1 EACH</button>
+    <div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="zambia" aria-label="Choose votes for ZAMBIA">VOTE · $1</button><button class="free-vote-button" type="button" data-free-vote-for="zambia" aria-label="Use 1 free vote for ZAMBIA" disabled>VOTE FREE</button></div>
   </div>
 </article></div></div>
-    <div id="paid-rankings" hidden><div class="paid-table-wrap" tabindex="0" role="region" aria-label="Delegate rankings. Scroll for more."><table class="paid-table"><caption class="popular-sr-only">Miss Popular Vote — confirmed paid votes</caption><thead><tr><th scope="col">Rank</th><th scope="col">Country</th><th scope="col">Votes</th><th scope="col">Support</th></tr></thead><tbody id="paid-ranking-body"><tr class="paid-ranking-row" data-delegate-id="albania" data-search="ALBANIA">
+    <div id="paid-rankings" hidden><div class="paid-table-wrap" tabindex="0" role="region" aria-label="Delegate rankings. Scroll for more."><table class="paid-table"><caption class="popular-sr-only">Miss Popular Vote — confirmed free and paid votes</caption><thead><tr><th scope="col">Rank</th><th scope="col">Country</th><th scope="col">Votes</th><th scope="col">Support</th></tr></thead><tbody id="paid-ranking-body"><tr class="paid-ranking-row" data-delegate-id="albania" data-search="ALBANIA">
   <td data-result-rank>—</td><td><span class="paid-table-country">ALBANIA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="albania" aria-label="Choose votes for ALBANIA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="albania" aria-label="Choose votes for ALBANIA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="albania" aria-label="Use 1 free vote for ALBANIA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="armenia" data-search="ARMENIA">
   <td data-result-rank>—</td><td><span class="paid-table-country">ARMENIA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="armenia" aria-label="Choose votes for ARMENIA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="armenia" aria-label="Choose votes for ARMENIA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="armenia" aria-label="Use 1 free vote for ARMENIA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="canada" data-search="CANADA">
   <td data-result-rank>—</td><td><span class="paid-table-country">CANADA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="canada" aria-label="Choose votes for CANADA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="canada" aria-label="Choose votes for CANADA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="canada" aria-label="Use 1 free vote for CANADA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="china" data-search="CHINA">
   <td data-result-rank>—</td><td><span class="paid-table-country">CHINA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="china" aria-label="Choose votes for CHINA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="china" aria-label="Choose votes for CHINA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="china" aria-label="Use 1 free vote for CHINA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="colombia" data-search="COLOMBIA">
   <td data-result-rank>—</td><td><span class="paid-table-country">COLOMBIA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="colombia" aria-label="Choose votes for COLOMBIA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="colombia" aria-label="Choose votes for COLOMBIA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="colombia" aria-label="Use 1 free vote for COLOMBIA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="costa-rica" data-search="COSTA RICA">
   <td data-result-rank>—</td><td><span class="paid-table-country">COSTA RICA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="costa-rica" aria-label="Choose votes for COSTA RICA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="costa-rica" aria-label="Choose votes for COSTA RICA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="costa-rica" aria-label="Use 1 free vote for COSTA RICA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="cote-divoire" data-search="Côte d’Ivoire Cote d Ivoire Ivory Coast">
   <td data-result-rank>—</td><td><span class="paid-table-country">CÔTE D’IVOIRE</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="cote-divoire" aria-label="Choose votes for CÔTE D’IVOIRE">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="cote-divoire" aria-label="Choose votes for CÔTE D’IVOIRE">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="cote-divoire" aria-label="Use 1 free vote for CÔTE D’IVOIRE" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="czech-republic" data-search="CZECH REPUBLIC">
   <td data-result-rank>—</td><td><span class="paid-table-country">CZECH REPUBLIC</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="czech-republic" aria-label="Choose votes for CZECH REPUBLIC">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="czech-republic" aria-label="Choose votes for CZECH REPUBLIC">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="czech-republic" aria-label="Use 1 free vote for CZECH REPUBLIC" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="dominican-republic" data-search="DOMINICAN REPUBLIC">
   <td data-result-rank>—</td><td><span class="paid-table-country">DOMINICAN REPUBLIC</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="dominican-republic" aria-label="Choose votes for DOMINICAN REPUBLIC">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="dominican-republic" aria-label="Choose votes for DOMINICAN REPUBLIC">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="dominican-republic" aria-label="Use 1 free vote for DOMINICAN REPUBLIC" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="ecuador" data-search="Ecuador Ecudor">
   <td data-result-rank>—</td><td><span class="paid-table-country">ECUADOR</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="ecuador" aria-label="Choose votes for ECUADOR">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="ecuador" aria-label="Choose votes for ECUADOR">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="ecuador" aria-label="Use 1 free vote for ECUADOR" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="ghana" data-search="GHANA">
   <td data-result-rank>—</td><td><span class="paid-table-country">GHANA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="ghana" aria-label="Choose votes for GHANA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="ghana" aria-label="Choose votes for GHANA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="ghana" aria-label="Use 1 free vote for GHANA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="india" data-search="INDIA">
   <td data-result-rank>—</td><td><span class="paid-table-country">INDIA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="india" aria-label="Choose votes for INDIA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="india" aria-label="Choose votes for INDIA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="india" aria-label="Use 1 free vote for INDIA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="indonesia" data-search="INDONESIA">
   <td data-result-rank>—</td><td><span class="paid-table-country">INDONESIA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="indonesia" aria-label="Choose votes for INDONESIA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="indonesia" aria-label="Choose votes for INDONESIA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="indonesia" aria-label="Use 1 free vote for INDONESIA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="italy" data-search="ITALY">
   <td data-result-rank>—</td><td><span class="paid-table-country">ITALY</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="italy" aria-label="Choose votes for ITALY">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="italy" aria-label="Choose votes for ITALY">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="italy" aria-label="Use 1 free vote for ITALY" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="japan" data-search="JAPAN">
   <td data-result-rank>—</td><td><span class="paid-table-country">JAPAN</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="japan" aria-label="Choose votes for JAPAN">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="japan" aria-label="Choose votes for JAPAN">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="japan" aria-label="Use 1 free vote for JAPAN" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="kosovo" data-search="KOSOVO">
   <td data-result-rank>—</td><td><span class="paid-table-country">KOSOVO</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="kosovo" aria-label="Choose votes for KOSOVO">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="kosovo" aria-label="Choose votes for KOSOVO">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="kosovo" aria-label="Use 1 free vote for KOSOVO" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="laos" data-search="LAOS">
   <td data-result-rank>—</td><td><span class="paid-table-country">LAOS</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="laos" aria-label="Choose votes for LAOS">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="laos" aria-label="Choose votes for LAOS">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="laos" aria-label="Use 1 free vote for LAOS" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="mexico" data-search="MEXICO">
   <td data-result-rank>—</td><td><span class="paid-table-country">MEXICO</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="mexico" aria-label="Choose votes for MEXICO">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="mexico" aria-label="Choose votes for MEXICO">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="mexico" aria-label="Use 1 free vote for MEXICO" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="mongolia" data-search="MONGOLIA">
   <td data-result-rank>—</td><td><span class="paid-table-country">MONGOLIA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="mongolia" aria-label="Choose votes for MONGOLIA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="mongolia" aria-label="Choose votes for MONGOLIA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="mongolia" aria-label="Use 1 free vote for MONGOLIA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="myanmar" data-search="MYANMAR">
   <td data-result-rank>—</td><td><span class="paid-table-country">MYANMAR</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="myanmar" aria-label="Choose votes for MYANMAR">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="myanmar" aria-label="Choose votes for MYANMAR">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="myanmar" aria-label="Use 1 free vote for MYANMAR" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="nepal" data-search="NEPAL">
   <td data-result-rank>—</td><td><span class="paid-table-country">NEPAL</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="nepal" aria-label="Choose votes for NEPAL">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="nepal" aria-label="Choose votes for NEPAL">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="nepal" aria-label="Use 1 free vote for NEPAL" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="netherlands" data-search="NETHERLANDS">
   <td data-result-rank>—</td><td><span class="paid-table-country">NETHERLANDS</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="netherlands" aria-label="Choose votes for NETHERLANDS">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="netherlands" aria-label="Choose votes for NETHERLANDS">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="netherlands" aria-label="Use 1 free vote for NETHERLANDS" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="philippines" data-search="PHILIPPINES">
   <td data-result-rank>—</td><td><span class="paid-table-country">PHILIPPINES</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="philippines" aria-label="Choose votes for PHILIPPINES">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="philippines" aria-label="Choose votes for PHILIPPINES">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="philippines" aria-label="Use 1 free vote for PHILIPPINES" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="puerto-rico" data-search="PUERTO RICO">
   <td data-result-rank>—</td><td><span class="paid-table-country">PUERTO RICO</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="puerto-rico" aria-label="Choose votes for PUERTO RICO">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="puerto-rico" aria-label="Choose votes for PUERTO RICO">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="puerto-rico" aria-label="Use 1 free vote for PUERTO RICO" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="romania" data-search="ROMANIA">
   <td data-result-rank>—</td><td><span class="paid-table-country">ROMANIA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="romania" aria-label="Choose votes for ROMANIA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="romania" aria-label="Choose votes for ROMANIA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="romania" aria-label="Use 1 free vote for ROMANIA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="singapore" data-search="SINGAPORE">
   <td data-result-rank>—</td><td><span class="paid-table-country">SINGAPORE</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="singapore" aria-label="Choose votes for SINGAPORE">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="singapore" aria-label="Choose votes for SINGAPORE">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="singapore" aria-label="Use 1 free vote for SINGAPORE" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="sri-lanka" data-search="SRI LANKA">
   <td data-result-rank>—</td><td><span class="paid-table-country">SRI LANKA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="sri-lanka" aria-label="Choose votes for SRI LANKA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="sri-lanka" aria-label="Choose votes for SRI LANKA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="sri-lanka" aria-label="Use 1 free vote for SRI LANKA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="thailand" data-search="THAILAND">
   <td data-result-rank>—</td><td><span class="paid-table-country">THAILAND</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="thailand" aria-label="Choose votes for THAILAND">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="thailand" aria-label="Choose votes for THAILAND">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="thailand" aria-label="Use 1 free vote for THAILAND" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="turkiye" data-search="Türkiye Turkiye Turkey">
   <td data-result-rank>—</td><td><span class="paid-table-country">TÜRKİYE</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="turkiye" aria-label="Choose votes for TÜRKİYE">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="turkiye" aria-label="Choose votes for TÜRKİYE">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="turkiye" aria-label="Use 1 free vote for TÜRKİYE" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="united-kingdom" data-search="United Kingdom UK Great Britain">
   <td data-result-rank>—</td><td><span class="paid-table-country">UNITED KINGDOM</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="united-kingdom" aria-label="Choose votes for UNITED KINGDOM">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="united-kingdom" aria-label="Choose votes for UNITED KINGDOM">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="united-kingdom" aria-label="Use 1 free vote for UNITED KINGDOM" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="us-virgin-islands" data-search="US Virgin Islands United States Virgin Islands">
   <td data-result-rank>—</td><td><span class="paid-table-country">US VIRGIN ISLANDS</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="us-virgin-islands" aria-label="Choose votes for US VIRGIN ISLANDS">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="us-virgin-islands" aria-label="Choose votes for US VIRGIN ISLANDS">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="us-virgin-islands" aria-label="Use 1 free vote for US VIRGIN ISLANDS" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="usa" data-search="USA United States United States of America">
   <td data-result-rank>—</td><td><span class="paid-table-country">USA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="usa" aria-label="Choose votes for USA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="usa" aria-label="Choose votes for USA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="usa" aria-label="Use 1 free vote for USA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="venezuela" data-search="VENEZUELA">
   <td data-result-rank>—</td><td><span class="paid-table-country">VENEZUELA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="venezuela" aria-label="Choose votes for VENEZUELA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="venezuela" aria-label="Choose votes for VENEZUELA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="venezuela" aria-label="Use 1 free vote for VENEZUELA" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="viet-nam" data-search="Viet Nam Vietnam Việt Nam">
   <td data-result-rank>—</td><td><span class="paid-table-country">VIET NAM</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="viet-nam" aria-label="Choose votes for VIET NAM">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="viet-nam" aria-label="Choose votes for VIET NAM">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="viet-nam" aria-label="Use 1 free vote for VIET NAM" disabled>VOTE FREE</button></div></td>
 </tr>
 <tr class="paid-ranking-row" data-delegate-id="zambia" data-search="ZAMBIA">
   <td data-result-rank>—</td><td><span class="paid-table-country">ZAMBIA</span></td><td data-result-votes>—</td>
-  <td><button class="paid-vote-button" type="button" data-vote-for="zambia" aria-label="Choose votes for ZAMBIA">VOTE</button></td>
+  <td><div class="paid-vote-actions"><button class="paid-vote-button" type="button" data-vote-for="zambia" aria-label="Choose votes for ZAMBIA">VOTE</button><button class="free-vote-button" type="button" data-free-vote-for="zambia" aria-label="Use 1 free vote for ZAMBIA" disabled>VOTE FREE</button></div></td>
 </tr></tbody></table></div></div>
     <p class="paid-empty" id="paid-empty" hidden>No delegate found. Try another country.</p>
-    <p class="paid-summary" id="paid-results-updated">Results will appear when voting opens. No paid votes have been published on this preview.</p>
+    <p class="paid-summary" id="paid-results-updated">Results will appear when voting opens. No vote totals have been published on this preview.</p>
     <details class="paid-rules" id="paid-voting-information"><summary>Voting information</summary><div class="paid-rules-copy">
-      <p>Each vote costs $1.00 USD. Every package uses the same rate: 5 votes cost $5.00, 10 votes cost $10.00, and 100 votes cost $100.00. The total is displayed before you continue to payment.</p>
-      <p>Votes are added only after payment is confirmed. Pending, cancelled or declined payments do not add votes. Refunded or reversed amounts are excluded from valid votes. Only whole votes backed by the remaining paid amount are included.</p>
-      <p>Rankings follow confirmed vote totals. Equal totals share the same rank; alphabetical order is used only to display tied delegates. The three leaderboard cards show up to three delegates with confirmed votes.</p>
+      <p>Each paid vote costs $1.00 USD. Every package uses the same rate: 5 votes cost $5.00, 10 votes cost $10.00, and 100 votes cost $100.00. The total is displayed before you continue to payment.</p>
+      <p>Paid votes are added only after payment is confirmed. Pending, cancelled or declined payments do not add votes. Refunded or reversed amounts are excluded from valid votes. Only whole votes backed by the remaining paid amount are included.</p>
+      <p>Each browser has a total of three free votes for this contest, shared across all 35 delegates. Confirm one free vote at a time; you may support the same delegate or different delegates. The free-vote buttons lock when all three votes have been used. The allowance is saved in this browser and does not reset each day. Free votes count equally with confirmed paid votes in the leaderboard.</p>
+      <p>Rankings follow confirmed free and paid vote totals. Equal totals share the same rank; alphabetical order is used only to display tied delegates. The three leaderboard cards show up to three delegates with confirmed votes.</p>
       <p>Voting availability will be announced through our official channels. For payment assistance, contact <a href="mailto:eliteuniversemiss@gmail.com">eliteuniversemiss@gmail.com</a> and include your PayPal payment reference. Please do not send card details or passwords.</p>
     </div></details>
     <noscript><p class="paid-summary">Please enable JavaScript to select votes and view updated standings. Payments are not available without JavaScript.</p></noscript>
@@ -1233,6 +1260,16 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   </div>
 </section>
 </main>
+<dialog class="paid-dialog" id="free-vote-dialog" aria-labelledby="free-vote-title" aria-describedby="free-vote-remaining">
+  <div class="paid-dialog-top"><h2 id="free-vote-title">Your free vote</h2><button class="paid-dialog-close" type="button" id="free-vote-close" aria-label="Close free vote selection">×</button></div>
+  <div class="paid-choice"><img id="free-choice-image" alt="" width="70" height="88"><div><h3 id="free-choice-country"></h3><p>MISS ELITE UNIVERSE 2027<br>1 free vote · No payment required</p></div></div>
+  <form id="free-vote-form">
+    <p class="free-vote-remaining" id="free-vote-remaining">Checking your free votes…</p>
+    <button class="free-vote-confirm" id="free-vote-confirm" type="submit" disabled>Confirm 1 free vote</button>
+    <p class="paid-checkout-feedback" id="free-vote-feedback" role="status" aria-live="polite"></p>
+  </form>
+</dialog>
+
 <dialog class="paid-dialog" id="paid-checkout-dialog" aria-labelledby="paid-checkout-title" aria-describedby="paid-payment-note">
   <div class="paid-dialog-top"><h2 id="paid-checkout-title">Support your delegate</h2><button class="paid-dialog-close" type="button" id="paid-checkout-close" aria-label="Close vote selection">×</button></div>
   <div class="paid-choice"><img id="paid-choice-image" alt="" width="70" height="88"><div><h3 id="paid-choice-country"></h3><p>MISS ELITE UNIVERSE 2027<br>$1.00 USD per vote</p></div></div>
@@ -1340,7 +1377,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
   });
 })();
 </script>
-<script src="voting-config.js?v=20261016-1"></script>
+<script src="voting-config.js?v=20261016-free3"></script>
 <script id="paid-vote-script">
 (() => {
   'use strict';
@@ -1366,7 +1403,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
     location.replace(apiBase + '/miss-popular-vote.html' + location.search + location.hash);
     return;
   }
-  let config = { acceptingVotes: false, mode: 'sandbox', maxQuantity: 1000 };
+  let config = { acceptingVotes: false, acceptingFreeVotes: false, mode: 'sandbox', maxQuantity: 1000 };
   let results = new Map(), selectedId = null, busy = false, recovering = false, lastUpdated = null;
   const storageKey = 'meu-checkout-reference-v1';
   const dialog = $('paid-checkout-dialog');
@@ -1380,10 +1417,10 @@ footer{background:#041710;border-top-color:var(--meu-line)}
     if (!apiBase) throw new Error('Voting opens soon.');
     const response = await fetch(apiBase + '/api/vote' + path, { ...options,
       headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
-      cache: 'no-store', signal: AbortSignal.timeout(25000) });
+      credentials: 'same-origin', cache: 'no-store', signal: AbortSignal.timeout(25000) });
     let body;
     try { body = await response.json(); } catch { throw new Error('Voting is temporarily unavailable. Please try again shortly.'); }
-    if (!response.ok) throw new Error(body.message || 'Voting is temporarily unavailable. Please try again shortly.');
+    if (!response.ok) { const error = new Error(body.message || 'Voting is temporarily unavailable. Please try again shortly.'); error.status = response.status; error.code = body.code; throw error; }
     return body;
   }
   const post = (path, body, token) => api(path, { method: 'POST', body: JSON.stringify(body || {}),
@@ -1463,6 +1500,129 @@ footer{background:#041710;border-top-color:var(--meu-line)}
       busy = false; updateCheckout();
     }
   });
+  // A server cookie identifies this browser. The server owns the allowance and all votes.
+  const freeButtons = Array.from(root.querySelectorAll('[data-free-vote-for]'));
+  const freeDialog = $('free-vote-dialog');
+  const freePendingKey = 'meu-free-vote-pending-v1';
+  let freeState = { ready: false, remaining: null, used: 0 }, freeBusy = false, freeSelectedId = null;
+  let freeChannel;
+  try {
+    if (typeof BroadcastChannel === 'function') {
+      freeChannel = new BroadcastChannel('meu-free-votes-v1');
+      freeChannel.onmessage = () => { refreshFreeSession(); refreshResults(); };
+    }
+  } catch { /* The server still enforces the quota when cross-tab messages are unavailable. */ }
+  function readFreePending() {
+    try {
+      const value = JSON.parse(sessionStorage.getItem(freePendingKey) || 'null');
+      return value && byId.has(value.delegateId) && typeof value.requestId === 'string' ? value : null;
+    } catch { return null; }
+  }
+  function clearFreePending() { try { sessionStorage.removeItem(freePendingKey); } catch {} }
+  function applyFreeAllowance(data) {
+    if (data.limit !== 3 || !Number.isInteger(data.used) || data.used < 0 || data.used > 3 ||
+      data.remaining !== 3 - data.used || data.mode !== config.mode || typeof data.acceptingFreeVotes !== 'boolean')
+      throw new Error('The free-vote allowance could not be checked. Please reload this page.');
+    freeState = { ready: true, used: data.used, remaining: data.remaining };
+    config.acceptingFreeVotes = data.acceptingFreeVotes;
+    updateFreeControls();
+  }
+  function updateFreeControls() {
+    const locked = freeState.ready && freeState.remaining === 0;
+    const available = freeState.ready && config.acceptingFreeVotes && !locked;
+    freeButtons.forEach(button => {
+      button.disabled = freeBusy || !available;
+      button.textContent = locked ? 'FREE LOCKED' : 'VOTE FREE';
+      const country = byId.get(button.dataset.freeVoteFor)?.dataset.country || '';
+      button.setAttribute('aria-label', locked ? 'All 3 free votes used in this browser' : `Use 1 free vote for ${country}`);
+      button.title = locked ? 'All 3 free votes have been used in this browser.' :
+        available ? `${freeState.remaining} of 3 free votes remaining across all delegates.` : 'Free voting opens soon.';
+    });
+    $('free-vote-quota').textContent = locked ? 'All 3 free votes used · Free voting locked' :
+      available ? `${freeState.remaining} of 3 free votes remaining` :
+        freeState.ready ? 'Free voting is currently closed' : apiBase ? 'Checking free-vote availability…' : 'Free voting opens soon';
+    $('free-vote-banner').dataset.state = locked ? 'locked' : available ? 'open' : 'closed';
+    const votingOpen = config.acceptingVotes || config.acceptingFreeVotes;
+    $('paid-voting-status').textContent = votingOpen ? config.mode === 'sandbox' ? 'Sandbox preview — no real payments' :
+      config.acceptingVotes ? 'Voting is open' : 'Free voting is open · Paid voting opens soon' : 'Voting opens soon';
+    $('paid-voting-status').dataset.state = votingOpen ? 'open' : 'closed';
+    $('free-vote-remaining').textContent = freeState.ready ? `${freeState.remaining} of 3 free votes remaining in this browser.` : 'Checking your free votes…';
+    const pending = readFreePending();
+    const retry = pending && pending.delegateId === freeSelectedId;
+    $('free-vote-confirm').disabled = freeBusy || !(available || retry);
+    $('free-vote-confirm').textContent = freeBusy ? 'Confirming your free vote…' : retry ? 'Check / retry this free vote' : locked ? 'Free voting locked' : 'Confirm 1 free vote';
+    $('free-vote-close').disabled = freeBusy;
+  }
+  async function refreshFreeSession() {
+    if (!apiBase) { updateFreeControls(); return; }
+    try { applyFreeAllowance(await api('/free/session')); }
+    catch {
+      freeState.ready = false; updateFreeControls();
+      $('free-vote-quota').textContent = 'Free voting is temporarily unavailable';
+    }
+  }
+  function openFreeVote(id) {
+    if (freeBusy || !freeState.ready || !config.acceptingFreeVotes || freeState.remaining < 1) return;
+    const pending = readFreePending();
+    freeSelectedId = pending ? pending.delegateId : id;
+    const card = byId.get(freeSelectedId); if (!card) return;
+    const image = originals.get(freeSelectedId);
+    $('free-choice-country').textContent = card.dataset.country;
+    $('free-choice-image').src = image.src; $('free-choice-image').alt = image.alt;
+    $('free-vote-feedback').textContent = pending ?
+      'Your previous free vote needs confirmation. Check it before choosing another delegate; a retry cannot add the same vote twice.' :
+      `Confirm 1 free vote for ${card.dataset.country}. No payment is required.${config.mode === 'sandbox' ? ' This is a test vote.' : ''}`;
+    updateFreeControls();
+    if (freeDialog.showModal) { freeDialog.showModal(); $('free-vote-close').focus(); }
+    else { freeDialog.setAttribute('open', ''); freeDialog.scrollIntoView({ block: 'center' }); }
+  }
+  freeButtons.forEach(button => button.addEventListener('click', () => openFreeVote(button.dataset.freeVoteFor)));
+  $('free-vote-close').addEventListener('click', () => {
+    if (!freeBusy) { if (freeDialog.close) freeDialog.close(); else freeDialog.removeAttribute('open'); }
+  });
+  freeDialog.addEventListener('cancel', event => { if (freeBusy) event.preventDefault(); });
+  async function confirmFreeVote(pending) {
+    if (freeBusy || !pending || !byId.has(pending.delegateId)) return;
+    freeBusy = true; updateFreeControls();
+    try {
+      const data = await post('/free/votes', pending);
+      if (data.requestId !== pending.requestId || data.delegateId !== pending.delegateId || data.creditedVotes !== 1)
+        throw new Error('Your free vote could not be confirmed. Please retry this vote.');
+      applyFreeAllowance(data); clearFreePending();
+      const country = byId.get(pending.delegateId).dataset.country;
+      const message = `1 free vote confirmed for ${country}. ${data.remaining ? `${data.remaining} of 3 free votes remaining.` : 'All 3 free votes used. Free voting is now locked in this browser.'}`;
+      $('free-vote-feedback').textContent = message; notify(message);
+      if (freeDialog.close) freeDialog.close(); else freeDialog.removeAttribute('open');
+      try { freeChannel?.postMessage({ updated: true }); } catch {}
+      await refreshResults();
+    } catch (error) {
+      const definitive = error.status >= 400 && error.status < 500 && error.status !== 429;
+      if (definitive) clearFreePending();
+      const message = definitive ? error.message : 'We could not confirm the result yet. Check / retry this same free vote; it will only count once.';
+      $('free-vote-feedback').textContent = message; notify(message);
+      await refreshFreeSession(); await refreshResults();
+    } finally { freeBusy = false; updateFreeControls(); }
+  }
+  $('free-vote-form').addEventListener('submit', async event => {
+    event.preventDefault();
+    let pending = readFreePending();
+    if (freeBusy || !freeSelectedId || (!pending && (!freeState.ready || !config.acceptingFreeVotes || freeState.remaining < 1))) return;
+    if (!pending) {
+      pending = { requestId: crypto.randomUUID(), delegateId: freeSelectedId };
+      try {
+        sessionStorage.setItem(freePendingKey, JSON.stringify(pending));
+        if (readFreePending()?.requestId !== pending.requestId) throw new Error('Storage unavailable');
+      } catch {
+        $('free-vote-feedback').textContent = 'Please allow browser storage and reload this page before voting.';
+        return;
+      }
+    }
+    await confirmFreeVote(pending);
+  });
+  document.addEventListener('visibilitychange', async () => {
+    if (!document.hidden) await Promise.all([refreshFreeSession(), refreshResults()]);
+  });
+
   function ordered() {
     return cards.slice().sort((a, b) => {
       const av = results.get(a.dataset.delegateId)?.votes || 0, bv = results.get(b.dataset.delegateId)?.votes || 0;
@@ -1519,7 +1679,7 @@ footer{background:#041710;border-top-color:var(--meu-line)}
         img.hidden = !card; placeholder.hidden = Boolean(card);
         slot.querySelector('.paid-leader-rank').textContent = card ? `RANK ${records.get(card.dataset.delegateId).rank}` : `TOP ${index + 1}`;
         slot.querySelector('.paid-leader-country').textContent = card ? card.dataset.country : 'Awaiting votes';
-        slot.querySelector('.paid-leader-votes').textContent = card ? `${integer(records.get(card.dataset.delegateId).votes)} confirmed votes` : 'Standings appear after confirmed payments.';
+        slot.querySelector('.paid-leader-votes').textContent = card ? `${integer(records.get(card.dataset.delegateId).votes)} confirmed votes` : 'Standings appear after confirmed votes.';
         if (card) { img.src = originals.get(card.dataset.delegateId).src; img.alt = `${card.dataset.country} — Miss Elite Universe 2027`; }
       });
       $('paid-total-votes').textContent = `${integer(total)} confirmed votes`;
@@ -1586,12 +1746,12 @@ footer{background:#041710;border-top-color:var(--meu-line)}
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); showPortrait(activePortrait + (event.key === 'ArrowRight' ? 1 : -1)); }
   });
   async function start() {
-    filterAndSort(); updateCheckout();
+    filterAndSort(); updateCheckout(); updateFreeControls();
     if (!apiBase) return;
     try {
       const data = await api('/config');
       if (data.currency !== 'USD' || data.unitAmountCents !== 100 || !['live', 'sandbox'].includes(data.mode)) throw new Error('Invalid voting configuration.');
-      config = { acceptingVotes: Boolean(data.acceptingVotes), mode: data.mode, maxQuantity: Math.min(1000, Number(data.maxQuantity) || 1000) };
+      config = { acceptingVotes: Boolean(data.acceptingVotes), acceptingFreeVotes: data.acceptingFreeVotes === true && data.freeVoteLimit === 3, mode: data.mode, maxQuantity: Math.min(1000, Number(data.maxQuantity) || 1000) };
       $('paid-voting-status').textContent = config.acceptingVotes ? config.mode === 'live' ? 'Voting is open' : 'Sandbox preview — no real payments' : 'Voting opens soon';
       $('paid-voting-status').dataset.state = config.acceptingVotes ? 'open' : 'closed';
       updateCheckout();
@@ -1605,7 +1765,10 @@ footer{background:#041710;border-top-color:var(--meu-line)}
       } else if (pending?.paypalOrderId) notify('You have a previous checkout to check. Confirm its status before starting another payment.', true);
     } catch { $('paid-voting-status').textContent = 'Voting is temporarily unavailable'; }
     await refreshResults();
-    setInterval(() => { if (!document.hidden) refreshResults(); }, 30000);
+    await refreshFreeSession();
+    const pendingFree = readFreePending();
+    if (pendingFree && freeState.ready) await confirmFreeVote(pendingFree);
+    setInterval(() => { if (!document.hidden) { refreshResults(); refreshFreeSession(); } }, 30000);
   }
   start();
 })();
