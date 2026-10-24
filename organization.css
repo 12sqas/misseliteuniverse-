@@ -1,4 +1,4 @@
-/* The organization page shares the site's existing masthead and mobile menu. */
+/* Information pages share the site's existing masthead and mobile menu. */
 @media (min-width: 801px) {
   .meu-header .meu-primary-nav {
     max-width: 1440px;
@@ -17,18 +17,18 @@
 
 @media (min-width: 801px) and (max-width: 1100px) {
   .meu-header .meu-primary-nav {
-    gap: 10px;
-    padding-right: 18px;
-    padding-left: 18px;
+    gap: 8px;
+    padding-right: 14px;
+    padding-left: 14px;
   }
 
   .meu-header .meu-primary-nav a {
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: .1px;
   }
 
   .meu-header .meu-primary-nav a.meu-organization-link {
-    max-width: 155px;
+    max-width: 145px;
   }
 }
 
@@ -41,6 +41,10 @@
 }
 
 .meu-organization-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
   margin: 24px 0 0;
   line-height: 1.6;
 }
@@ -173,6 +177,26 @@
   margin-bottom: 0;
 }
 
+.organization-section ul {
+  max-width: 820px;
+  margin: 0 0 22px;
+  padding-left: 24px;
+}
+
+.organization-section li {
+  margin: 6px 0;
+  padding-left: 4px;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.organization-section .press-confirmation {
+  margin-top: 26px;
+  color: #bdcbbd;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
 .organization-section strong {
   color: #f3e7c7;
 }
@@ -243,7 +267,8 @@
     padding: 28px 0;
   }
 
-  .organization-section p {
+  .organization-section p,
+  .organization-section li {
     font-size: 15px;
     line-height: 1.8;
   }
