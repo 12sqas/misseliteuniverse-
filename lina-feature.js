@@ -19,9 +19,9 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
     section.className='meu-beauty-section';
     section.setAttribute('aria-labelledby','meu-beauty-title');
     const partners=[
-      {name:'Elite Glow',image:'images/sponsors/elite-glow.png'},
-      {name:'Lumina Cosmetics',image:'images/sponsors/lumina-cosmetics.png'},
-      {name:'Aura Beauty',image:'images/sponsors/aura-beauty.png'}
+      {name:'Elite Glow',image:'images/elite-glow.png'},
+      {name:'Lumina Cosmetics',image:'images/lumina-cosmetics.png'},
+      {name:'Aura Beauty',image:'images/aura-beauty.png'}
     ];
     const title=document.createElement('div');title.className='meu-beauty-heading';
     title.innerHTML='<p class="meu-beauty-eyebrow">MISS ELITE UNIVERSE 2027 · OFFICIAL PARTNERS</p><h2 id="meu-beauty-title">Beauty &amp; Skincare</h2><p class="meu-beauty-intro">Celebrating beauty, confidence and the art of self-care.</p>';
