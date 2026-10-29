@@ -150,3 +150,176 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
   else install();
 })();
+
+
+/* Compact sponsorship directory + George Wittels crown sponsor — 2027 */
+(()=>{
+  'use strict';
+  function install(){
+    if(document.getElementById('meu-crown-sponsor'))return;
+    const footer=document.querySelector('footer:last-of-type')||document.querySelector('footer');
+    const media=document.getElementById('meu-media-partners');
+    const beauty=document.getElementById('beauty-skincare-partners');
+    const main=document.querySelector('main');
+    const section=document.createElement('section');
+    section.id='meu-crown-sponsor';
+    section.className='meu-crown-section';
+    section.setAttribute('aria-labelledby','meu-crown-title');
+
+    const heading=document.createElement('div');
+    heading.className='meu-crown-heading';
+    heading.innerHTML='<p class="meu-crown-eyebrow">MISS ELITE UNIVERSE 2027 · OFFICIAL PARTNER</p><h2 id="meu-crown-title">Official Crown Sponsor</h2>';
+    const card=document.createElement('div');card.className='meu-crown-card';
+    const logoWrap=document.createElement('div');logoWrap.className='meu-crown-logo';
+    const logo=document.createElement('img');
+    logo.src='images/george-wittels-crown.webp';
+    logo.alt='George Wittels — official crown sponsor logo';
+    logo.width=700;logo.height=315;
+    logo.loading='lazy';logo.decoding='async';
+    logo.addEventListener('error',()=>{logo.hidden=true;logoWrap.classList.add('meu-crown-image-missing')},{once:true});
+    logoWrap.appendChild(logo);
+    const info=document.createElement('div');info.className='meu-crown-info';
+    const name=document.createElement('h3');name.textContent='George Wittels';
+    const desc=document.createElement('p');desc.textContent='Crown Sponsor · Miss Elite Universe 2027';
+    info.append(name,desc);
+    card.append(logoWrap,info);
+    section.append(heading,card);
+    if(media && media.parentNode)media.insertAdjacentElement('afterend',section);
+    else if(beauty && beauty.parentNode)beauty.insertAdjacentElement('afterend',section);
+    else if(footer && footer.parentNode)footer.parentNode.insertBefore(section,footer);
+    else if(main)main.appendChild(section);
+    else document.body.appendChild(section);
+
+    if(!document.getElementById('meu-sponsor-compact-styles')){
+      const style=document.createElement('style');
+      style.id='meu-sponsor-compact-styles';
+      style.textContent=String.raw`
+      /* Three consistent, compact sponsorship categories */
+      .meu-beauty-section,.meu-media-section,.meu-crown-section {
+        padding:34px max(20px,4vw) 38px!important;
+        background:#081f1a!important;
+        border-top:1px solid rgba(219,182,112,.24)!important;
+        border-bottom:0!important;
+        color:#f2e8d3;
+        font-family:Arial,Helvetica,sans-serif;
+      }
+      .meu-beauty-heading,.meu-media-heading,.meu-crown-heading {
+        max-width:950px!important;
+        text-align:center!important;
+        margin:0 auto 17px!important;
+      }
+      .meu-beauty-eyebrow,.meu-media-eyebrow,.meu-crown-eyebrow {
+        font:600 9px/1.5 Arial,Helvetica,sans-serif!important;
+        letter-spacing:2.1px!important;
+        color:#cbb378!important;
+        margin:0 0 7px!important;
+      }
+      .meu-beauty-heading h2,.meu-media-heading h2,.meu-crown-heading h2 {
+        color:#ebd6a1!important;
+        font:400 clamp(23px,2.6vw,32px)/1.25 Georgia,'Times New Roman',serif!important;
+        letter-spacing:.2px!important;
+        margin:0!important;
+        text-transform:none!important;
+      }
+      .meu-beauty-intro,.meu-media-intro {display:none!important;}
+      .meu-beauty-grid,.meu-media-grid {
+        max-width:900px!important;
+        width:100%!important;
+        display:grid!important;
+        grid-template-columns:repeat(3,minmax(0,1fr))!important;
+        gap:13px!important;
+      }
+      .meu-beauty-card,.meu-media-card {
+        min-height:148px!important;
+        padding:13px 10px!important;
+        gap:7px!important;
+        border:1px solid rgba(210,181,124,.24)!important;
+        border-radius:8px!important;
+        background:rgba(255,255,255,.025)!important;
+        box-shadow:none!important;
+      }
+      .meu-beauty-visual,.meu-media-visual {
+        flex:0 0 auto!important;
+        width:100%!important;
+        height:93px!important;
+        min-height:93px!important;
+        display:flex!important;
+        justify-content:center!important;
+        align-items:center!important;
+        overflow:hidden!important;
+        border-radius:5px!important;
+      }
+      .meu-beauty-visual {background:transparent!important;}
+      .meu-media-visual {background:#f5f5f3!important;}
+      .meu-beauty-visual img,.meu-media-visual img {
+        display:block;
+        width:auto!important;
+        max-width:100%!important;
+        height:auto!important;
+        max-height:90px!important;
+        object-fit:contain!important;
+      }
+      .meu-beauty-visual img[hidden],.meu-media-visual img[hidden]{display:none!important}
+      .meu-beauty-card h3,.meu-media-card h3 {
+        font:400 13px/1.4 Georgia,'Times New Roman',serif!important;
+        color:#e5d6b7!important;
+        letter-spacing:0!important;
+        margin:0!important;
+        text-align:center!important;
+      }
+      .meu-crown-section *{box-sizing:border-box}
+      .meu-crown-card {
+        max-width:900px;
+        margin:0 auto;
+        min-height:134px;
+        display:grid;
+        grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+        gap:20px;
+        align-items:center;
+        padding:15px 24px;
+        border:1px solid rgba(210,181,124,.28);
+        border-radius:8px;
+        background:rgba(255,255,255,.025);
+      }
+      .meu-crown-logo {
+        min-height:104px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        overflow:hidden;
+        border-radius:5px;
+        background:#101519;
+      }
+      .meu-crown-logo img {
+        display:block;
+        width:100%;
+        height:auto;
+        max-width:330px;
+        max-height:100px;
+        object-fit:contain;
+      }
+      .meu-crown-logo img[hidden]{display:none!important}
+      .meu-crown-image-missing:after{content:'George Wittels';color:#fff;font:italic 27px Georgia,serif}
+      .meu-crown-info{text-align:left}
+      .meu-crown-info h3{margin:0 0 7px;color:#efdbb2;font:400 clamp(20px,2.3vw,27px)/1.25 Georgia,serif}
+      .meu-crown-info p{margin:0;font:11px/1.5 Arial,sans-serif;letter-spacing:1px;color:#c8c6bb}
+      @media(max-width:650px){
+        .meu-beauty-section,.meu-media-section,.meu-crown-section{padding:26px 12px 30px!important}
+        .meu-beauty-grid,.meu-media-grid{gap:7px!important}
+        .meu-beauty-card,.meu-media-card{min-height:112px!important;padding:8px 5px!important;gap:5px!important}
+        .meu-beauty-visual,.meu-media-visual{height:68px!important;min-height:68px!important}
+        .meu-beauty-visual img,.meu-media-visual img{max-height:66px!important}
+        .meu-beauty-card h3,.meu-media-card h3{font-size:10px!important;line-height:1.25!important}
+        .meu-beauty-heading h2,.meu-media-heading h2,.meu-crown-heading h2{font-size:24px!important}
+        .meu-crown-card{min-height:0;gap:8px;padding:10px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+        .meu-crown-logo{min-height:77px}.meu-crown-logo img{max-height:74px}
+        .meu-crown-info h3{font-size:18px}
+        .meu-crown-info p{font-size:9px;letter-spacing:.2px}
+      }
+      `;
+      document.head.appendChild(style);
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
