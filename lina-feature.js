@@ -61,3 +61,92 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
   else install();
 })();
+
+/* Media Partners — Miss Elite Universe 2027 */
+(()=>{
+  'use strict';
+  const sectionId='meu-media-partners';
+  const install=()=>{
+    if(document.getElementById(sectionId))return;
+    const section=document.createElement('section');
+    section.id=sectionId;
+    section.className='meu-media-section';
+    section.setAttribute('aria-labelledby','meu-media-title');
+
+    const heading=document.createElement('div');
+    heading.className='meu-media-heading';
+    const eyebrow=document.createElement('p');
+    eyebrow.className='meu-media-eyebrow';
+    eyebrow.textContent='MISS ELITE UNIVERSE 2027 · OFFICIAL PARTNERS';
+    const title=document.createElement('h2');
+    title.id='meu-media-title';
+    title.textContent='Media Partners';
+    const intro=document.createElement('p');
+    intro.className='meu-media-intro';
+    intro.textContent='Connecting stories, celebrating voices, and sharing the Miss Elite Universe journey with the world.';
+    heading.append(eyebrow,title,intro);
+    section.appendChild(heading);
+
+    const logos=[
+      {name:'FOX',image:'images/media-fox.jpg'},
+      {name:'SHARED.MEDIA',image:'images/media-shared.png'},
+      {name:'Khang Việt Media',image:'images/media-khang-viet.jpg'}
+    ];
+    const grid=document.createElement('div');
+    grid.className='meu-media-grid';
+    for(const partner of logos){
+      const card=document.createElement('article');
+      card.className='meu-media-card';
+      const imageBox=document.createElement('div');
+      imageBox.className='meu-media-visual';
+      const img=document.createElement('img');
+      img.src=partner.image;
+      img.alt=partner.name+' logo';
+      img.loading='lazy';
+      img.decoding='async';
+      img.width=500;
+      img.height=500;
+      img.addEventListener('error',()=>{
+        img.hidden=true;
+        imageBox.classList.add('meu-media-image-missing');
+      },{once:true});
+      imageBox.appendChild(img);
+      const brand=document.createElement('h3');
+      brand.textContent=partner.name;
+      card.append(imageBox,brand);
+      grid.appendChild(card);
+    }
+    section.appendChild(grid);
+    if(!document.getElementById('meu-media-styles')){
+      const style=document.createElement('style');
+      style.id='meu-media-styles';
+      style.textContent=String.raw`
+        .meu-media-section{position:relative;padding:80px max(24px,5vw) 96px;background:radial-gradient(ellipse at 50% 0,#163a31 0%,#071e18 58%,#061711 100%);color:#f9f1dd;border-top:1px solid rgba(221,181,103,.45);border-bottom:1px solid rgba(221,181,103,.4);font-family:Arial,Helvetica,sans-serif}
+        .meu-media-section *{box-sizing:border-box}
+        .meu-media-heading{max-width:840px;margin:0 auto 37px;text-align:center}
+        .meu-media-eyebrow{margin:0 0 13px;color:#ddbc77;font-size:11px;font-weight:600;letter-spacing:2.8px;text-transform:uppercase}
+        .meu-media-heading h2{margin:0;color:#f0d79a;font:400 clamp(34px,4vw,56px)/1.2 Georgia,'Times New Roman',serif;letter-spacing:.7px;text-transform:none}
+        .meu-media-intro{color:#d6d8cc;font-size:14px;line-height:1.7;margin:15px 0 0}
+        .meu-media-grid{width:min(100%,1220px);margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+        .meu-media-card{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:17px;min-height:322px;padding:22px;background:linear-gradient(160deg,rgba(244,219,153,.07),rgba(255,255,255,.025));border:1px solid rgba(228,191,121,.46);border-radius:14px;text-align:center;box-shadow:0 18px 42px rgba(0,0,0,.18)}
+        .meu-media-visual{width:100%;height:226px;display:grid;place-items:center;overflow:hidden;border-radius:10px;background:#f7f6f2}
+        .meu-media-visual img{width:100%;height:100%;object-fit:contain}
+        .meu-media-card h3{margin:0;color:#e5d4a4;font:400 20px/1.35 Georgia,'Times New Roman',serif;letter-spacing:.4px}
+        .meu-media-image-missing:after{content:'LOGO COMING SOON';font-size:11px;letter-spacing:2px;color:#52645b}
+        @media(max-width:800px){.meu-media-section{padding:64px 18px}.meu-media-grid{gap:12px}.meu-media-card{padding:12px;min-height:238px}.meu-media-visual{height:160px}.meu-media-card h3{font-size:16px}}
+        @media(max-width:540px){.meu-media-grid{grid-template-columns:1fr;gap:16px;max-width:340px}.meu-media-card{min-height:240px}.meu-media-visual{height:178px}}
+      `;
+      document.head.appendChild(style);
+    }
+
+    const beauty=document.getElementById('beauty-skincare-partners');
+    const footer=document.querySelector('footer:last-of-type') || document.querySelector('footer');
+    const main=document.querySelector('main');
+    if(beauty && beauty.parentNode)beauty.insertAdjacentElement('afterend',section);
+    else if(footer && footer.parentNode)footer.parentNode.insertBefore(section,footer);
+    else if(main)main.appendChild(section);
+    else document.body.appendChild(section);
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
