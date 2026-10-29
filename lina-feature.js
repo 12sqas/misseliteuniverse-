@@ -323,3 +323,106 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
   else install();
 })();
+
+
+/* MEU 2027 · Hospitality and transportation sponsors */
+(()=>{
+  'use strict';
+  const install=()=>{
+    if(document.getElementById('meu-hospitality-partners'))return;
+
+    const createSection=(id,title,logos,modifier)=>{
+      const section=document.createElement('section');
+      section.className='meu-logistics-section';
+      section.id=id;
+      section.setAttribute('aria-label',title);
+      const heading=document.createElement('div');
+      heading.className='meu-logistics-heading';
+      const eyebrow=document.createElement('p');
+      eyebrow.className='meu-logistics-eyebrow';
+      eyebrow.textContent='MISS ELITE UNIVERSE 2027 · OFFICIAL PARTNERS';
+      const headingText=document.createElement('h2');
+      headingText.textContent=title;
+      heading.append(eyebrow,headingText);
+      section.appendChild(heading);
+      const grid=document.createElement('div');
+      grid.className='meu-logistics-grid'+(modifier?' meu-logistics-grid--two':'');
+      for(const partner of logos){
+        const card=document.createElement('article');
+        card.className='meu-logistics-card';
+        const visual=document.createElement('div');
+        visual.className='meu-logistics-visual';
+        const img=document.createElement('img');
+        img.src=partner.image;
+        img.alt=partner.name+' logo';
+        img.width=180;
+        img.height=180;
+        img.loading='lazy';
+        img.decoding='async';
+        img.addEventListener('error',()=>{
+          img.hidden=true;
+          visual.classList.add('meu-logistics-image-missing');
+        },{once:true});
+        visual.appendChild(img);
+        const label=document.createElement('h3');
+        label.textContent=partner.name;
+        card.append(visual,label);
+        grid.appendChild(card);
+      }
+      section.appendChild(grid);
+      return section;
+    };
+
+    const hospitality=createSection(
+      'meu-hospitality-partners','Accommodation & Hotel Partners',[
+        {name:'Khum Dam Noen Resort',image:'images/partners-hotel-khum.webp'},
+        {name:'Agoda',image:'images/partners-hotel-agoda.webp'},
+        {name:'VIE Hotel Bangkok – MGallery',image:'images/partners-hotel-vie.webp'}
+      ],false
+    );
+    const travel=createSection(
+      'meu-transport-partners','Transportation Partners',[
+        {name:'OMODA',image:'images/partners-transport-omoda.webp'},
+        {name:'AirAsia',image:'images/partners-transport-airasia.webp'}
+      ],true
+    );
+
+    const anchor=document.getElementById('meu-crown-sponsor')||
+      document.getElementById('meu-media-partners')||
+      document.getElementById('beauty-skincare-partners');
+    const footer=document.querySelector('footer:last-of-type')||document.querySelector('footer');
+    if(anchor&&anchor.parentNode){
+      anchor.insertAdjacentElement('afterend',hospitality);
+      hospitality.insertAdjacentElement('afterend',travel);
+    }else if(footer&&footer.parentNode){
+      footer.parentNode.insertBefore(hospitality,footer);
+      footer.parentNode.insertBefore(travel,footer);
+    }else{
+      document.body.append(hospitality,travel);
+    }
+
+    if(!document.getElementById('meu-logistics-styles')){
+      const style=document.createElement('style');
+      style.id='meu-logistics-styles';
+      style.textContent=[
+        '.meu-logistics-section{box-sizing:border-box;padding:32px max(20px,4vw) 36px;background:#081f1a;border-top:1px solid rgba(219,182,112,.24);color:#f2e8d3;font-family:Arial,Helvetica,sans-serif;}',
+        '.meu-logistics-section *{box-sizing:border-box;}',
+        '.meu-logistics-heading{text-align:center;margin:0 auto 17px;max-width:950px;}',
+        '.meu-logistics-eyebrow{margin:0 0 7px;color:#cbb378;font:600 9px/1.5 Arial,Helvetica,sans-serif;letter-spacing:2.1px;}',
+        '.meu-logistics-heading h2{margin:0;color:#ebd6a1;font:400 clamp(23px,2.6vw,32px)/1.25 Georgia,serif;}',
+        '.meu-logistics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;width:min(100%,900px);margin:0 auto;}',
+        '.meu-logistics-grid--two{grid-template-columns:repeat(2,minmax(0,280px));justify-content:center;}',
+        '.meu-logistics-card{min-width:0;min-height:148px;padding:13px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;border:1px solid rgba(210,181,124,.24);border-radius:8px;background:rgba(255,255,255,.025);}',
+        '.meu-logistics-visual{width:100%;height:94px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:5px;background:#f7f7f6;}',
+        '.meu-logistics-visual img{display:block;height:90px;max-height:90px;max-width:100%;width:auto;object-fit:contain;}',
+        '.meu-logistics-visual img[hidden]{display:none!important;}',
+        '.meu-logistics-image-missing:after{content:"LOGO COMING SOON";font:10px Arial,sans-serif;color:#52645b;letter-spacing:1px;}',
+        '.meu-logistics-card h3{margin:0;color:#e5d6b7;font:400 13px/1.4 Georgia,serif;}',
+        '@media(max-width:650px){.meu-logistics-section{padding:26px 12px 30px;}.meu-logistics-heading h2{font-size:24px;}.meu-logistics-grid{gap:7px;}.meu-logistics-grid--two{grid-template-columns:repeat(2,minmax(0,170px));}.meu-logistics-card{min-height:112px;padding:8px 5px;gap:5px;}.meu-logistics-visual{height:68px;}.meu-logistics-visual img{height:66px;max-height:66px;}.meu-logistics-card h3{font-size:10px;line-height:1.25;}}'
+      ].join('\n');
+      document.head.appendChild(style);
+    }
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
