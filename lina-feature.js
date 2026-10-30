@@ -426,3 +426,6 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
   else install();
 })();
+
+/* Official 2027 selection format — separate maintainable module. */
+(()=>{const s=document.createElement('script');s.src='competition-format.js?v=20261030';s.async=true;document.head.appendChild(s);})();

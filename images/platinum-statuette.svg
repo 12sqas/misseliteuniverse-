@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 188" role="img" aria-labelledby="statue-title">
+<title id="statue-title">Platinum female pageant statuette with gold highlights</title>
+<defs>
+  <linearGradient id="silver" x1="0" x2="1" y1=".18" y2=".79"><stop stop-color="#717b86"/><stop offset=".14" stop-color="#fdfefd"/><stop offset=".31" stop-color="#b7bec6"/><stop offset=".50" stop-color="#ffffff"/><stop offset=".72" stop-color="#a1aab5"/><stop offset=".92" stop-color="#e6eaed"/><stop offset="1" stop-color="#5d6975"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8c6932"/><stop offset=".27" stop-color="#fff0b7"/><stop offset=".52" stop-color="#c7a263"/><stop offset=".75" stop-color="#fbe8a7"/><stop offset="1" stop-color="#8d6837"/></linearGradient>
+  <radialGradient id="skin" cx=".35" cy=".25" r=".84"><stop stop-color="#fff"/><stop offset=".48" stop-color="#e9edf1"/><stop offset=".79" stop-color="#b7bfc8"/><stop offset="1" stop-color="#6c7884"/></radialGradient>
+  <linearGradient id="base" x1="0" x2="1"><stop stop-color="#534a43"/><stop offset=".18" stop-color="#fff1c6"/><stop offset=".5" stop-color="#c1a164"/><stop offset=".78" stop-color="#f9e8b7"/><stop offset="1" stop-color="#554535"/></linearGradient>
+  <filter id="shadow" x="-45%" y="-25%" width="190%" height="170%"><feGaussianBlur stdDeviation="2.8"/></filter>
+</defs>
+<ellipse cx="52" cy="178" rx="34" ry="5" fill="#000" opacity=".32" filter="url(#shadow)"/>
+<g stroke-linejoin="round">
+  <path d="M42 65Q34 68 30 85L13 116q-4 6 1 9t9-6l20-31L40 112l-20 42q31 10 64 0l-20-42-3-24 20 31q5 7 9 3t0-9L73 84q-5-15-15-19Z" fill="url(#silver)" stroke="url(#gold)" stroke-width="1.5"/>
+  <path d="M47 63l-4 16 10 13 9-13-4-16" fill="url(#skin)" stroke="#c8a66a" stroke-width="1.4"/>
+  <path d="M45 83Q49 100 43 126L30 153q22 5 44 0L63 126q-7-29-2-43l-9 9Z" fill="url(#silver)" stroke="url(#gold)" stroke-width="1.2"/>
+  <path d="M50 90Q48 123 40 151" stroke="#fff" stroke-width="2.3" opacity=".72" fill="none"/>
+  <path d="M60 96l10 55" stroke="#8e9aa5" stroke-width="3" opacity=".45" fill="none"/>
+  <path d="M41 66Q37 53 40 41Q35 32 39 21Q45 11 55 13Q68 14 70 32Q73 43 64 63l-6 3" fill="url(#silver)" stroke="url(#gold)" stroke-width="1.1"/>
+  <ellipse cx="53" cy="38" rx="13" ry="19" fill="url(#skin)" stroke="#e0c485" stroke-width="1.1"/>
+  <path d="M40 28Q43 12 56 16Q70 18 66 38Q65 27 60 24Q48 30 40 28Z" fill="url(#gold)" stroke="#f9e9bf" stroke-width="1.2"/>
+  <path d="M49 54q5 4 10 0" stroke="#a2aab2" stroke-width="1" fill="none"/>
+  <path d="M43 62l10 10 9-10" stroke="url(#gold)" stroke-width="3" fill="none"/>
+  <path d="M42 107Q35 124 20 150M63 109q11 24 18 40" stroke="#f6e4b1" stroke-width="1.2" opacity=".7" fill="none"/>
+  <path d="M20 154h64l4 10H16Z" fill="url(#gold)" stroke="#7b643d" stroke-width="1"/>
+  <path d="M16 164h72v9H16Z" fill="url(#base)" stroke="#f5d998" stroke-width=".8"/>
+  <path d="M13 173h78v6H13Z" fill="url(#base)" stroke="#97794b" stroke-width=".8"/>
+  <path d="M33 176h38" stroke="#faf5e1" stroke-width="1.2"/>
+  <circle cx="53" cy="73" r="2.5" fill="#fff1bc"/>
+</g></svg>
