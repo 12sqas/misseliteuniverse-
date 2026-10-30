@@ -1,8 +1,47 @@
-/* Match the original Facebook/TikTok/Gmail circles in header AND footer. */
-.meu-social-icons-unified a[href]{width:33px!important;height:33px!important;min-width:33px!important;min-height:33px!important;max-width:33px!important;max-height:33px!important;padding:0!important;box-sizing:border-box!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 33px!important;border-radius:50%!important;vertical-align:middle!important;line-height:1!important}
-.meu-social-icons-unified .meu-instagram-icon-link{color:#d8b45a!important;border:1px solid rgba(216,180,90,.43)!important;background:transparent!important;text-decoration:none!important;overflow:visible!important}
-.meu-social-icons-unified .meu-instagram-icon-link svg{display:block!important;width:18px!important;height:18px!important;min-width:18px!important;max-width:18px!important;min-height:18px!important;max-height:18px!important;fill:none!important;stroke:currentColor!important}
-.meu-social-icons-unified .meu-instagram-icon-link svg circle:last-child{fill:currentColor!important;stroke:none!important}
-.meu-social-icons-unified .meu-instagram-icon-link:hover{border-color:#f4d899!important;color:#fff4d5!important;background:rgba(216,180,90,.12)!important}
-.meu-social-icons-unified .meu-instagram-icon-link:focus-visible{outline:2px solid #f4d899;outline-offset:3px}
-@media(max-width:600px){.meu-social-icons-unified a[href]{width:33px!important;height:33px!important;min-width:33px!important;min-height:33px!important;max-width:33px!important;max-height:33px!important;flex-basis:33px!important}}
+/* Keep the site's existing footer and header links untouched.
+   Only the new Instagram icon receives circular-icon dimensions. */
+a.meu-instagram-icon-link{
+  display:inline-flex!important;
+  box-sizing:border-box!important;
+  align-items:center!important;
+  justify-content:center!important;
+  vertical-align:middle!important;
+  width:33px!important;
+  min-width:33px!important;
+  max-width:33px!important;
+  height:33px!important;
+  min-height:33px!important;
+  max-height:33px!important;
+  flex:0 0 33px!important;
+  padding:0!important;
+  margin:0!important;
+  border-radius:50%!important;
+  border:1px solid rgba(216,180,90,.43)!important;
+  background:transparent!important;
+  color:#d8b45a!important;
+  text-decoration:none!important;
+  line-height:1!important;
+}
+a.meu-instagram-icon-link svg{
+  display:block!important;
+  box-sizing:border-box!important;
+  width:18px!important;
+  min-width:18px!important;
+  max-width:18px!important;
+  height:18px!important;
+  min-height:18px!important;
+  max-height:18px!important;
+  fill:none!important;
+  stroke:currentColor!important;
+}
+a.meu-instagram-icon-link svg circle:last-child{
+  fill:currentColor!important;
+  stroke:none!important;
+}
+a.meu-instagram-icon-link:hover{
+  color:#fff4d5!important;
+  background:rgba(216,180,90,.12)!important;
+  border-color:#f4d899!important;
+}
+a.meu-instagram-icon-link:focus-visible{outline:2px solid #f4d899;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){a.meu-instagram-icon-link{transition:none}}

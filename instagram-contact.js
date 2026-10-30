@@ -39,7 +39,7 @@
     const link=document.createElement('link');
     link.id='meu-ig-unified-styles';
     link.rel='stylesheet';
-    link.href='instagram-contact.css?v=20261030footer2';
+    link.href='instagram-contact.css?v=20261030footer3';
     document.head.appendChild(link);
   }
   function fixRow(group){
