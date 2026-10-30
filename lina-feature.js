@@ -431,4 +431,4 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
 (()=>{const s=document.createElement('script');s.src='competition-format.js?v=20261030gold';s.async=true;document.head.appendChild(s);})();
 
 /* Dedicated official Instagram contact link for the homepage. */
-(()=>{if(document.querySelector('script[data-meu-instagram]'))return;const s=document.createElement('script');s.src='instagram-contact.js?v=20261030footer3';s.dataset.meuInstagram='1';document.head.appendChild(s);})();
+(()=>{if(document.querySelector('script[data-meu-instagram]'))return;const s=document.createElement('script');s.src='instagram-contact.js?v=20261030icononly';s.dataset.meuInstagram='1';document.head.appendChild(s);})();
