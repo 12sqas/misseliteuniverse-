@@ -1,0 +1,9 @@
+/* VIE Bangkok Host Hotel: quiet cinematic video blending into emerald page background. */
+.meu-vie-video-host{width:100%!important;max-width:100%!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;overflow:visible!important}
+.meu-vie-ambient-stage{position:relative;isolation:isolate;display:grid;place-items:center;width:min(100%,900px);max-width:100%;margin:10px auto 26px;padding:12px 18px 16px;background:radial-gradient(ellipse 48% 70% at 50% 42%,rgba(197,153,66,.16),transparent 88%);border:0;box-shadow:none;overflow:visible}
+.meu-vie-ambient-stage::before{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:radial-gradient(ellipse 35% 62% at 50% 47%,rgba(221,187,101,.11),transparent 90%);filter:blur(15px)}
+.meu-vie-ambient-video{display:block!important;position:relative!important;width:min(100%,390px)!important;max-width:100%!important;height:auto!important;aspect-ratio:9/16!important;object-fit:cover!important;object-position:center!important;border:0!important;border-radius:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;filter:saturate(1.04) contrast(1.03);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 8%,#000 88%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 8%,#000 88%,transparent 100%)}
+.meu-vie-ambient-video::-webkit-media-controls{display:none!important}
+.meu-vie-ambient-video::-webkit-media-controls-enclosure{display:none!important}
+@media(max-width:600px){.meu-vie-ambient-stage{padding:0 8px 12px;margin:4px auto 17px}.meu-vie-ambient-video{width:min(100%,330px)!important}}
+@media(prefers-reduced-motion:reduce){.meu-vie-ambient-video{filter:none}}

@@ -432,3 +432,6 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
 
 /* Dedicated official Instagram contact link for the homepage. */
 (()=>{if(document.querySelector('script[data-meu-instagram]'))return;const s=document.createElement('script');s.src='instagram-contact.js?v=20261030icononly';s.dataset.meuInstagram='1';document.head.appendChild(s);})();
+
+/* Seamless VIE Bangkok video autoplay — separate lightweight module. */
+(()=>{if(document.querySelector('script[data-meu-vie-ambient]'))return;const s=document.createElement('script');s.src='vie-video-ambient.js?v=20261030';s.dataset.meuVieAmbient='1';document.head.appendChild(s);})();
