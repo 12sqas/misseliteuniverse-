@@ -92,7 +92,7 @@ function inject(){
   if(document.getElementById(SECTION_ID))return;
   const link=document.createElement('link');
   link.rel='stylesheet';
-  link.href='competition-format.css?v=20261030';
+  link.href='competition-format.css?v=20261030gold';
   document.head.appendChild(link);
   const section=document.createElement('section');
   section.id=SECTION_ID;

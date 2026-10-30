@@ -428,4 +428,4 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
 })();
 
 /* Official 2027 selection format — separate maintainable module. */
-(()=>{const s=document.createElement('script');s.src='competition-format.js?v=20261030';s.async=true;document.head.appendChild(s);})();
+(()=>{const s=document.createElement('script');s.src='competition-format.js?v=20261030gold';s.async=true;document.head.appendChild(s);})();
