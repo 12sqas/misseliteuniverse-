@@ -21,12 +21,12 @@ function statueSet(stage){
     const figure=document.createElement('div');
     figure.className='meu-cf-statue'+(stage.popular&&i===0?' meu-cf-statue--popular':'')+(stage.winner?' meu-cf-statue--winner':'');
     const img=document.createElement('img');
-    img.src='images/platinum-statuette.svg';
+    img.src='images/queen-gold-3d-2027.webp?v=20261030';
     img.alt='';
     img.loading='lazy';
     img.decoding='async';
-    img.width=104;
-    img.height=188;
+    img.width=114;
+    img.height=181;
     figure.appendChild(img);
     if(stage.popular&&i===0){
       const tag=document.createElement('span');

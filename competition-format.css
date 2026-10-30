@@ -31,9 +31,9 @@
 .meu-cf-statue{width:100%;max-width:63px;min-width:0;position:relative;display:flex;flex-direction:column;align-items:center;gap:5px}
 .meu-cf-statues--3 .meu-cf-statue{max-width:82px}
 .meu-cf-statues--1 .meu-cf-statue{max-width:118px}
-.meu-cf-statue img{display:block;width:100%;height:auto;filter:drop-shadow(0 3px 4px #0009) drop-shadow(0 0 7px #e1cf9a2b)}
-.meu-cf-statue--popular img{filter:sepia(.5) saturate(1.3) drop-shadow(0 0 9px #ebca67b5)}
-.meu-cf-statue--winner img{filter:drop-shadow(0 0 15px #f2d591a8) drop-shadow(0 5px 4px #000)}
+.meu-cf-statue img{display:block;width:100%;height:auto;filter:drop-shadow(0 3px 4px #0009) drop-shadow(0 0 6px #ffdb875e)}
+.meu-cf-statue--popular img{filter:drop-shadow(0 0 11px #eecb78cc) brightness(1.12)}
+.meu-cf-statue--winner img{filter:drop-shadow(0 0 18px #f4d487c7) drop-shadow(0 5px 4px #000) brightness(1.08)}
 .meu-cf-statue-popular{font:bold 8px/1.15 Montserrat,Arial,sans-serif;letter-spacing:.04em;text-align:center;color:#fff0be;white-space:nowrap}
 .meu-cf-vote-note{display:flex;justify-content:center;align-items:center;gap:8px;color:#ecd396;font:600 11px/1.5 Montserrat,Arial,sans-serif;margin:3px auto 17px;text-align:center}
 .meu-cf-vote-note::before{content:"★";font-size:16px}
