@@ -1,93 +1,101 @@
-/* Miss Elite Universe — Instagram icon beside existing Facebook & TikTok icons. */
+/* Miss Elite Universe: matching Instagram icon in each existing social-icons row, including the bottom footer. */
 (()=>{
   'use strict';
-  const ACCOUNT='https://www.instagram.com/misseliteuniverse/';
-  const ICON_ID='meu-instagram-social-icon';
-  const OLD_CARD='meu-instagram-official-contact';
-  const svg='<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.7" y="2.7" width="18.6" height="18.6" rx="5.1"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.7" r="1.15" fill="currentColor" stroke="none"/></svg>';
-
-  function identify(el,network){
-    if(!el)return false;
-    const content=[el.getAttribute('href'),el.getAttribute('aria-label'),el.getAttribute('title'),el.className,el.querySelector('img')?.getAttribute('alt'),el.querySelector('img')?.getAttribute('src'),el.querySelector('i')?.className,el.querySelector('svg')?.outerHTML.slice(0,260)].filter(Boolean).join(' ').toLowerCase();
-    return network==='tiktok'?/tiktok/.test(content):/facebook|fb\.com|fa-facebook|lucide-facebook/.test(content);
+  const INSTAGRAM='https://www.instagram.com/misseliteuniverse/';
+  const ICON='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5"/><circle cx="12" cy="12" r="4.15"/><circle cx="17.5" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>';
+  function details(a){
+    const tags=[a.getAttribute('href'),a.getAttribute('title'),a.getAttribute('aria-label'),a.className,
+      a.querySelector('i')?.className,a.querySelector('img')?.alt,a.querySelector('img')?.src,
+      a.querySelector('svg')?.outerHTML.slice(0,200)].filter(Boolean);
+    return tags.join(' ').toLowerCase();
   }
-  function getCandidates(network){
-    return Array.from(document.querySelectorAll('a[href], a[aria-label], .social-icons a, .social-links a, .social-media a, a:has(i), a:has(svg)')).filter(a=>identify(a,network));
-  }
-  function findCommonContainer(first,second){
-    let at=first.parentElement;
-    for(let depth=0;at&&depth<7;depth++,at=at.parentElement){
-      if(!at.contains(second))continue;
-      const links=at.querySelectorAll('a').length;
-      if(links>1&&links<=12)return at;
+  function socialGroups(){
+    const links=Array.from(document.querySelectorAll('a[href],a[aria-label]'));
+    const tikTok=links.filter(a=>/tiktok/.test(details(a)));
+    const facebook=links.filter(a=>/facebook|fb\.com|fa-facebook|lucide-facebook/.test(details(a)));
+    const groups=new Set();
+    for(const tk of tikTok){
+      for(const fb of facebook){
+        let parent=tk.parentElement;
+        for(let depth=0;parent&&depth<8;depth++,parent=parent.parentElement){
+          if(!parent.contains(fb))continue;
+          const count=parent.querySelectorAll('a').length;
+          if(count>=2&&count<=7){groups.add(parent);break;}
+        }
+      }
     }
-    return null;
-  }
-  function findSocialGroup(){
-    const tikToks=getCandidates('tiktok');
-    const facebooks=getCandidates('facebook');
-    const options=[];
-    tikToks.forEach(tk=>facebooks.forEach(fb=>{
-      const parent=findCommonContainer(tk,fb);
-      if(!parent)return;
-      const styleHint=(parent.className||'')+' '+(parent.parentElement?.className||'');
-      const score=(/social|follow|icon|footer/i.test(styleHint)?30:0)+(tk.textContent.trim().length<=12?10:0)+(fb.textContent.trim().length<=12?10:0)
-        -parent.querySelectorAll('a').length;
-      options.push({parent,tikTok:tk,score});
-    }));
-    if(options.length){options.sort((a,b)=>b.score-a.score);return options[0]}
-    const groups=Array.from(document.querySelectorAll('.social-icons, .social-links, .social-media, .social-buttons, .footer-social, .footer-socials, .meu-social-icons, [class*="social-icons"], [class*="social-links"]'));
-    const matching=groups.filter(g=>g.querySelectorAll('a').length>=1 && g.querySelectorAll('a').length<=10);
-    if(matching.length){
-      const prioritized=matching.find(g=>Array.from(g.querySelectorAll('a')).some(a=>identify(a,'tiktok')))
-        ||matching.find(g=>Array.from(g.querySelectorAll('a')).some(a=>identify(a,'facebook')))
-        ||matching[0];
-      const sibling=Array.from(prioritized.querySelectorAll('a')).find(a=>identify(a,'tiktok'))||prioritized.querySelector('a:last-of-type');
-      return {parent:prioritized,tikTok:sibling,score:0};
+    // Preserve existing social rows even if they have only one detected social platform.
+    const known=Array.from(document.querySelectorAll('.social-icons,.social-links,.social-media,.footer-social,.footer-socials,[class*="social-icons"],[class*="social-links"]'));
+    for(const group of known){
+      const a=Array.from(group.querySelectorAll('a'));
+      if(a.length<2||a.length>7)continue;
+      if(a.some(x=>/facebook|tiktok/.test(details(x))))groups.add(group);
     }
-    return null;
+    // Prefer the closest matching social row for any nested group.
+    return Array.from(groups).filter(g=>!Array.from(groups).some(x=>x!==g&&g.contains(x)));
   }
-  function attach(){
-    document.getElementById(OLD_CARD)?.remove();
-    if(document.getElementById(ICON_ID))return true;
-    const match=findSocialGroup();
-    if(!match||!match.tikTok)return false;
-    const {parent,tikTok}=match;
-    if(parent.querySelector('a[href*="instagram.com/misseliteuniverse"]'))return true;
-
-    const link=document.createElement('a');
-    link.id=ICON_ID;
-    link.href=ACCOUNT;
-    link.target='_blank';
-    link.rel='noopener noreferrer';
-    link.title='Miss Elite Universe on Instagram';
-    link.setAttribute('aria-label','Instagram — Miss Elite Universe (@misseliteuniverse)');
-    link.className=Array.from(tikTok.classList).filter(c=>!/(tiktok|facebook|twitter|youtube|instagram|\btt\b)/i.test(c)).join(' ')+' meu-instagram-icon-link';
-    link.innerHTML=svg;
-    // If existing social icons are individually wrapped in <li>, preserve the row layout.
-    let target=tikTok;
-    if(tikTok.parentElement?.tagName==='LI' && tikTok.parentElement.parentElement===parent){
-      const wrapper=document.createElement('li');
-      wrapper.className=Array.from(tikTok.parentElement.classList).filter(c=>!/(tiktok|facebook|youtube)/i.test(c)).join(' ');
-      wrapper.appendChild(link);
-      target=tikTok.parentElement;
-      target.insertAdjacentElement('afterend',wrapper);
+  function ensureStyles(){
+    if(document.getElementById('meu-ig-unified-styles'))return;
+    const link=document.createElement('link');
+    link.id='meu-ig-unified-styles';
+    link.rel='stylesheet';
+    link.href='instagram-contact.css?v=20261030footer2';
+    document.head.appendChild(link);
+  }
+  function fixRow(group){
+    if(group.querySelectorAll('a').length>8)return false;
+    const anchors=Array.from(group.querySelectorAll('a'));
+    const tk=anchors.find(a=>/tiktok/.test(details(a)));
+    const fb=anchors.find(a=>/facebook|fb\.com|fa-facebook|lucide-facebook/.test(details(a)));
+    if(!tk&&!fb)return false;
+    const reference=tk||fb;
+    const existing=anchors.find(a=>/instagram\.com\/misseliteuniverse/i.test(a.href));
+    group.classList.add('meu-social-icons-unified');
+    if(existing){
+      existing.classList.add('meu-instagram-icon-link');
+      existing.title='Instagram – Miss Elite Universe';
+      existing.setAttribute('aria-label','Instagram – Miss Elite Universe (@misseliteuniverse)');
+      return true;
+    }
+    const icon=document.createElement('a');
+    icon.className=Array.from(reference.classList).filter(x=>!/tiktok|facebook|twitter|youtube|instagram/i.test(x)).join(' ')+' meu-instagram-icon-link';
+    icon.setAttribute('href',INSTAGRAM);
+    icon.setAttribute('target','_blank');
+    icon.setAttribute('rel','noopener noreferrer');
+    icon.setAttribute('title','Instagram – Miss Elite Universe');
+    icon.setAttribute('aria-label','Instagram – Miss Elite Universe (@misseliteuniverse)');
+    icon.innerHTML=ICON;
+    const maybeLI=reference.parentElement?.tagName==='LI'&&reference.parentElement.parentElement===group;
+    if(maybeLI){
+      const li=document.createElement('li');
+      li.className=Array.from(reference.parentElement.classList).filter(x=>!/tiktok|facebook/i.test(x)).join(' ');
+      li.appendChild(icon);
+      reference.parentElement.insertAdjacentElement('afterend',li);
     }else{
-      target.insertAdjacentElement('afterend',link);
+      reference.insertAdjacentElement('afterend',icon);
     }
-    const style=document.createElement('link');
-    style.rel='stylesheet';
-    style.href='instagram-contact.css?v=20261030social';
-    document.head.appendChild(style);
     return true;
   }
-
   function install(){
-    if(attach())return;
-    // Retry for icon rows that are inserted by the site's own scripts.
-    let count=0;
-    const timer=setInterval(()=>{count++;if(attach()||count>=12)clearInterval(timer)},350);
+    // Clean up the old large standalone Instagram card and the oversized previous header icon.
+    document.getElementById('meu-instagram-official-contact')?.remove();
+    document.getElementById('meu-instagram-social-icon')?.remove();
+    const groups=socialGroups();
+    if(!groups.length)return false;
+    ensureStyles();
+    let applied=false;
+    groups.forEach(group=>{applied=fixRow(group)||applied;});
+    return applied;
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
-  else install();
+  function boot(){
+    install();
+    let attempts=0;
+    const repeat=setInterval(()=>{
+      attempts++;
+      install();
+      if(attempts>=16)clearInterval(repeat);
+    },500);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});
+  else boot();
 })();
