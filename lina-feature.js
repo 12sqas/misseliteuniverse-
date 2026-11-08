@@ -435,3 +435,59 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
 
 /* Seamless VIE Bangkok video autoplay — separate lightweight module. */
 (()=>{if(document.querySelector('script[data-meu-vie-ambient]'))return;const s=document.createElement('script');s.src='vie-video-ambient.js?v=20261030';s.dataset.meuVieAmbient='1';document.head.appendChild(s);})();
+
+/* Official logo identity press announcement — homepage entry. */
+(()=>{
+  const install=()=>{
+    if(document.getElementById('meu-official-logo-announcement'))return;
+    const homeHero=document.querySelector('section.hero.hero-banner,section.hero,.hero-section,#hero,#home,.homepage-banner,header.hero,main > section:first-of-type');
+    if(!homeHero)return;
+    const section=document.createElement('section');
+    section.id='meu-official-logo-announcement';
+    section.setAttribute('aria-labelledby','meu-logo-announcement-title');
+    section.style.cssText='background:#fff;color:#242424;padding:clamp(40px,6vw,72px) 18px;border-bottom:1px solid #e4ded4;text-align:center;';
+    const wrapper=document.createElement('div');
+    wrapper.style.cssText='max-width:980px;margin:0 auto;';
+    const eyebrow=document.createElement('p');
+    eyebrow.textContent='MISS ELITE UNIVERSE ORGANIZATION · OFFICIAL PRESS ANNOUNCEMENT';
+    eyebrow.style.cssText='font:700 11px/1.7 Arial,sans-serif;letter-spacing:.17em;color:#71542e;margin:0 0 14px;';
+    const title=document.createElement('h2');
+    title.id='meu-logo-announcement-title';
+    title.textContent='THÔNG BÁO NHẬN DIỆN LOGO CUỘC THI CHÍNH THỨC';
+    title.style.cssText='font:700 clamp(24px,4.2vw,43px)/1.3 Georgia,serif;color:#252525;margin:0 0 14px;';
+    const sub=document.createElement('p');
+    sub.textContent='Official Competition Brand Identity Announcement';
+    sub.style.cssText='font:400 clamp(15px,2vw,19px)/1.65 Georgia,serif;color:#494039;margin:0 0 23px;';
+    const visual=document.createElement('a');
+    visual.href='/official-logo-announcement.html';
+    visual.setAttribute('aria-label','Read the official logo brand identity announcement');
+    visual.style.cssText='display:flex;align-items:center;justify-content:center;gap:clamp(10px,4vw,45px);max-width:660px;margin:0 auto 22px;text-decoration:none;padding:24px;background:#fff;border:1px solid #e2d6c4;border-radius:6px;';
+    const oldLogo=document.createElement('img');
+    oldLogo.src='/images/logo-square.jpg';
+    oldLogo.alt='Previous Miss Elite Universe logo';
+    oldLogo.loading='lazy';
+    oldLogo.style.cssText='display:block;width:35%;max-height:175px;object-fit:contain;';
+    const arrow=document.createElement('span');
+    arrow.textContent='→';
+    arrow.setAttribute('aria-hidden','true');
+    arrow.style.cssText='font:400 clamp(25px,6vw,57px) Georgia,serif;color:#9e7840;';
+    const newLogo=document.createElement('img');
+    newLogo.src='/images/meu-gold-sharp-2027.svg';
+    newLogo.alt='New official Miss Elite Universe gold logo';
+    newLogo.loading='lazy';
+    newLogo.style.cssText='display:block;width:46%;max-height:175px;object-fit:contain;';
+    visual.append(oldLogo,arrow,newLogo);
+    const desc=document.createElement('p');
+    desc.textContent='Miss Elite Universe Organization officially announces its updated brand identity and reaffirms its commitment to transparency and professional communication.';
+    desc.style.cssText='max-width:720px;margin:0 auto 22px;font:400 15px/1.8 Arial,sans-serif;color:#333;';
+    const link=document.createElement('a');
+    link.href='/official-logo-announcement.html';
+    link.textContent='READ THE OFFICIAL ANNOUNCEMENT';
+    link.style.cssText='display:inline-block;padding:13px 25px;border:1px solid #746043;border-radius:3px;background:#fff;color:#222;text-decoration:none;font:700 12px/1.5 Arial,sans-serif;letter-spacing:.07em;';
+    wrapper.append(eyebrow,title,sub,visual,desc,link);
+    section.appendChild(wrapper);
+    homeHero.insertAdjacentElement('afterend',section);
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
