@@ -1,0 +1,62 @@
+/* Miss Elite Universe: Thailand 2027 home hero, replacing the previous logo/text masthead.
+   Animated border uses CSS so the image itself stays crisp and stationary. */
+html body section.hero.hero-banner.meu-thailand-hero{
+  display:block!important;
+  width:100%!important;max-width:100%!important;
+  min-height:0!important;height:auto!important;
+  margin:0!important;padding:0!important;
+  background:#fff!important;background-image:none!important;
+  border:0!important;border-bottom:1px solid #e5d4aa!important;
+  overflow:visible!important;position:relative!important;
+}
+html body section.hero.hero-banner.meu-thailand-hero::before,
+html body section.hero.hero-banner.meu-thailand-hero::after{
+  display:none!important;content:none!important;
+}
+html body section.hero.hero-banner.meu-thailand-hero > :not(.meu-thailand-hero-frame){
+  display:none!important;
+}
+.meu-thailand-hero-frame{
+  position:relative;isolation:isolate;
+  overflow:hidden;
+  width:min(100%,1920px);height:auto;
+  margin:0 auto;padding:5px;
+  background:linear-gradient(100deg,#a16c19,#ffe3a0,#bd8322,#ffefc4,#a16c19);
+}
+.meu-thailand-hero-frame::before{
+  content:"";position:absolute;top:50%;left:50%;
+  width:220%;aspect-ratio:1;transform:translate(-50%,-50%) rotate(0deg);
+  background:conic-gradient(
+    from 10deg, #7c4811 0deg, #ffdc76 14deg, #fff9d2 24deg,
+    #c58319 40deg, #a56913 70deg, #ffe2a0 100deg,
+    #7c4811 137deg, #fff3b1 171deg, #b67819 205deg,
+    #f2c46c 260deg, #fffde4 295deg, #9f681e 330deg,
+    #7c4811 360deg);
+  animation:meu-gold-border-orbit 8s linear infinite;
+  z-index:0;pointer-events:none;
+}
+.meu-thailand-hero-frame::after{
+  content:"";position:absolute;inset:2px;z-index:2;pointer-events:none;
+  border:1px solid rgba(255,241,187,.82);
+  box-shadow:inset 0 0 12px rgba(255,211,100,.5),
+    0 0 6px rgba(236,174,41,.3);
+}
+.meu-thailand-hero-image{
+  display:block;position:relative;z-index:1;
+  width:100%;max-width:100%;height:auto!important;
+  aspect-ratio:2033 / 774;object-fit:contain;
+  background:#fff;border:0;filter:none;
+}
+@keyframes meu-gold-border-orbit{
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+@media(max-width:800px){
+  html body section.hero.hero-banner.meu-thailand-hero{
+    min-height:0!important;padding:0!important;
+  }
+  .meu-thailand-hero-frame{padding:3px}
+  .meu-thailand-hero-frame::after{inset:1px}
+}
+@media(prefers-reduced-motion:reduce){
+  .meu-thailand-hero-frame::before{animation:none}
+}
