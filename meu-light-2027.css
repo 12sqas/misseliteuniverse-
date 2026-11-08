@@ -421,3 +421,29 @@ section.hero.hero-banner::after{color:#292929!important;font-weight:700!importan
   .meu-primary-nav,.meu-nav-row{background:#fff!important}
   .meu-header .meu-primary-nav a{color:#202020!important}
 }
+
+/* Secondary pages: override older gold-on-dark labels still embedded in their HTML. */
+.legal-footer-brand,.legal-company,.legal-kicker,.legal-icon-title,
+.organization-eyebrow,.organization-kicker,.legal-card strong,.legal-note strong,
+.legal-info dd,.legal-info dt,.legal-status,.legal-footer p,
+.nd-footer p,.nd-footer h3,.legal-section strong{
+  color:#252525!important;-webkit-text-fill-color:#252525!important;
+  text-shadow:none!important;
+}
+.legal-rule{background:#d6d6d6!important}
+.legal-topbar .legal-menu a[aria-current="page"]{
+  color:#121212!important;text-decoration:underline!important;
+  text-underline-offset:5px!important;font-weight:700!important;
+}
+.legal-link,.legal-status{border-color:#777!important}
+a.meu-instagram-icon-link{
+  background:#fff!important;border-color:#777!important;
+  color:#222!important;-webkit-text-fill-color:#222!important;
+}
+a.meu-instagram-icon-link:hover{
+  background:#222!important;color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+.top35-viewer a,.nd-viewer a,.top35-viewer-label{
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
