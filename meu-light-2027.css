@@ -175,3 +175,32 @@ footer,footer#contact,.legal-footer,.nd-footer{background:#faf9f7!important}
   .section,.lina-royal,#competition-format{padding-left:16px!important;padding-right:16px!important}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}}
+
+/* The source pages contain embedded old-logo PNGs. Mask them visually and
+   use the user-approved new transparent logo without altering page content. */
+.meu-header a.meu-logo{
+  background-image:url('/images/meu-minimal-2027.png?v=20261108')!important;
+  background-repeat:no-repeat!important;background-position:left center!important;
+  background-size:contain!important;min-height:85px!important;
+}
+.meu-header a.meu-logo img{opacity:0!important}
+header:not(.meu-header) a.brand{display:inline-flex!important;align-items:center!important;
+  min-height:65px!important;padding-left:195px!important;
+  background:url('/images/meu-minimal-2027.png?v=20261108') left center / 185px auto no-repeat!important;
+  color:#26303a!important;
+}
+.meu-thanks-logo{display:block;text-align:center;margin:0 auto 25px}
+.meu-thanks-logo img{max-width:74vw;width:250px;height:auto;vertical-align:middle}
+.venue-heading p,.venue-heading span,.venue-subtitle,#hotel p,#hotel h2,#hotel h3,
+.top35-count,.top35-eyebrow,.top35-card figcaption,.lina-signoff,.meu-leader-role,
+.nd-role,.nd-facts,.legal-lead,.legal-info,.legal-status,
+.organization-section .press-confirmation{color:#3d454d!important;text-shadow:none!important}
+.meu-leader-name span,.meu-leader-role span,.meu-leader-organization span{
+  background:none!important;color:#2b343d!important;-webkit-text-fill-color:#2b343d!important
+}
+.meu-hero-overlay{background:transparent!important}
+#competition-format .meu-cf-stage,#competition-format .meu-cf-stages{color:#27313b!important}
+@media(max-width:800px){
+ .meu-header a.meu-logo{min-height:75px!important}
+ .meu-masthead .meu-action-links{z-index:2}
+}
