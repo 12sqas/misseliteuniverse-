@@ -204,3 +204,43 @@ header:not(.meu-header) a.brand{display:inline-flex!important;align-items:center
  .meu-header a.meu-logo{min-height:75px!important}
  .meu-masthead .meu-action-links{z-index:2}
 }
+
+/* Clean campaign first impression: the previous green-and-gold banner is
+   replaced by a quiet white launch masthead using the approved brand mark. */
+section.hero.hero-banner{
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  justify-content:center!important;gap:21px!important;
+  min-height:clamp(300px,43vw,490px)!important;
+  padding:62px 22px 57px!important;
+  border-bottom:1px solid #e8e5e0!important;
+  background:radial-gradient(ellipse at 50% 10%,#faf9f7,#fff 76%)!important;
+}
+section.hero.hero-banner::before{
+  content:""!important;display:block!important;
+  width:min(355px,82vw)!important;height:138px!important;
+  background:url('/images/meu-minimal-2027.png?v=20261108') center / contain no-repeat!important;
+}
+section.hero.hero-banner::after{
+  content:"BEYOND BEAUTY  ·  BEYOND BOUNDARIES  ·  BE THE ELITE"!important;
+  display:block!important;color:#6e7478!important;text-align:center!important;
+  font:600 clamp(10px,1.2vw,12px)/1.8 Arial,sans-serif!important;
+  letter-spacing:clamp(1px,.2vw,3px)!important;
+}
+section.hero.hero-banner img.hero-banner-image{display:none!important}
+section.hero.hero-banner h1.hero-banner-title{
+  display:block!important;position:static!important;clip:auto!important;
+  clip-path:none!important;overflow:visible!important;width:auto!important;height:auto!important;
+  margin:0!important;padding:0!important;text-align:center!important;
+  white-space:normal!important;
+  font:400 clamp(22px,4vw,39px)/1.25 Georgia,serif!important;
+  text-transform:uppercase!important;letter-spacing:.09em!important;color:#303842!important;
+}
+@media(max-width:800px){
+  .meu-masthead{min-height:139px!important;padding:8px 14px 60px!important}
+  .meu-header a.meu-logo{min-height:60px!important}
+  .meu-header a.meu-logo img{max-height:66px!important}
+  .meu-menu-ready .meu-nav-row{max-height:calc(100dvh - 139px)!important}
+  section.hero.hero-banner{min-height:310px!important;padding:40px 16px!important;gap:12px!important}
+  section.hero.hero-banner::before{height:107px!important}
+  section.hero.hero-banner::after{max-width:350px}
+}
