@@ -491,3 +491,6 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
   else install();
 })();
+
+/* Thailand 2027: official animated homepage hero (CSS animation). */
+(()=>{if(document.querySelector('script[data-meu-thailand-hero]'))return;const s=document.createElement('script');s.src='/thailand-hero-2027.js?v=20261108-hero1';s.dataset.meuThailandHero='1';document.head.appendChild(s);})();
