@@ -453,7 +453,7 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
     eyebrow.style.cssText='font:700 11px/1.7 Arial,sans-serif;letter-spacing:.17em;color:#71542e;margin:0 0 14px;';
     const title=document.createElement('h2');
     title.id='meu-logo-announcement-title';
-    title.textContent='THÔNG BÁO NHẬN DIỆN LOGO CUỘC THI CHÍNH THỨC';
+    title.textContent='OFFICIAL COMPETITION LOGO IDENTITY ANNOUNCEMENT';
     title.style.cssText='font:700 clamp(24px,4.2vw,43px)/1.3 Georgia,serif;color:#252525;margin:0 0 14px;';
     const sub=document.createElement('p');
     sub.textContent='Official Competition Brand Identity Announcement';
