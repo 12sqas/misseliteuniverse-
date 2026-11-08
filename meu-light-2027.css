@@ -447,3 +447,120 @@ a.meu-instagram-icon-link:hover{
 .top35-viewer a,.nd-viewer a,.top35-viewer-label{
   color:#fff!important;-webkit-text-fill-color:#fff!important;
 }
+
+
+/* FINAL 2026-11-08: screenshot-specific white surfaces and sponsor contrast */
+/* The linked pages and dynamically inserted blocks share one white visual
+   system. The official gold emblem and sponsor artwork are intentionally unchanged. */
+body,body.vote-page,body.organization-page,main,.meu-page,main > section{color:#262626}
+#beauty-skincare-partners,#meu-media-partners,#meu-crown-sponsor,
+#meu-hotel-partners,#meu-transport-partners,
+.meu-beauty-section,.meu-media-section,.meu-crown-section,
+.meu-logistics-section,.meu-sponsor-section,
+section.content.meu-story,section.content.meu-leadership,
+section.lina-royal,section.popular-vote,section.paid-vote-section{
+  background:#fff!important;background-image:none!important;color:#252525!important;
+  border-color:#e1e1e1!important;
+}
+.meu-beauty-heading,.meu-media-heading,.meu-crown-heading,.meu-logistics-heading{
+  background:#fff!important;color:#222!important;
+}
+.meu-beauty-heading h2,.meu-media-heading h2,
+.meu-crown-heading h2,.meu-logistics-heading h2,
+.meu-beauty-card h3,.meu-media-card h3,.meu-crown-card h3,
+.meu-logistics-card h3,.meu-beauty-intro,.meu-media-intro{
+  color:#222!important;-webkit-text-fill-color:#222!important;
+  text-shadow:none!important;filter:none!important;
+}
+.meu-beauty-eyebrow,.meu-media-eyebrow,.meu-logistics-eyebrow,
+.meu-crown-eyebrow,.meu-media-section .meu-media-eyebrow{
+  color:#3d3d3d!important;-webkit-text-fill-color:#3d3d3d!important;
+}
+.meu-beauty-card,.meu-media-card,.meu-crown-card,.meu-logistics-card{
+  background:#fff!important;background-image:none!important;
+  border:1px solid #d9d9d9!important;color:#252525!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.06)!important;
+}
+.meu-beauty-visual,.meu-media-visual,.meu-crown-logo,.meu-logistics-visual{
+  background:#fafafa!important;border-color:#dedede!important;
+}
+.meu-beauty-visual img,.meu-media-visual img,
+.meu-logistics-visual img,.meu-crown-logo img{
+  filter:none!important;opacity:1!important;
+}
+.meu-beauty-image-missing,.meu-media-image-missing,.meu-logistics-image-missing{
+  color:#444!important;
+}
+/* Intro, story metrics, queen: all lettering legible on white. */
+.meu-story,.meu-story-grid,.meu-story-copy,.meu-story-details,.meu-story-stat,
+.meu-story-prose,.meu-leadership,.meu-leadership-heading,.meu-leader,
+.lina-royal,.lina-royal__inside,.lina-story{
+  color:#262626!important;
+}
+.meu-story-title,.meu-story-title span,.meu-story-subtitle,
+.meu-story-eyebrow,.meu-story-prose p,.meu-story-prose em,
+.meu-story-details strong,.meu-story-details span,
+.meu-story-stat strong,.meu-story-stat span,
+.meu-leadership-title,.meu-leadership-eyebrow,
+.meu-leader-name,.meu-leader-role,.meu-leader-organization,
+.meu-leader-message,.lina-royal h2,.lina-kicker,
+.lina-subtitle,.lina-subtitle span,.lina-story blockquote,
+.lina-story__eyebrow,.lina-signoff,.lina-signoff span{
+  color:#292929!important;-webkit-text-fill-color:#292929!important;
+  text-shadow:none!important;filter:none!important;
+}
+.meu-story-prose p,.meu-leader-message,.lina-story blockquote{
+  font-size:clamp(14px,1.15vw,18px);line-height:1.85!important;
+  color:#3b3b3b!important;-webkit-text-fill-color:#3b3b3b!important;
+}
+.meu-story-title,.meu-story-subtitle,.meu-leadership-title,.lina-royal h2{
+  font-weight:700!important;
+}
+.meu-story-details,.meu-story-stats{border-color:#dedede!important}
+.meu-leader,.lina-story{background:#fff!important;border-color:#ddd!important}
+.meu-crown-info,.meu-media-card p,.meu-logistics-card p,
+.meu-beauty-card p{color:#393939!important;-webkit-text-fill-color:#393939!important}
+/* Sign-in / registration and voting on a neutral, readable surface. */
+.vote-page,.vote-page main,.vote-page .vote-page-intro,
+.vote-page .popular-vote,.vote-page .paid-vote-section,
+.vote-page .vote-auth,.vote-page .vote-gate,.vote-page .auth-screen,
+.vote-page .auth-panel,.vote-page .signin-section,
+.vote-page .vote-signin,.vote-page .vote-signin-panel,
+.vote-page .vote-login,.vote-page .google-signin-section,
+.vote-page .vote-registration,.vote-page .vote-hero,
+.vote-page .vote-auth-gate{
+  background:#fff!important;background-image:none!important;color:#232323!important;
+}
+.vote-page .vote-auth h1,.vote-page .vote-auth h2,
+.vote-page .auth-screen h1,.vote-page .auth-panel h1,
+.vote-page .signin-section h1,.vote-page .vote-signin h1,
+.vote-page .vote-login h1,.vote-page .vote-gate h1,
+.vote-page .vote-registration h1,.vote-page .vote-hero h1,
+.vote-page .vote-auth-gate h1{
+  color:#171717!important;-webkit-text-fill-color:#171717!important;
+  text-shadow:none!important;
+}
+.vote-page .vote-auth p,.vote-page .auth-screen p,
+.vote-page .auth-panel p,.vote-page .signin-section p,
+.vote-page .vote-login p,.vote-page .vote-signin p,
+.vote-page .vote-gate p,.vote-page .vote-registration p,
+.vote-page .vote-hero p,.vote-page .vote-auth-gate p{
+  color:#333!important;-webkit-text-fill-color:#333!important;
+  text-shadow:none!important;
+}
+.vote-page .popular-vote button,.vote-page .paid-vote-section button,
+.vote-page .free-vote-button,.vote-page .paid-vote-button{
+  border-color:#666!important;
+}
+.vote-page .popular-table th,.vote-page .paid-table th{
+  color:#1a1a1a!important;-webkit-text-fill-color:#1a1a1a!important;
+}
+.vote-page .popular-table td,.vote-page .paid-table td{
+  color:#303030!important;-webkit-text-fill-color:#303030!important;
+}
+@media(max-width:800px){
+ .meu-beauty-section,.meu-media-section,.meu-crown-section,.meu-logistics-section{
+    padding-left:16px!important;padding-right:16px!important;
+  }
+ .meu-beauty-grid,.meu-media-grid,.meu-logistics-grid{max-width:100%!important}
+}
