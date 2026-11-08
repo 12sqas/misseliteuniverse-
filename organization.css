@@ -305,3 +305,83 @@
     scroll-behavior: auto;
   }
 }
+
+
+/* MEU 2026 minimalist identity refresh · champagne gold / midnight plum
+   Header logo uses the new transparent artwork. Existing text, media and layouts are preserved. */
+:root {
+  --meu-green:#1b1624;
+  --meu-deep:#100d19;
+  --meu-gold:#e0bf7b;
+  --meu-soft-gold:#f1dcad;
+  --meu-line:rgba(222,190,119,.33);
+}
+body:not(.organization-page){
+  background:radial-gradient(ellipse at 50% -8%,#2a1f2a 0%,#17121e 40%,#100d19 100%);
+  color:#f8f1e5;
+}
+.meu-header{
+  background:linear-gradient(110deg,#17101f,#221822 55%,#14101c)!important;
+  border-bottom:1px solid rgba(224,191,123,.36)!important;
+  box-shadow:0 9px 35px rgba(5,3,13,.38);
+}
+.meu-header .meu-masthead{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(210px,350px) minmax(0,1fr);
+  align-items:center;
+  min-height:118px;
+  padding-top:8px;
+  padding-bottom:8px;
+}
+.meu-header .meu-logo{
+  grid-column:2;
+  justify-self:center;
+  display:block;
+  width:min(100%,310px);
+  height:104px;
+  background-image:url("images/meu-minimal-gold.webp");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  filter:drop-shadow(0 0 12px rgba(229,190,114,.18));
+}
+.meu-header .meu-logo img{display:none!important}
+.meu-header .meu-wordmark{display:none!important}
+.meu-header .meu-actions{grid-column:3;justify-self:end}
+.meu-header .meu-edition{color:#e9d5ad;letter-spacing:.19em}
+.meu-header .meu-nav-row{background:#1a1420!important;border-top-color:rgba(222,190,119,.12)}
+.meu-header .meu-primary-nav a{color:#f7ecdc!important}
+.meu-header .meu-primary-nav a:hover,
+.meu-header .meu-primary-nav a.is-active{color:#e7c37f!important}
+.meu-header .meu-social,
+.meu-header .meu-contact{border-color:rgba(224,191,123,.44);color:#e8c57e}
+.meu-header .meu-social:hover,
+.meu-header .meu-contact:hover{background:#e0bf7b;color:#100d19}
+.poster-section{background:radial-gradient(ellipse at top,#291f2b,#100d19 75%)!important}
+.top35-section{background:linear-gradient(180deg,#201826,#100d19)!important}
+#hotel{background:radial-gradient(ellipse at center,#231b2b,#100d19 76%)!important}
+section.content.meu-story{background:linear-gradient(150deg,#191320,#241a28 50%,#100d19)!important}
+section.content.meu-leadership{background:linear-gradient(160deg,#100d19,#231a29)!important}
+.lina-royal{background:radial-gradient(circle at 50% 0%,#342333 0%,#16111e 52%,#0e0a16 100%)!important}
+#competition-format{background:radial-gradient(ellipse 65% 37% at 50% 4%,rgba(203,167,100,.19),transparent 80%),linear-gradient(150deg,#100d19 0%,#221926 55%,#0c0a14 100%)!important}
+.venue-card{background:linear-gradient(145deg,rgba(224,191,123,.10),rgba(20,13,27,.96))!important}
+footer{background:#100c18!important;border-top-color:rgba(224,191,123,.26)!important}
+@media(max-width:800px){
+  .meu-header .meu-masthead{
+    grid-template-columns:minmax(0,1fr) 76px;
+    min-height:88px;
+    padding:9px 17px;
+    gap:10px;
+  }
+  .meu-header .meu-logo{
+    grid-column:1;
+    justify-self:start;
+    width:min(60vw,245px);
+    height:69px;
+  }
+  .meu-header .meu-actions{grid-column:2;justify-self:end}
+}
+@media(max-width:480px){
+  .meu-header .meu-masthead{min-height:76px;padding:8px 12px}
+  .meu-header .meu-logo{width:min(63vw,210px);height:60px}
+}
