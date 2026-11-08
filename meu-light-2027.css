@@ -1,0 +1,177 @@
+/* MISS ELITE UNIVERSE | Official 2027 Light Brand System
+   One shared visual theme for public pages. Brand palette: white, ink, warm taupe.
+   Keeps images, competition content, voting logic, and dialogs intact. */
+:root {
+  color-scheme:light!important;
+  --meu-green:#fff!important;--meu-deep:#fff!important;
+  --meu-gold:#8c6942!important;--meu-soft-gold:#302a27!important;
+  --meu-line:rgba(40,44,49,.17)!important;
+  --green:#fff!important;--green2:#faf9f7!important;--deep:#fff!important;
+  --gold:#8c6942!important;--soft:#343434!important;--cream:#faf9f7!important;
+  --cf-gold:#8c6942!important;--cf-muted:#59616a!important;
+  --meu-paper:#ffffff;--meu-ink:#26303a;--meu-muted:#63707a;
+  --meu-accent:#876d52;--meu-veil:#f6f5f3;--meu-stroke:#e6e3dd;
+}
+html{background:#fff!important;color-scheme:light!important}
+body,body.organization-page,body.vote-page{background:#fff!important;color:var(--meu-ink)!important}
+body,button,input,select,textarea{font-family:Arial,Helvetica,sans-serif}
+body a{color:#554736}
+body a:hover{color:#171f27}
+h1,h2,h3,h4,h5,h6{color:#27313b}
+p,li,dt,dd{color:#434b51}
+:focus-visible{outline:2px solid #8c6942!important;outline-offset:3px}
+::selection{background:#eee3d4;color:#26303a}
+.meu-header,header.meu-header,.site-header,.legal-topbar,
+.meu-nav-row,.nd-footer,footer,.legal-footer,.organization-page footer{
+  background:#fff!important;color:#26303a!important;
+  border-color:#e7e4df!important;
+}
+.meu-header,header.meu-header,.legal-topbar{
+  box-shadow:0 3px 20px rgba(23,32,40,.055)!important;
+}
+.meu-header .meu-primary-nav a,.meu-primary-nav a,.meu-wordmark,
+.meu-wordmark-main,.meu-wordmark-sub,.meu-wordmark-tagline,.meu-edition,
+.meu-actions a,.legal-topbar a,.legal-brand,header .brand,nav a,
+.meu-organization-link{color:#313a43!important;text-shadow:none!important}
+.meu-header .meu-primary-nav a:hover,.meu-header .meu-primary-nav a.is-active,
+.meu-primary-nav a:hover{color:#8c6942!important}
+.meu-header .meu-primary-nav a::after{background:#a88a64!important}
+.meu-social,.meu-contact,.meu-menu-button,.nd-social{
+  color:#303940!important;border-color:#d5d0c8!important;background:#fff!important;
+}
+.meu-social:hover,.meu-contact:hover,.meu-menu-button:hover{
+  color:#fff!important;background:#28323b!important;border-color:#28323b!important;
+}
+/* New horizontal minimalist logo, including emblem and brand name. */
+.meu-masthead{grid-template-columns:minmax(0,280px) 1fr auto!important;gap:18px!important;min-height:102px!important;padding-block:9px!important}
+.meu-logo{width:252px!important;max-width:100%!important;display:inline-flex!important;align-items:center!important}
+.meu-logo img{width:252px!important;height:auto!important;max-width:100%!important;max-height:88px!important;object-fit:contain!important;object-position:left center!important;border:0!important;filter:none!important}
+.meu-wordmark-main,.meu-wordmark-sub{display:none!important}
+.meu-wordmark{justify-self:center!important}
+.meu-wordmark-tagline{display:block!important;color:#6b7177!important;letter-spacing:2px!important;font-size:10px!important}
+.legal-brand img{width:155px!important;height:auto!important;max-width:40vw!important;object-fit:contain!important}
+img.meu-brand-refresh{object-fit:contain!important;object-position:center!important;border:0!important;border-radius:0!important}
+.meu-brand-refresh{background:transparent!important;box-shadow:none!important}
+/* Main site: replace dark blocks with alternating clean white cards. */
+section.content,.content,.section,.poster-section,.top35-section,#hotel,.venue-section,
+section.content.meu-story,section.content.meu-leadership,.meu-leadership,
+.lina-royal,#competition-format,section.popular-vote,.popular-vote,
+.vote-page-intro,.paid-vote-section,.nd-intro,.nd-join,
+.organization-intro,.organization-page,.organization-section,
+.legal-hero,.legal-section,.legal-main,.legal-copy{
+  background:#fff!important;color:#26303a!important;
+  border-color:#e8e4dc!important;
+}
+section.content.meu-leadership,.lina-royal,.top35-section,.popular-vote,
+.paid-vote-section,#competition-format,.nd-intro,.organization-intro{
+  background:#faf9f7!important;
+}
+section.hero.hero-banner{background:#fff!important}
+section.hero.hero-banner .hero-banner-image{display:block;width:100%;height:auto}
+.hero-banner-title{color:#26303a!important}
+.section-title,.content h2,.content h3,.venue-heading h2,
+.meu-story-title,.meu-leadership-title,.meu-leader-name,.lina-royal h2,
+#competition-format h2,#competition-format .meu-cf-stage-title,
+.popular-vote h2,.paid-vote-section h2,.nd-intro h1,
+.legal-hero h1,.organization-intro h1,.organization-section h2{
+  color:#26303a!important;text-shadow:none!important;
+  -webkit-text-fill-color:#26303a!important;
+}
+.content p,.content li,.content span,.section p,.section li,
+.meu-story-prose,.meu-story-subtitle,.meu-leadership p,.meu-leader-message,
+.lina-story blockquote,.lina-subtitle,.lina-royal p,.meu-cf-intro,
+.meu-cf-stage-desc,.meu-cf-footnote,.meu-cf-final-note,
+.popular-vote p,.popular-vote li,.paid-vote-section p,
+.nd-intro p,.nd-profile p,.legal-card p,.organization-section p,
+.organization-section li,.organization-founder,.legal-note{
+  color:#444d56!important;text-shadow:none!important;
+}
+.gold,.eyebrow,.meu-story-eyebrow,.meu-story-title-gold,
+.meu-leadership-eyebrow,.lina-kicker,.lina-story__eyebrow,
+.meu-cf-kicker,.meu-cf-stage-step,.nd-kicker,.legal-eyebrow{
+  color:#846a4d!important;-webkit-text-fill-color:#846a4d!important;
+}
+.top35-card,.delegate-card,.judge-card,.meu-leader,.lina-story,
+.meu-cf-stage,.venue-card,.schedule-card,.feature-card,.card,
+.popular-card,.popular-leader,.paid-card,.paid-leader,.nd-profile,
+.legal-card,.legal-note,.paid-vote-intro,.paid-dialog,.meu-cf-path li{
+  background:#fff!important;color:#27313b!important;
+  border-color:#e5e0d8!important;
+  box-shadow:0 10px 28px rgba(29,34,40,.065)!important;
+}
+.meu-leader-photo,.lina-gallery figure,.popular-leader-frame,
+.popular-card-image,.paid-card-photo,.paid-leader-photo,.nd-portrait{
+  background:#f0eeeb!important;
+}
+.judge-info h3,.meu-leader-name,.feature-text h3,.delegate-card h3,
+.schedule-card h3,.popular-card h3,.paid-card h3,.nd-profile h3,
+.legal-card h3,.popular-leader-name{color:#26303a!important}
+.judge-info p,.delegate-card p,.popular-card p,.paid-card p,.nd-profile p{color:#505a62!important}
+.lina-story,.meu-cf-stage--winner{
+  background:#fff!important;box-shadow:0 8px 32px rgba(0,0,0,.05)!important
+}
+/* Voting UI: contrast for input fields, headings, tabs, statuses, and payment dialogs. */
+.popular-search input,.vote-sort-label select,.popular-table-scroll,.popular-table thead,
+.vote-sort-label select,.paid-search input,.paid-sort-label select,
+.paid-quantity-label input,.nd-application-form input,.nd-application-form textarea,
+select,textarea{
+  background:#fff!important;color:#26303a!important;
+  border-color:#d4d0c8!important;
+}
+.popular-table,.paid-table{background:#fff!important;color:#26303a!important}
+.popular-table th,.paid-table th{background:#f0efed!important;color:#26303a!important}
+.popular-table td,.paid-table td,.popular-row,.paid-row{color:#26303a!important;border-color:#e9e5df!important}
+.popular-row:hover,.paid-row:hover{background:#f8f6f3!important}
+.popular-tab,.paid-tabs button,.popular-clear,.paid-dialog-close,
+.nd-photo-caption button{color:#28313b!important}
+.popular-tab[aria-selected=true],.paid-tabs button[aria-pressed=true],
+.vote-skip,.paid-checkout,.paid-vote-button,.free-vote-confirm,
+.nd-application-form button[type=submit]{
+  background:#26303a!important;color:#fff!important;border-color:#26303a!important;
+}
+.paid-dialog{background:#fff!important;color:#26303a!important}
+.paid-dialog::backdrop,.top35-viewer::backdrop,.nd-viewer::backdrop{background:rgba(12,15,20,.80)!important}
+.paid-dialog label,.paid-dialog p,.paid-dialog h3{color:#26303a!important}
+.paid-package,.paid-choice,.paid-notification,.free-vote-banner,
+.free-vote-banner[data-state=locked],.popular-leader-rank,
+.paid-leader-rank,.paid-status,.paid-vote-intro{
+  background:#f8f6f3!important;color:#27313b!important;border-color:#e7e2db!important;
+}
+/* Contact, media, and application pages. */
+.nd-profile,.nd-join,.nd-viewer-bar{background:#fff!important;color:#26303a!important}
+.nd-viewer{background:#121a21!important}
+.legal-topbar-inner,.legal-link,.legal-brand{color:#26303a!important}
+.legal-link:hover{background:#f3f0ed!important}
+.legal-card,.legal-note{background:#fff!important}
+.organization-page footer,.organization-page footer p,.organization-page footer h3,
+footer p,footer h3,footer a,.legal-footer,.legal-footer a,
+.nd-footer,.nd-footer a{color:#35404a!important;text-shadow:none!important}
+footer,footer#contact,.legal-footer,.nd-footer{background:#faf9f7!important}
+.meu-cf-stage-title strong,.meu-cf-title strong{background:none!important;color:#28323b!important;-webkit-text-fill-color:#28323b!important}
+.meu-cf-path li{color:#514c47!important}
+.meu-cf-reveal,.top35-cta,.popular-hero-cta,.hero .top35-cta,
+.btn.primary,.nd-contact-link,.legal-link{
+  background:#fff!important;color:#27313b!important;border-color:#bcb3a5!important;
+}
+.meu-cf-reveal:hover,.top35-cta:hover,.popular-hero-cta:hover,
+.btn.primary:hover{background:#26303a!important;color:#fff!important}
+/* Preserve photo backgrounds, media, and readable dark photo viewers. */
+.top35-photo,.top35-viewer,.top35-viewer-controls button,
+.nd-viewer,.nd-viewer-close,.popular-card-image,.paid-card-photo,.meu-vie-ambient-video{
+  color:inherit;
+}
+.top35-viewer{background:#10151b!important;color:#fff!important}
+.top35-viewer-label,.top35-viewer-controls button{color:#fff!important}
+.top35-viewer-controls button{background:#25313d!important}
+.meu-hero-overlay,.hero .hero-content{position:relative;z-index:1}
+@media(max-width:800px){
+  .meu-masthead{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;min-height:78px!important;gap:8px!important;padding:8px 14px!important}
+  .meu-wordmark{display:none!important}
+  .meu-logo,.meu-logo img{width:min(216px,62vw)!important}
+  .meu-logo img{max-height:80px!important}
+  .meu-nav-row{background:#fff!important}
+  .meu-header .meu-primary-nav a{color:#26303a!important}
+  .meu-primary-nav{background:#fff!important}
+  .section,.lina-royal,#competition-format{padding-left:16px!important;padding-right:16px!important}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}}
