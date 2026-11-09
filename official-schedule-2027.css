@@ -1,0 +1,193 @@
+/* Miss Elite Universe 2027 official schedule — white and metallic gold.
+   Correct event year: 2026. Official title season: 2027.
+   Border animation only; original 1529x2048 artwork is never rescaled in the repository. */
+html body #meu-official-schedule{
+  --meu-schedule-gold:#aa7d33;
+  --meu-schedule-ink:#242424;
+  --meu-schedule-border:#dfd4c0;
+  background:#fff!important;
+  color:var(--meu-schedule-ink)!important;
+  background-image:none!important;
+  border:0!important;
+  padding:clamp(46px,6vw,90px) clamp(14px,3vw,30px) clamp(65px,7vw,110px)!important;
+}
+#meu-official-schedule,#meu-official-schedule *{box-sizing:border-box}
+#meu-official-schedule .meu-schedule-container{max-width:1040px;margin:0 auto}
+#meu-official-schedule .meu-schedule-topline{
+  font:700 11px/1.7 Arial,Helvetica,sans-serif!important;letter-spacing:.18em;
+  color:#785c34!important;text-align:center;margin:0 0 12px;
+}
+#meu-official-schedule #meu-schedule-title{
+  font:700 clamp(28px,4.6vw,54px)/1.18 Georgia,'Times New Roman',serif!important;
+  letter-spacing:.055em!important;color:#232323!important;
+  -webkit-text-fill-color:#232323!important;text-align:center!important;
+  margin:0 0 12px!important;
+}
+#meu-official-schedule .meu-schedule-season{
+  color:#9e752f!important;-webkit-text-fill-color:#9e752f!important;
+  text-align:center;font:700 clamp(15px,2vw,21px)/1.6 Georgia,serif!important;
+  letter-spacing:.09em;margin:0!important;
+}
+#meu-official-schedule .meu-schedule-season span{color:#a98c61!important;padding:0 8px}
+#meu-official-schedule .meu-schedule-location{
+  text-align:center;color:#262626!important;font:700 clamp(13px,1.7vw,18px)/1.6 Arial,sans-serif!important;
+  letter-spacing:.14em;margin:8px 0!important;
+}
+#meu-official-schedule .meu-schedule-lead{
+  font:400 15px/1.8 Arial,Helvetica,sans-serif!important;
+  text-align:center;color:#474747!important;margin:0 auto 30px!important;
+  max-width:750px;
+}
+@property --meu-schedule-angle {
+  syntax:"<angle>";
+  inherits:false;
+  initial-value:0deg;
+}
+#meu-official-schedule .meu-schedule-poster-frame{
+  --meu-schedule-angle:0deg;
+  max-width:820px;margin:0 auto clamp(52px,6vw,78px)!important;
+  padding:7px 7px 0;position:relative;isolation:isolate;border-radius:16px;
+  background:#fff!important;
+  border:1px solid #cfb07a!important;
+  box-shadow:0 16px 48px rgba(108,79,31,.12),0 0 14px rgba(200,158,79,.16)!important;
+}
+#meu-official-schedule .meu-schedule-poster-frame::before{
+  content:"";position:absolute;inset:-3px;z-index:2;pointer-events:none;
+  border-radius:18px;padding:5px;
+  background:conic-gradient(from var(--meu-schedule-angle),
+    #a26c20 0deg,#fef2bd 24deg,#c39245 55deg,
+    #f5e4b9 115deg,#a36d2c 170deg,
+    #e6bf66 210deg,#fffce8 235deg,#bc8732 249deg,
+    #a26c20 306deg,#fff4c4 343deg,#a26c20 360deg);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:meuScheduleGoldOrbit 18s linear infinite!important;
+}
+#meu-official-schedule .meu-schedule-poster-frame::after{
+  content:"";position:absolute;inset:-3px;border-radius:18px;z-index:1;
+  box-shadow:0 0 17px rgba(230,183,77,.3),0 0 34px rgba(212,169,91,.15);
+  pointer-events:none;animation:meuScheduleGoldGlow 6s ease-in-out infinite alternate!important;
+}
+#meu-official-schedule .meu-schedule-poster-image{
+  display:block!important;width:100%!important;max-width:100%!important;
+  height:auto!important;object-fit:contain!important;
+  position:relative;z-index:0;border:0!important;border-radius:7px 7px 0 0;
+  filter:none!important;
+}
+#meu-official-schedule .meu-schedule-poster-frame figcaption{
+  font:700 10px/1.6 Arial,sans-serif!important;
+  letter-spacing:.13em;color:#6c5532!important;text-align:center;
+  padding:12px 5px!important;background:#fff!important;
+}
+@keyframes meuScheduleGoldOrbit{to{--meu-schedule-angle:360deg}}
+@keyframes meuScheduleGoldGlow{to{box-shadow:0 0 28px rgba(231,177,51,.5),0 0 55px rgba(212,169,91,.22)}}
+#meu-official-schedule .meu-schedule-events-header{
+  display:flex;justify-content:space-between;align-items:end;gap:18px;
+  padding-bottom:17px;border-bottom:2px solid #d2b987;margin-bottom:14px;
+}
+#meu-official-schedule .meu-schedule-eyebrow{color:#9c763a!important;letter-spacing:.16em;font:700 11px/1.5 Arial,sans-serif!important}
+#meu-official-schedule .meu-schedule-events-header h3{
+  margin:5px 0 0!important;font:700 clamp(26px,3vw,36px)/1.2 Georgia,serif!important;
+  color:#262626!important;-webkit-text-fill-color:#262626!important;
+}
+#meu-official-schedule .meu-schedule-total{
+  font:700 11px/1.5 Arial,sans-serif!important;letter-spacing:.1em;
+  color:#71664e!important;white-space:nowrap;padding-bottom:2px;
+}
+#meu-official-schedule .meu-schedule-rows{display:grid;gap:11px}
+#meu-official-schedule .meu-schedule-row{
+  display:grid;grid-template-columns:minmax(125px,195px) minmax(0,1fr) 28px;
+  gap:clamp(14px,2vw,27px);align-items:center;
+  padding:clamp(19px,2.4vw,28px);border:1px solid #e1d9cc;border-radius:12px;
+  background:#fff!important;color:#272727!important;
+  box-shadow:0 5px 21px rgba(55,40,20,.035);
+}
+#meu-official-schedule .meu-schedule-date{
+  border-right:1px solid #e6d6b8;padding-right:14px;
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;
+}
+#meu-official-schedule .meu-schedule-date-number{
+  font:700 clamp(29px,4vw,48px)/1.04 Georgia,serif!important;
+  color:#997334!important;-webkit-text-fill-color:#997334!important;
+  letter-spacing:-.01em;white-space:nowrap;
+}
+#meu-official-schedule .meu-schedule-date-month{
+  font:700 10px/1.5 Arial,sans-serif!important;letter-spacing:.13em;
+  color:#555!important;-webkit-text-fill-color:#555!important;
+}
+#meu-official-schedule .meu-schedule-type{
+  display:inline-block;margin:0 0 5px!important;
+  font:700 10px/1.4 Arial,sans-serif!important;letter-spacing:.15em;
+  color:#926f3a!important;-webkit-text-fill-color:#926f3a!important;text-transform:uppercase;
+}
+#meu-official-schedule .meu-schedule-details h3{
+  margin:0 0 6px!important;
+  font:700 clamp(16px,2.1vw,21px)/1.3 Georgia,serif!important;
+  color:#202020!important;-webkit-text-fill-color:#202020!important;
+  letter-spacing:.02em;
+}
+#meu-official-schedule .meu-schedule-details p{
+  margin:0!important;font:400 14px/1.7 Arial,Helvetica,sans-serif!important;
+  color:#444!important;-webkit-text-fill-color:#444!important;
+}
+#meu-official-schedule .meu-schedule-place{
+  margin-top:8px!important;color:#30281d!important;
+}
+#meu-official-schedule .meu-schedule-place strong{color:#7b5d2f!important}
+#meu-official-schedule .meu-schedule-broadcast{
+  margin-top:8px!important;color:#76531d!important;
+  font-weight:700!important;letter-spacing:.03em;
+}
+#meu-official-schedule .meu-schedule-row-arrow{
+  color:#b39256!important;-webkit-text-fill-color:#b39256!important;
+  font-size:25px;align-self:center;text-align:right;
+}
+#meu-official-schedule .meu-schedule-row--final{
+  border:2px solid #bc914a!important;
+  background:linear-gradient(110deg,#fffaf0,#fff 65%)!important;
+  box-shadow:0 7px 27px rgba(173,125,40,.13)!important;
+}
+#meu-official-schedule .meu-schedule-row--final .meu-schedule-date-number{
+  color:#805515!important;-webkit-text-fill-color:#805515!important;
+}
+#meu-official-schedule .meu-schedule-policy{
+  background:#fff!important;border-top:1px solid #d4bb87!important;
+  border-bottom:1px solid #d4bb87!important;
+  padding:24px clamp(18px,3vw,37px);margin:38px 0 0!important;
+}
+#meu-official-schedule .meu-schedule-policy h3{
+  font:700 clamp(17px,2.5vw,23px)/1.45 Georgia,serif!important;
+  color:#805e2e!important;-webkit-text-fill-color:#805e2e!important;
+  margin:0 0 12px!important;
+}
+#meu-official-schedule .meu-schedule-policy p{
+  font:400 14px/1.85 Arial,Helvetica,sans-serif!important;
+  color:#373737!important;margin:0 0 11px!important;
+}
+#meu-official-schedule .meu-schedule-signature{
+  font:700 14px/1.8 Georgia,serif!important;
+  letter-spacing:.045em;text-align:center;color:#81612e!important;
+  margin-top:29px!important;
+}
+#meu-official-schedule .meu-schedule-signature span{
+  display:block;font:400 12px/1.8 Arial,sans-serif!important;
+  color:#4a4a4a!important;letter-spacing:.01em;
+}
+@media(max-width:700px){
+  #meu-official-schedule .meu-schedule-events-header{display:block}
+  #meu-official-schedule .meu-schedule-total{display:block;margin:12px 0 0}
+  #meu-official-schedule .meu-schedule-row{
+    grid-template-columns:minmax(87px,110px) 1fr;gap:11px;padding:16px 12px;
+  }
+  #meu-official-schedule .meu-schedule-row-arrow{display:none}
+  #meu-official-schedule .meu-schedule-date-number{font-size:30px!important}
+  #meu-official-schedule .meu-schedule-date-month{font-size:9px!important;letter-spacing:.07em}
+  #meu-official-schedule .meu-schedule-details h3{font-size:16px!important}
+  #meu-official-schedule .meu-schedule-details p{font-size:13px!important}
+  #meu-official-schedule .meu-schedule-poster-frame{padding:4px 4px 0}
+  #meu-official-schedule .meu-schedule-poster-frame::before{padding:3px}
+}
+@media(prefers-reduced-motion:reduce){
+  #meu-official-schedule .meu-schedule-poster-frame::before,
+  #meu-official-schedule .meu-schedule-poster-frame::after{animation:none!important}
+}
