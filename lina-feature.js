@@ -494,3 +494,10 @@ const holder=document.createElement('div');holder.innerHTML="<section class=\"li
 
 /* Thailand 2027: official animated homepage hero (CSS animation). */
 (()=>{if(document.querySelector('script[data-meu-thailand-hero]'))return;const s=document.createElement('script');s.src='/thailand-hero-2027.js?v=20261108-hero1';s.dataset.meuThailandHero='1';document.head.appendChild(s);})();
+
+/* MEU 2027: Official competition schedule — events held November 2026. */
+(()=>{if(document.querySelector('script[data-meu-official-schedule]'))return;
+const s=document.createElement('script');
+s.src='/official-schedule-2027.js?v=20261109-a';
+s.dataset.meuOfficialSchedule='1';
+document.head.appendChild(s);})();
